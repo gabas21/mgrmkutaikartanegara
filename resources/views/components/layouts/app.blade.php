@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @livewireStyles
+    /bagas keren
 </head>
 <body class="font-sans text-text-body bg-surface antialiased">
 
