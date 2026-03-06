@@ -33,7 +33,7 @@
                class="flex items-center gap-3 flex-shrink-0 group"
                aria-label="MGRM – Beranda">
                 <div class="w-11 h-11 rounded-2xl bg-white flex items-center justify-center shadow-md p-1.5 transition-all duration-300 group-hover:shadow-red-500/20 group-hover:-translate-y-0.5 border border-slate-100">
-                    <img src="{{ asset('images/Desain tanpa judul.svg') }}" alt="Logo MGRM" class="w-full h-full object-contain">
+                    <img src="{{ asset('images/logofix.svg') }}" alt="Logo MGRM" class="w-full h-full object-contain">
                 </div>
                 <div class="leading-none">
                     <span class="block text-xl font-black text-slate-800 tracking-tight uppercase group-hover:text-red-600 transition-colors">MGRM</span>
@@ -103,51 +103,17 @@
                     </a>
                 </li>
 
-                {{-- Publikasi (Dropdown) --}}
-                <li class="relative">
-                    <button
-                        @click.stop="toggleDropdown('publikasi')"
-                        :class="activeDropdown === 'publikasi' ? 'text-red-700 bg-red-50' : 'text-slate-600'"
-                        class="flex items-center gap-1.5 px-4 py-2.5 rounded-full text-sm font-bold uppercase tracking-wide hover:text-red-700 hover:bg-red-50 transition-all duration-300 active:scale-95"
-                        aria-haspopup="true"
-                        :aria-expanded="activeDropdown === 'publikasi'">
-                        Publikasi
-                        <svg class="w-4 h-4 transition-transform duration-200"
-                             :class="activeDropdown === 'publikasi' ? 'rotate-180 text-red-700' : ''"
-                             fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                        </svg>
-                    </button>
-                    <div
-                        x-show="activeDropdown === 'publikasi'"
-                        x-transition:enter="transition ease-out duration-200"
-                        x-transition:enter-start="opacity-0 translate-y-2 scale-95"
-                        x-transition:enter-end="opacity-100 translate-y-0 scale-100"
-                        x-transition:leave="transition ease-in duration-150"
-                        x-transition:leave-start="opacity-100 translate-y-0 scale-100"
-                        x-transition:leave-end="opacity-0 translate-y-2 scale-95"
-                        style="display:none"
-                        class="absolute top-full left-0 mt-2 w-64 bg-white/95 backdrop-blur-md border border-white/20 shadow-[0_20px_40px_rgba(0,0,0,0.1)] py-3 z-[9999] rounded-3xl overflow-hidden"
-                        role="menu">
-                        @foreach([
-                            ['href' => '/berita',      'label' => 'Berita & Press'],
-                            ['href' => '/pengumuman',  'label' => 'Pengumuman'],
-                            ['href' => '/dokumen',     'label' => 'Dokumen Publik'],
-                        ] as $item)
-                        <a href="{{ url($item['href']) }}" wire:navigate
-                           @click="closeAll()"
-                           class="flex items-center gap-3 px-6 py-3 text-sm font-semibold text-slate-600 hover:text-red-700 hover:bg-red-50 hover:pl-8 transition-all duration-200"
-                           role="menuitem">
-                            <span class="w-1.5 h-1.5 rounded-full bg-red-500 flex-shrink-0"></span>
-                            {{ $item['label'] }}
-                        </a>
-                        @endforeach
-                    </div>
+                {{-- Berita --}}
+                <li>
+                    <a href="{{ url('/berita') }}" wire:navigate
+                       class="px-4 py-2.5 text-sm font-bold text-slate-600 uppercase tracking-wide hover:text-red-700 hover:bg-slate-50 transition-all duration-300 active:scale-95 rounded-full inline-block">
+                        Berita
+                    </a>
                 </li>
 
                 {{-- PPID --}}
                 <li>
-                    <a href="{{ url('/ppid') }}" wire:navigate
+                    <a href="https://ppid.kukarkab.go.id/opd/78" target="_blank" rel="noopener noreferrer"
                        class="px-4 py-2.5 text-sm font-bold text-slate-600 uppercase tracking-wide hover:text-red-700 hover:bg-slate-50 transition-all duration-300 active:scale-95 rounded-full inline-block">
                         PPID
                     </a>

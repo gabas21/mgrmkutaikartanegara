@@ -61,30 +61,6 @@
             </div>
         </div>
 
-        {{-- Publikasi Sheet --}}
-        <div x-show="activeSheet === 'publikasi'" class="p-4">
-            <p class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-3 px-1">Publikasi</p>
-            <div class="space-y-1">
-                @foreach([
-                    ['href' => '/berita',      'label' => 'Berita & Press',    'icon' => 'M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z'],
-                    ['href' => '/pengumuman',  'label' => 'Pengumuman',         'icon' => 'M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9'],
-                    ['href' => '/dokumen',     'label' => 'Dokumen Publik',     'icon' => 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z'],
-                ] as $item)
-                <a href="{{ url($item['href']) }}" wire:navigate @click="closeSheet()"
-                   class="flex items-center gap-3 px-5 py-3.5 rounded-2xl hover:bg-slate-50 active:bg-slate-100 transition-all duration-300 hover:translate-x-1 active:scale-95">
-                    <div class="w-10 h-10 rounded-full bg-red-50 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                        <svg class="w-5 h-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="{{ $item['icon'] }}"/>
-                        </svg>
-                    </div>
-                    <span class="text-sm font-bold text-slate-800">{{ $item['label'] }}</span>
-                    <svg class="w-4 h-4 text-slate-400 ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                        <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M9 5l7 7-7 7"/>
-                    </svg>
-                </a>
-                @endforeach
-            </div>
-        </div>
     </div>
 
     {{-- ── Bottom Tab Bar ── --}}
@@ -129,19 +105,16 @@
                 </div>
             </a>
 
-            {{-- Publikasi --}}
-            <button
-                @click="openSheet('publikasi')"
-                :class="activeSheet === 'publikasi' ? 'text-red-600 scale-105' : 'text-slate-500'"
-                class="flex flex-col items-center justify-center gap-1 px-3 py-2 hover:text-red-600 transition-all duration-300 active:scale-90 min-w-[3.5rem]"
-                aria-label="Publikasi"
-                :aria-expanded="activeSheet === 'publikasi'">
+            {{-- Berita --}}
+            <a href="{{ url('/berita') }}" wire:navigate
+               class="flex flex-col items-center justify-center gap-1 px-3 py-2 text-slate-500 hover:text-red-600 transition-all duration-300 active:scale-90 min-w-[3.5rem]"
+               aria-label="Berita">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                           d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/>
                 </svg>
-                <span class="text-[10px] font-bold uppercase tracking-wider">Publikasi</span>
-            </button>
+                <span class="text-[10px] font-bold uppercase tracking-wider">Berita</span>
+            </a>
 
             {{-- Kontak --}}
             <a href="{{ url('/kontak') }}" wire:navigate

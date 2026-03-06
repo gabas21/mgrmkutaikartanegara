@@ -5,8 +5,10 @@
          HERO SECTION BERITA
     ═══════════════════════════════════════════════ --}}
     <section class="relative pt-32 pb-24 bg-[#0B1120] overflow-hidden">
-        {{-- Background Glow --}}
+        {{-- Background Glow & Image --}}
         <div class="absolute inset-0 z-0 pointer-events-none">
+            <img src="{{ asset('images/WhatsApp-Image-2023-07-25-at-11.11.33.webp') }}" alt="Background MGRM" 
+                 class="absolute inset-0 w-full h-full object-cover opacity-30 mix-blend-overlay" />
             <div class="absolute top-0 right-1/4 w-[600px] h-[600px] bg-red-600/15 rounded-full blur-[120px] mix-blend-screen -translate-y-1/2"></div>
             <div class="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[100px] mix-blend-screen translate-y-1/3"></div>
             <div class="absolute inset-0 bg-[#0B1120]/70"></div>
@@ -60,9 +62,7 @@
                     
                     {{-- Image Side --}}
                     <div class="relative min-h-[300px] lg:min-h-full overflow-hidden bg-slate-900 border-b lg:border-b-0 lg:border-r border-slate-100">
-                        {{-- Placeholder visual using gradient --}}
-                        <div class="absolute inset-0 bg-gradient-to-br from-slate-800 to-slate-900"></div>
-                        <img src="{{ asset('images/WhatsApp-Image-2023-07-25-at-11.11.33.webp') }}" alt="Berita Utama" class="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-50 group-hover:scale-105 transition-transform duration-700">
+                        <img src="{{ asset('images/WhatsApp-Image-2023-07-25-at-11.11.33.webp') }}" alt="Berita Utama" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                         
                         {{-- Tag --}}
                         <div class="absolute top-6 left-6 z-10">
@@ -114,13 +114,17 @@
         searchQuery: '',
         selectedCategory: '',
         sortOrder: 'terbaru',
+        currentPage: 1,
+        itemsPerPage: 6,
         newsData: [
             { id: 1, date: '15 Agustus 2024', timestamp: '2024-08-15', category: 'kegiatan-csr', label: 'Kegiatan CSR', title: 'MGRM Salurkan Bantuan Pendidikan untuk Ring 1', desc: 'Program Corporate Social Responsibility (CSR) kembali disalurkan berupa beasiswa pendidikan bagi putra/putri daerah di wilayah ring 1 operasional.', img: 'images/vendor2webp.webp' },
             { id: 2, date: '02 Agustus 2024', timestamp: '2024-08-02', category: 'press-release', label: 'Press Release', title: 'Peresmian Fasilitas Kapal SPBN Nelayan Terbaru', desc: 'Dukungan terhadap komunitas nelayan pesisir Kutai Kartanegara diwujudkan melalui peresmian armada SPBN terbaru oleh Direktur Utama.', img: 'images/kapal.webp' },
             { id: 3, date: '21 Juli 2024', timestamp: '2024-07-21', category: 'info-korporat', label: 'Info Korporat', title: 'Sertifikasi ISO 9001:2015 Berhasil Dipertahankan', desc: 'PT. Mahakam Gerbang Raja Migas sukses mempertahankan sertifikasi manajemen mutu internasional melalui serangkaian audit ketat.', img: 'images/menujuperseroidaman.webp' },
             { id: 4, date: '10 Juli 2024', timestamp: '2024-07-10', category: 'kegiatan-csr', label: 'Kegiatan CSR', title: 'Pemberdayaan UMKM Lokal Binaan MGRM', desc: 'Puluhan UMKM unggulan daerah mendapatkan pelatihan manajemen keuangan dan bantuan modal kerja untuk mendorong kemandirian ekonomi.', img: 'images/kontraktor.webp' },
             { id: 5, date: '28 Juni 2024', timestamp: '2024-06-28', category: 'penghargaan', label: 'Penghargaan', title: 'Raih Predikat \'Zero Accident\' Tingkat Provinsi', desc: 'Komitmen pada K3LL membuahkan hasil, PT MGRM meraih penghargaan zero accident dari Pemerintah Provinsi Kalimantan Timur.', img: 'images/kontrakto1.webp' },
-            { id: 6, date: '15 Juni 2024', timestamp: '2024-06-15', category: 'info-korporat', label: 'Info Korporat', title: 'Penandatanganan Mou Transportir BBM Industri', desc: 'Perluasan lini bisnis kembali digalakkan dengan penandatanganan kesepakatan kerjasama transportir bersama mitra Pertamina.', img: 'images/transporterwebp.webp' }
+            { id: 6, date: '15 Juni 2024', timestamp: '2024-06-15', category: 'info-korporat', label: 'Info Korporat', title: 'Penandatanganan Mou Transportir BBM Industri', desc: 'Perluasan lini bisnis kembali digalakkan dengan penandatanganan kesepakatan kerjasama transportir bersama mitra Pertamina.', img: 'images/transporterwebp.webp' },
+            { id: 7, date: '05 Mei 2024', timestamp: '2024-05-05', category: 'press-release', label: 'Press Release', title: 'Rapat Umum Pemegang Saham Tahunan PT MGRM Tahun Buku 2023', desc: 'RUPS-T mengesahkan laporan keuangan dengan predikat WTP (Wajar Tanpa Pengecualian) dan menyetujui pembagian dividen bagi hasil daerah.', img: 'images/vendor2webp.webp' },
+            { id: 8, date: '12 April 2024', timestamp: '2024-04-12', category: 'kegiatan-csr', label: 'Kegiatan CSR', title: 'Bantuan Sembako Ramadhan Untuk Warga Pesisir Anggana', desc: 'Menyemarakkan bulan suci Ramadhan, PT MGRM menyalurkan ratusan paket sembako untuk masyarakat pesisir di sekitar fasilitas operasional Anggana.', img: 'images/kapal.webp' }
         ],
         get filteredNews() {
             let result = this.newsData;
@@ -144,8 +148,35 @@
             });
             
             return result;
+        },
+        get totalPages() {
+            return Math.ceil(this.filteredNews.length / this.itemsPerPage);
+        },
+        get paginatedNews() {
+            const start = (this.currentPage - 1) * this.itemsPerPage;
+            const end = start + this.itemsPerPage;
+            return this.filteredNews.slice(start, end);
+        },
+        goToPage(page) {
+            if (page >= 1 && page <= this.totalPages) {
+                this.currentPage = page;
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        },
+        nextPage() {
+            if (this.currentPage < this.totalPages) {
+                this.currentPage++;
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        },
+        prevPage() {
+            if (this.currentPage > 1) {
+                this.currentPage--;
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
         }
-    }">
+    }"
+    x-effect="filteredNews; currentPage = 1">
     
     {{-- ═══════════════════════════════════════════════
          NEWS GRID LIST
@@ -159,8 +190,8 @@
                  :class="visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'"
                  class="transition-all duration-700 ease-out delay-200">
                 
-                <div class="bg-white p-2 rounded-2xl md:rounded-[2rem] shadow-[0_15px_50px_rgba(0,0,0,0.06)] border border-slate-100 hover:border-red-100 transition-all duration-300 ring-1 ring-slate-900/5 focus-within:ring-4 focus-within:ring-red-100 focus-within:border-red-200">
-                    <div class="flex flex-col md:flex-row items-center divide-y md:divide-y-0 md:divide-x divide-slate-100">
+                <div class="bg-white p-2 rounded-2xl md:rounded-[2rem] shadow-[0_15px_50px_rgba(0,0,0,0.06)] border border-slate-100 hover:border-red-100 transition-all duration-300 ring-1 ring-slate-900/5 focus-within:ring-4 focus-within:ring-red-100 focus-within:border-red-200 relative overflow-visible">
+                    <div class="flex flex-col md:flex-row items-center divide-y md:divide-y-0 md:divide-x divide-slate-100 overflow-visible">
                         
                         {{-- Input Area --}}
                         <div class="flex items-center flex-1 w-full pl-6 py-2 group">
@@ -270,7 +301,7 @@
             {{-- Data Loop Using Alpine --}}
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 
-                <template x-for="(news, index) in filteredNews" :key="news.id">
+                <template x-for="(news, index) in paginatedNews" :key="news.id">
                     {{-- Card --}}
                     <article class="group bg-white rounded-3xl border border-slate-100 shadow-[0_10px_30px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] overflow-hidden transition-all duration-500 hover:-translate-y-2 flex flex-col h-full"
                              x-data="{ show: false }" x-intersect.once="show = true"
@@ -320,19 +351,30 @@
 
             </div>
 
-            {{-- Pagination Component Mockup (Only show if results exist) --}}
-            <div x-show="filteredNews.length > 0" class="mt-16 flex justify-center items-center gap-2">
-                <button class="w-10 h-10 rounded-full flex items-center justify-center text-slate-400 hover:bg-slate-100 hover:text-slate-800 transition-colors" disabled>
+            {{-- Pagination Component --}}
+            <div x-show="totalPages > 1" class="mt-16 flex justify-center items-center gap-2">
+                {{-- Previous Button --}}
+                <button @click="prevPage()" :disabled="currentPage === 1" 
+                        class="w-10 h-10 rounded-full flex items-center justify-center transition-colors shadow-sm disabled:opacity-50 disabled:cursor-not-allowed"
+                        :class="currentPage === 1 ? 'text-slate-400 bg-slate-50' : 'text-slate-700 bg-white border border-slate-200 hover:bg-slate-50 hover:text-red-600'">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
                 </button>
+                
+                {{-- Page Numbers --}}
                 <div class="flex items-center gap-1">
-                    <button class="w-10 h-10 rounded-full flex items-center justify-center bg-red-600 text-white font-bold shadow-md shadow-red-600/30">1</button>
-                    <button class="w-10 h-10 rounded-full flex items-center justify-center text-slate-600 font-bold hover:bg-slate-100 transition-colors">2</button>
-                    <button class="w-10 h-10 rounded-full flex items-center justify-center text-slate-600 font-bold hover:bg-slate-100 transition-colors">3</button>
-                    <span class="text-slate-400 font-bold px-1">...</span>
-                    <button class="w-10 h-10 rounded-full flex items-center justify-center text-slate-600 font-bold hover:bg-slate-100 transition-colors">12</button>
+                    <template x-for="page in totalPages" :key="page">
+                        <button @click="goToPage(page)" 
+                                class="w-10 h-10 rounded-full flex items-center justify-center font-bold transition-colors shadow-sm"
+                                :class="currentPage === page ? 'bg-red-600 text-white shadow-md shadow-red-600/30' : 'text-slate-600 bg-white border border-slate-200 hover:bg-slate-50'">
+                            <span x-text="page"></span>
+                        </button>
+                    </template>
                 </div>
-                <button class="w-10 h-10 rounded-full flex items-center justify-center text-slate-600 hover:bg-slate-100 hover:text-slate-800 transition-colors">
+
+                {{-- Next Button --}}
+                <button @click="nextPage()" :disabled="currentPage === totalPages" 
+                        class="w-10 h-10 rounded-full flex items-center justify-center transition-colors shadow-sm disabled:opacity-50 disabled:cursor-not-allowed"
+                        :class="currentPage === totalPages ? 'text-slate-400 bg-slate-50' : 'text-slate-700 bg-white border border-slate-200 hover:bg-slate-50 hover:text-red-600'">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                 </button>
             </div>

@@ -20,7 +20,7 @@
                 <div class="flex items-center gap-3 mb-5">
                     <div class="w-12 h-12 rounded-2xl bg-white flex items-center justify-center flex-shrink-0 shadow-[0_4px_20px_rgba(255,255,255,0.1)] p-1.5 border border-white/20 relative group">
                         <span class="absolute inset-0 rounded-2xl bg-white/50 blur opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                        <img src="{{ asset('images/logo-icon.webp') }}" alt="Logo MGRM" class="w-full h-full object-contain relative z-10">
+                        <img src="{{ asset('images/Desain tanpa judul.svg') }}" alt="Logo MGRM" class="w-full h-full object-contain relative z-10">
                     </div>
                     <div class="leading-none">
                         <p class="text-xl font-black text-white italic tracking-tight uppercase drop-shadow-md">PT. MGRM</p>
@@ -53,18 +53,19 @@
 
             {{-- Kolom 2: Tautan Halaman --}}
             <div>
-                <h3 class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-5">Halaman</h3>
+                <h3 class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-5">LINK TERKAIT</h3>
                 <ul class="space-y-2.5" role="list">
                     @foreach([
                         ['href' => '/',                           'label' => 'Beranda'],
-                        ['href' => '/tentang/visi-misi',          'label' => 'Profil Perusahaan'],
-                        ['href' => '/tentang/sejarah',             'label' => 'Sejarah Perusahaan'],
-                        ['href' => '/tentang/struktur-organisasi', 'label' => 'Struktur Organisasi'],
+                        ['href' => '/tentang/visi-misi',          'label' => 'Tentang Visi Misi'],
+                        ['href' => '/tentang/sejarah',             'label' => 'Tentang Sejarah'],
+                        ['href' => '/tentang/struktur-organisasi', 'label' => 'Tentang Struktur Organisasi'],
                         ['href' => '/layanan',                     'label' => 'Layanan'],
-                        ['href' => '/ppid',                        'label' => 'PPID'],
+                        ['href' => 'https://ppid.kukarkab.go.id/opd/78', 'label' => 'PPID OPD 78'],
                     ] as $link)
                     <li role="listitem">
-                        <a href="{{ url($link['href']) }}" wire:navigate
+                        <a href="{{ Str::startsWith($link['href'], 'http') ? $link['href'] : url($link['href']) }}" 
+                           @if(!Str::startsWith($link['href'], 'http')) wire:navigate @else target="_blank" rel="noopener noreferrer" @endif
                            class="text-sm font-semibold text-slate-400 hover:text-white transition-all duration-300 active:scale-95 origin-left flex items-center gap-3 group">
                             <span class="w-1.5 h-1.5 rounded-full bg-slate-700 group-hover:bg-red-500 group-hover:scale-150 group-hover:shadow-[0_0_10px_rgba(239,68,68,0.8)] transition-all duration-300 flex-shrink-0"></span>
                             {{ $link['label'] }}
@@ -79,10 +80,10 @@
                 <h3 class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-5">Publikasi</h3>
                 <ul class="space-y-2.5" role="list">
                     @foreach([
-                        ['href' => '/berita',     'label' => 'Berita & Press Release'],
+                        ['href' => '/berita',     'label' => 'Berita'],
                         ['href' => '/pengumuman', 'label' => 'Pengumuman'],
-                        ['href' => '/dokumen',    'label' => 'Dokumen Publik'],
-                        ['href' => '/kontak',     'label' => 'Kontak Kami'],
+                        ['href' => '/dokumen',    'label' => 'Dokumen'],
+                        ['href' => '/kontak',     'label' => 'Kontak'],
                     ] as $link)
                     <li role="listitem">
                         <a href="{{ url($link['href']) }}" wire:navigate

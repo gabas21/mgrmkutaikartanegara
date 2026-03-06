@@ -5,13 +5,17 @@
          SECTION 1 — COMPANY PROFILE (Hero)
     ═══════════════════════════════════════════════ --}}
     <section class="relative min-h-screen flex items-center bg-slate-900 overflow-hidden">
+        {{-- Background Image --}}
+        <div class="absolute inset-0 z-0 pointer-events-none">
+            <img src="{{ asset('images/WhatsApp-Image-2023-07-25-at-11.11.33.webp') }}" alt="Background MGRM" class="absolute inset-0 w-full h-full object-cover opacity-20 mix-blend-overlay" />
+        </div>
 
         {{-- Grid texture --}}
-        <div class="absolute inset-0 opacity-[0.04] pointer-events-none"
+        <div class="absolute inset-0 opacity-[0.04] pointer-events-none z-0"
              style="background-image: linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px); background-size: 40px 40px;"></div>
 
         {{-- Aksen merah kanan --}}
-        <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-red-900/20 to-transparent pointer-events-none"></div>
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-red-900/20 to-transparent pointer-events-none z-0"></div>
 
         <div class="max-w-7xl mx-auto px-6 md:px-12 w-full py-24 lg:py-32">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">

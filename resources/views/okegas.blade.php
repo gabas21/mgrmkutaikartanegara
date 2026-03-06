@@ -6,9 +6,11 @@
     ═══════════════════════════════════════════════ --}}
     <section class="relative pt-32 pb-20 bg-[#0B1120] overflow-hidden">
         <div class="absolute inset-0 pointer-events-none">
+            <img src="{{ asset('images/WhatsApp-Image-2023-07-25-at-11.11.33.webp') }}" alt="Background MGRM" class="absolute inset-0 w-full h-full object-cover opacity-30 mix-blend-overlay" />
             <div class="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-emerald-500/10 rounded-full blur-[120px] mix-blend-screen animate-pulse" style="animation-duration:4s"></div>
             <div class="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[100px] mix-blend-screen animate-pulse" style="animation-duration:6s"></div>
             <div class="absolute inset-0 opacity-[0.03]" style="background-image: url('data:image/svg+xml,%3Csvg width=&quot;40&quot; height=&quot;40&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;%3E%3Cpath d=&quot;M0 0h40v40H0z&quot; fill=&quot;none&quot; stroke=&quot;white&quot; stroke-width=&quot;0.5&quot;/%3E%3C/svg%3E'); background-repeat: repeat;"></div>
+            <div class="absolute inset-0 bg-[#0B1120]/70"></div>
         </div>
 
         <div class="relative z-10 max-w-4xl mx-auto px-6 lg:px-8 text-center"
@@ -199,7 +201,7 @@
                             {{-- Logo --}}
                             <div class="flex justify-center mb-8">
                                 <div class="w-20 h-20 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center shadow-lg">
-                                    <img src="{{ asset('images/logo-icon.webp') }}" alt="Logo MGRM" class="w-14 h-14 object-contain">
+                                    <img src="{{ asset('images/Desain tanpa judul.svg') }}" alt="Logo MGRM" class="w-14 h-14 object-contain">
                                 </div>
                             </div>
 
@@ -297,10 +299,10 @@
                                         <p class="text-5xl font-black text-emerald-600 tracking-tight leading-none">A-0042</p>
                                     </div>
 
-                                    {{-- Logo Perusahaan (logo-icon.webp) --}}
+                                    {{-- Logo Perusahaan (logo.webp) --}}
                                     <div class="flex justify-center mb-5">
                                         <div class="w-28 h-28 rounded-xl border-2 border-slate-100 flex items-center justify-center bg-white p-4 shadow-sm">
-                                            <img id="logo-tiket" src="{{ asset('images/logo-icon.webp') }}" alt="Logo MGRM" class="w-full h-full object-contain">
+                                            <img id="logo-tiket" src="{{ asset('images/Desain tanpa judul.svg') }}" alt="Logo MGRM" class="w-full h-full object-contain">
                                         </div>
                                     </div>
 

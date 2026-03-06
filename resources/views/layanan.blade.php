@@ -7,6 +7,8 @@
     <section class="relative pt-32 pb-24 bg-[#0B1120] overflow-hidden">
         {{-- Background Glow --}}
         <div class="absolute inset-0 z-0 pointer-events-none">
+            <img src="{{ asset('images/WhatsApp-Image-2023-07-25-at-11.11.33.webp') }}" alt="Background MGRM" 
+                 class="absolute inset-0 w-full h-full object-cover opacity-30 mix-blend-overlay" />
             <div class="absolute top-0 right-1/4 w-[600px] h-[600px] bg-red-600/15 rounded-full blur-[120px] mix-blend-screen -translate-y-1/2"></div>
             <div class="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[100px] mix-blend-screen translate-y-1/3"></div>
             <div class="absolute inset-0 bg-[#0B1120]/70"></div>

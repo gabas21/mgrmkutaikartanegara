@@ -5,8 +5,11 @@
          DARK HERO SECTION (Konsisten dengan halaman lain)
     ═══════════════════════════════════════════════ --}}
     <section class="relative bg-slate-900 pt-32 pb-48 overflow-hidden z-0">
-        {{-- Abstact gradient glow --}}
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-full bg-red-600/10 blur-[120px] rounded-full mix-blend-screen pointer-events-none"></div>
+        {{-- Abstact gradient glow & Image Background --}}
+        <div class="absolute inset-0 z-0 pointer-events-none">
+            <img src="{{ asset('images/WhatsApp-Image-2023-07-25-at-11.11.33.webp') }}" alt="Background MGRM" class="absolute inset-0 w-full h-full object-cover opacity-20 mix-blend-overlay" />
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-full bg-red-600/10 blur-[120px] rounded-full mix-blend-screen"></div>
+        </div>
 
         <div class="relative z-10 max-w-7xl mx-auto px-6 text-center"
              x-data="{ show: false }" x-init="setTimeout(() => show = true, 100)"

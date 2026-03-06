@@ -42,9 +42,6 @@
                         Membangun Kemandirian Daerah.
                     </h1>
                     
-                    <p class="text-slate-300/90 text-lg md:text-xl font-medium mb-10 max-w-xl leading-relaxed">
-                        PT. Mahakam Gerbang Raja Migas, BUMD Kutai Kartanegara pengelola Participating Interest (PI) 10% terpercaya untuk masa depan energi yang berkelanjutan.
-                    </p>
                     
                     <!-- CTA Buttons -->
                     <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-5 w-full sm:w-auto">
@@ -231,37 +228,87 @@
 
         <div class="max-w-7xl mx-auto relative z-10 flex flex-col items-center">
             
-            <div class="text-center w-full z-10 relative mb-16">
+            <div class="text-center w-full z-10 relative mb-16 px-4">
                 <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-red-100 border border-red-200 mb-6">
                     <span class="flex h-2 w-2 rounded-full bg-red-600"></span>
-                    <span class="text-red-700 font-bold tracking-widest text-[11px] uppercase">Profil Perusahaan</span>
+                    <span class="text-red-700 font-bold tracking-widest text-[11px] uppercase">Wilayah Kerja</span>
                 </div>
-                <h2 id="mitra-heading" class="text-4xl md:text-5xl font-black text-slate-900 mb-6 tracking-tight leading-tight">
+                <h2 id="mitra-heading" class="text-3xl md:text-5xl font-black text-slate-900 mb-6 tracking-tight leading-tight">
                     PT <span class="text-slate-500">Mahakam Gerbang Raja Migas</span>
                 </h2>
-                <p class="text-slate-600 max-w-3xl mx-auto text-lg leading-relaxed font-medium">
-                    Merupakan Badan Usaha Milik Daerah (BUMD) Penerima <span class="bg-red-100 text-red-700 font-bold px-2 py-0.5 rounded-md">Participating Interest (PI) 10%</span> pada Wilayah Kerja Minyak dan Gas Bumi di Kabupaten Kutai Kartanegara.
+                <p class="text-slate-600 max-w-4xl mx-auto text-base md:text-lg leading-relaxed font-medium">
+                    <span class="font-bold text-slate-800">Sebagai BUMD Kabupaten Kutai Kartanegara</span> yang berkomitmen untuk masa depan energi berkelanjutan, kami ditugaskan untuk mengelola hak <span class="bg-red-100 text-red-700 font-black px-2 py-0.5 rounded-md">Participating Interest (PI) 10%</span> pada anak perusahaan maupun yang berstatus afiliasi, baik yang sudah dikelola maupun dalam proses akuisisi:
                 </p>
             </div>
 
-            {{-- 3 Working Blocks Cards (Modern Soft Shadow Cards) --}}
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mb-24 max-w-5xl w-full">
-                @foreach([
-                    ['title' => 'Blok Mahakam', 'color' => 'from-red-500 to-red-600', 'shadow' => 'shadow-red-500/20'],
-                    ['title' => 'Blok Sanga-Sanga', 'color' => 'from-slate-700 to-slate-800', 'shadow' => 'shadow-slate-500/10'],
-                    ['title' => 'Blok Eastkal-Attaka', 'color' => 'from-red-500 to-red-600', 'shadow' => 'shadow-red-500/20']
-                ] as $i => $blok)
-                <div class="group relative bg-white rounded-3xl p-10 flex flex-col items-center justify-center min-h-[240px] shadow-[0_10px_40px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] transition-all duration-500 border border-slate-100 hover:-translate-y-2">
-                    
-                    <div class="w-20 h-20 rounded-2xl bg-gradient-to-br {{ $blok['color'] }} shadow-lg {{ $blok['shadow'] }} text-white flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
-                        <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z" />
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z" />
-                        </svg>
+            {{-- ════ Restructured Portfolio Section ════ --}}
+            <div class="w-full max-w-6xl mx-auto mb-24">
+                
+                {{-- Category 1: Existing Portfolio --}}
+                <h3 class="text-2xl font-black text-slate-800 text-center mb-8">Existing Portfolio & Dalam Proses Akuisisi</h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mb-16 px-4">
+                    {{-- Card 1: Mahakam --}}
+                    <div class="group relative bg-white rounded-3xl p-8 flex flex-col items-center justify-center shadow-[0_10px_40px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] transition-all duration-500 border border-slate-100 hover:-translate-y-2 text-center h-full">
+                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-red-500 to-red-600 shadow-lg shadow-red-500/20 text-white flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z" />
+                            </svg>
+                        </div>
+                        <h4 class="text-xl lg:text-2xl font-black text-slate-900 uppercase tracking-wide mb-3">BLOK <span class="whitespace-nowrap">MAHAKAM</span></h4>
+                        <a href="https://www.google.com/maps/search/Blok+Mahakam+Kaltim" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 mb-5 bg-slate-50 hover:bg-red-50 text-slate-500 hover:text-red-600 border border-slate-100 hover:border-red-100 rounded-full text-[10px] font-bold uppercase tracking-wider transition-colors group-hover:bg-red-50 group-hover:text-red-600 group-hover:border-red-100">
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                            <span>Lihat di Peta</span>
+                        </a>
+                        <ul class="text-left text-xs text-slate-600 space-y-2 mt-2 list-none px-2 w-full">
+                            <li class="flex gap-2 items-start"><span class="text-red-500 font-bold mt-0.5">•</span> <span>Dikelola oleh <strong>PT Pertamina Hulu Mahakam (PHM)</strong> sejak 2018.</span></li>
+                            <li class="flex gap-2 items-start"><span class="text-red-500 font-bold mt-0.5">•</span> <span>Berpusat di ekosistem Delta Mahakam, Kukar.</span></li>
+                            <li class="flex gap-2 items-start"><span class="text-red-500 font-bold mt-0.5">•</span> <span>Hak <strong>PI 10%</strong> dikelola patungan bersama Pemprov Kaltim, menjadi tulang punggung PAD daerah.</span></li>
+                        </ul>
                     </div>
-                    <h3 class="text-xl lg:text-2xl font-black text-slate-800 uppercase tracking-wide text-center transition-colors">{{ $blok['title'] }}</h3>
+
+                    {{-- Card 2: Sanga-Sanga --}}
+                    <div class="group relative bg-white rounded-3xl p-8 flex flex-col items-center justify-center shadow-[0_10px_40px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] transition-all duration-500 border border-slate-100 hover:-translate-y-2 text-center h-full">
+                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-slate-700 to-slate-900 shadow-lg shadow-slate-500/10 text-white flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z" />
+                            </svg>
+                        </div>
+                        <h4 class="text-xl lg:text-2xl font-black text-slate-900 uppercase tracking-wide mb-3">BLOK <span class="whitespace-nowrap">SANGA-SANGA</span></h4>
+                        <a href="https://www.google.com/maps/search/Sanga-Sanga+Kutai+Kartanegara" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 mb-5 bg-slate-50 hover:bg-slate-100 text-slate-500 hover:text-slate-700 border border-slate-100 hover:border-slate-200 rounded-full text-[10px] font-bold uppercase tracking-wider transition-colors group-hover:bg-slate-100 group-hover:text-slate-700 group-hover:border-slate-200">
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                            <span>Lihat di Peta</span>
+                        </a>
+                        <ul class="text-left text-xs text-slate-600 space-y-2 mt-2 list-none px-2 w-full">
+                            <li class="flex gap-2 items-start"><span class="text-slate-500 font-bold mt-0.5">•</span> <span>Dikelola <strong>PT Pertamina Hulu Sanga Sanga (PHSS)</strong> sejak Agustus 2018.</span></li>
+                            <li class="flex gap-2 items-start"><span class="text-slate-500 font-bold mt-0.5">•</span> <span>Mencakup 6 kecamatan pesisir di Kutai Kartanegara.</span></li>
+                            <li class="flex gap-2 items-start"><span class="text-slate-500 font-bold mt-0.5">•</span> <span>Hak <strong>PI 10%</strong> difokuskan untuk penyerapan kerja lokal & pengembangan daerah (BUMD MGRM).</span></li>
+                        </ul>
+                    </div>
+
+                    {{-- Card 3: Eastkal-Attaka --}}
+                    <div class="group relative bg-white rounded-3xl p-8 flex flex-col items-center justify-center shadow-[0_10px_40px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] transition-all duration-500 border border-slate-100 hover:-translate-y-2 text-center h-full">
+                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-red-500 to-red-600 shadow-lg shadow-red-500/20 text-white flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z" />
+                            </svg>
+                        </div>
+                        <h4 class="text-xl lg:text-2xl font-black text-slate-900 uppercase tracking-wide mb-3">BLOK <span class="whitespace-nowrap">EASTKAL-ATTAKA</span></h4>
+                        <a href="https://www.google.com/maps/search/Attaka+Eastkal+Kaltim" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 mb-5 bg-slate-50 hover:bg-red-50 text-slate-500 hover:text-red-600 border border-slate-100 hover:border-red-100 rounded-full text-[10px] font-bold uppercase tracking-wider transition-colors group-hover:bg-red-50 group-hover:text-red-600 group-hover:border-red-100">
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                            <span>Lihat di Peta</span>
+                        </a>
+                        <ul class="text-left text-xs text-slate-600 space-y-2 mt-2 list-none px-2 w-full">
+                            <li class="flex gap-2 items-start"><span class="text-red-500 font-bold mt-0.5">•</span> <span>Dikelola <strong>PT Pertamina Hulu Kalimantan Timur (PHKT)</strong> akhir 2018.</span></li>
+                            <li class="flex gap-2 items-start"><span class="text-red-500 font-bold mt-0.5">•</span> <span>Bersinggungan dgn perairan Kukar, Bontang, dan PPU.</span></li>
+                            <li class="flex gap-2 items-start"><span class="text-red-500 font-bold mt-0.5">•</span> <span>Kukar (via PT. MMPE-A) memiliki <strong>15,73% porsi PI 10%</strong> daerah, mengawal keekonomian sumur tua.</span></li>
+                        </ul>
+                    </div>
+
                 </div>
-                @endforeach
             </div>
 
             {{-- Mitra Bisnis Section (Marquee Carousel) --}}
@@ -348,10 +395,6 @@
                     </h2>
                 </div>
                 
-                <a href="{{ url('/layanan') }}" wire:navigate class="inline-flex items-center gap-2 font-bold text-white bg-slate-900 hover:bg-red-600 px-6 py-3 rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-red-600/30 active:scale-95 group">
-                    Lihat Semua Bisnis
-                    <svg class="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-                </a>
             </div>
 
             {{-- Modern Cards Grid (5 Columns) & Modal Logic --}}
@@ -575,14 +618,14 @@
                                  <img src="{{ asset('images/menujuperseroidaman.webp') }}" alt="Menuju Perseroda Idaman" class="w-full h-auto object-cover scale-[1.02] group-hover:scale-105 transition-transform duration-700"
                                       onerror="this.outerHTML='<div class=\'w-full h-[350px] lg:h-[450px] bg-slate-900 flex flex-col items-center justify-center text-center p-6\'><svg class=\'w-16 h-16 text-slate-700 mb-4\' fill=\'none\' stroke=\'currentColor\' viewBox=\'0 0 24 24\'><path stroke-linecap=\'round\' stroke-linejoin=\'round\' stroke-width=\'1.5\' d=\'M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z\'/></svg><span class=\'text-slate-600 font-bold uppercase tracking-widest text-sm\'>Corporate Image</span></div>'">
                                  
-                                 <!-- Modern Floating Badge -->
-                                 <div class="absolute bottom-6 -left-6 bg-white/10 backdrop-blur-md p-5 rounded-2xl border border-white/20 shadow-xl flex items-center gap-4">
-                                     <div class="w-14 h-14 rounded-full bg-gradient-to-br from-red-500 to-red-600 flex items-center justify-center text-white shadow-[0_0_15px_rgba(220,38,38,0.5)]">
-                                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                 <!-- Modern Floating Badge (Glassmorphism) -->
+                                 <div class="absolute bottom-5 right-5 bg-white/20 backdrop-blur-md p-4 rounded-xl border border-white/30 shadow-2xl flex items-center gap-4">
+                                     <div class="w-12 h-12 rounded-full bg-red-600 flex items-center justify-center text-white shadow-[0_4px_15px_rgba(220,38,38,0.5)] flex-shrink-0">
+                                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
                                      </div>
-                                     <div>
-                                         <p class="text-3xl font-black text-white leading-none mb-1">100%</p>
-                                         <p class="text-[10px] text-red-300 font-bold tracking-[0.2em] uppercase">Komitmen Daerah</p>
+                                     <div class="pr-2 text-left">
+                                         <p class="text-[28px] font-black text-white leading-none mb-1">100%</p>
+                                         <p class="text-[9px] text-white/90 font-bold tracking-[0.1em] uppercase">Komitmen Daerah</p>
                                      </div>
                                  </div>
                              </div>
