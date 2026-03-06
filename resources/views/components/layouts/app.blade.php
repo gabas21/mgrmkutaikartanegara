@@ -60,7 +60,7 @@
 
     <x-navbar-mobile /> {{-- hanya tampil di mobile --}}
 
-    @livewireScripts
+    @livewireScriptConfig
 
     <script>
         // Scroll progress bar
