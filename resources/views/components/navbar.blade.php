@@ -13,9 +13,9 @@
     x-init="window.addEventListener('scroll', () => { scrolled = window.scrollY > 20 })"
     @click.outside="closeAll()"
     :class="scrolled
-        ? 'bg-white/90 backdrop-blur-xl shadow-[0_10px_30px_rgba(0,0,0,0.05)] border-b border-slate-100'
-        : 'bg-white/90 backdrop-blur-md border-b border-transparent'"
-    class="fixed top-0 inset-x-0 z-50 transition-all duration-300"
+        ? 'top-4 w-[calc(100%-2rem)] max-w-6xl mx-auto rounded-full bg-white/85 backdrop-blur-xl shadow-lg border border-white/50'
+        : 'top-0 w-full max-w-full rounded-none bg-white/95 backdrop-blur-md border-b border-transparent shadow-none'"
+    class="fixed inset-x-0 mx-auto z-50 transition-all duration-500 ease-out"
     role="banner"
 >
     {{-- Skip to content (a11y) --}}
@@ -32,10 +32,11 @@
             <a href="{{ url('/') }}" wire:navigate
                class="flex items-center gap-3 flex-shrink-0 group"
                aria-label="MGRM – Beranda">
-                <div class="w-11 h-11 rounded-2xl bg-white flex items-center justify-center shadow-md p-1.5 transition-all duration-300 group-hover:shadow-red-500/20 group-hover:-translate-y-0.5 border border-slate-100">
+                <div class="w-11 h-11 rounded-full bg-white flex items-center justify-center shadow-md p-1.5 transition-all duration-300 group-hover:shadow-red-500/20 group-hover:-translate-y-0.5 border border-slate-100 shrink-0">
                     <img src="{{ asset('images/logofix.svg') }}" alt="Logo MGRM" class="w-full h-full object-contain">
                 </div>
-                <div class="leading-none">
+                <div class="leading-none overflow-hidden transition-all duration-500 ease-in-out whitespace-nowrap"
+                     :class="scrolled ? 'max-w-0 opacity-0 ml-0' : 'max-w-[150px] opacity-100 opacity-100 ml-1'">
                     <span class="block text-xl font-black text-slate-800 tracking-tight uppercase group-hover:text-red-600 transition-colors">MGRM</span>
                     <span class="block text-[10px] text-slate-500 font-bold uppercase tracking-widest mt-0.5">Kutai Kartanegara</span>
                 </div>
@@ -122,7 +123,8 @@
                 {{-- OKE GAS --}}
                 <li>
                     <a href="{{ url('/okegas') }}" wire:navigate
-                       class="ml-2 inline-flex items-center gap-2 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 text-white font-black px-5 py-2.5 rounded-full uppercase tracking-wide text-sm transition-all duration-300 shadow-[0_4px_14px_rgba(16,185,129,0.25)] hover:shadow-[0_6px_20px_rgba(16,185,129,0.4)] hover:-translate-y-0.5 active:scale-95">
+                       :class="scrolled ? 'px-4 py-2 text-xs' : 'px-5 py-2.5 text-sm'"
+                       class="ml-2 inline-flex items-center gap-2 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 text-white font-black rounded-full uppercase tracking-wide transition-all duration-300 shadow-[0_4px_14px_rgba(16,185,129,0.25)] hover:shadow-[0_6px_20px_rgba(16,185,129,0.4)] hover:-translate-y-0.5 active:scale-95">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"/></svg>
                         OKE GAS
                     </a>
@@ -131,7 +133,8 @@
                 {{-- Kontak --}}
                 <li>
                     <a href="{{ url('/kontak') }}" wire:navigate
-                       class="ml-2 bg-slate-900 hover:bg-red-600 text-white font-bold px-7 py-3 rounded-full uppercase tracking-wide transition-all duration-300 shadow-[0_4px_14px_rgba(0,0,0,0.1)] hover:shadow-[0_6px_20px_rgba(220,38,38,0.3)] hover:-translate-y-0.5 active:scale-95 inline-block">
+                       :class="scrolled ? 'px-5 py-2 text-xs' : 'px-7 py-2.5 text-sm'"
+                       class="ml-2 bg-slate-900 hover:bg-red-600 text-white font-bold rounded-full uppercase tracking-wide transition-all duration-300 shadow-[0_4px_14px_rgba(0,0,0,0.1)] hover:shadow-[0_6px_20px_rgba(220,38,38,0.3)] hover:-translate-y-0.5 active:scale-95 inline-block">
                         Kontak
                     </a>
                 </li>
