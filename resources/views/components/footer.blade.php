@@ -27,9 +27,10 @@
                         <p class="text-[10px] text-red-500 font-bold tracking-widest uppercase mt-1">Kutai Kartanegara</p>
                     </div>
                 </div>
-                <p class="text-sm text-slate-400 leading-relaxed mb-6 font-medium">
-                    BUMD milik Pemda Kutai Kartanegara yang mengelola Participating Interest (PI) 10% pada Blok Mahakam, Blok Sanga-Sanga, dan Blok Eastkal-Attaka, serta mengembangkan bisnis hulu–hilir migas.
-                </p>
+                <div class="mb-6">
+                    <p class="text-base font-bold text-white mb-1.5">PT Mahakam Gerbang Raja Migas</p>
+                    <p class="text-xs text-slate-400 font-medium">BUMD Kabupaten Kutai Kartanegara</p>
+                </div>
                 {{-- Social Media --}}
                 <div class="flex items-center gap-3" role="list" aria-label="Media Sosial">
                     @foreach([
@@ -162,16 +163,7 @@
                 <p class="text-xs font-bold text-slate-500 text-center sm:text-left">
                     &copy; {{ date('Y') }} PT. Mahakam Gerbang Raja Migas. Semua hak dilindungi.
                 </p>
-                <div class="hidden sm:block w-px h-4 bg-slate-700"></div>
-                
-                {{-- TALL Stack Standardization Badge --}}
-                <div class="flex items-center gap-2 group cursor-default hover:scale-105 transition-transform duration-300" title="Tailwind CSS, Alpine.js, Laravel, Livewire">
-                    <span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Standarisasi</span>
-                    <div class="flex items-center gap-1.5 bg-slate-800/80 border border-slate-700/50 px-3 py-1 rounded-full group-hover:border-red-500/50 group-hover:bg-slate-800 transition-all shadow-sm">
-                        <span class="text-[11px] font-black tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-teal-400 to-red-500">TALL</span>
-                        <span class="text-[10px] font-bold text-slate-300 tracking-wider">STACK</span>
-                    </div>
-                </div>
+
             </div>
 
             <div class="flex items-center gap-4">

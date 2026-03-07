@@ -29,18 +29,26 @@
         <div class="flex items-center justify-between h-16 lg:h-20">
 
             {{-- ── Logo ── --}}
-            <a href="{{ url('/') }}" wire:navigate
-               class="flex items-center gap-3 flex-shrink-0 group"
-               aria-label="MGRM – Beranda">
-                <div class="w-11 h-11 rounded-full bg-white flex items-center justify-center shadow-md p-1.5 transition-all duration-300 group-hover:shadow-red-500/20 group-hover:-translate-y-0.5 border border-slate-100 shrink-0">
-                    <img src="{{ asset('images/logofix.svg') }}" alt="Logo MGRM" class="w-full h-full object-contain">
-                </div>
-                <div class="leading-none overflow-hidden transition-all duration-500 ease-in-out whitespace-nowrap"
-                     :class="scrolled ? 'max-w-0 opacity-0 ml-0' : 'max-w-[150px] opacity-100 opacity-100 ml-1'">
-                    <span class="block text-xl font-black text-slate-800 tracking-tight uppercase group-hover:text-red-600 transition-colors">MGRM</span>
-                    <span class="block text-[10px] text-slate-500 font-bold uppercase tracking-widest mt-0.5">Kutai Kartanegara</span>
-                </div>
-            </a>
+            <div class="flex items-center gap-3 lg:gap-4 flex-shrink-0">
+                <a href="{{ url('/') }}" wire:navigate
+                   class="flex items-center gap-3 group"
+                   aria-label="MGRM – Beranda">
+                    <div class="w-14 h-14 rounded-full bg-white flex items-center justify-center shadow-md p-1.5 transition-all duration-300 group-hover:shadow-red-500/20 group-hover:-translate-y-0.5 border border-slate-100 shrink-0">
+                        <img src="{{ asset('images/logofix.svg') }}" alt="Logo MGRM" class="w-full h-full object-contain">
+                    </div>
+                    
+                    {{-- Logo Kukar --}}
+                    <div class="w-14 h-14 rounded-full bg-white flex items-center justify-center shadow-md p-1.5 transition-all duration-300 group-hover:shadow-blue-500/20 border border-slate-100 shrink-0">
+                        <img src="{{ asset('images/kabupaten-kukar-seeklogo.png') }}" alt="Logo Kab Kukar" class="w-full h-full object-contain">
+                    </div>
+
+                    <div class="leading-none overflow-hidden transition-all duration-500 ease-in-out whitespace-nowrap"
+                         :class="scrolled ? 'max-w-0 opacity-0 ml-0' : 'max-w-[150px] opacity-100 opacity-100 ml-1'">
+                        <span class="block text-xl font-black text-slate-800 tracking-tight uppercase group-hover:text-red-600 transition-colors">MGRM</span>
+                        <span class="block text-[10px] text-slate-500 font-bold uppercase tracking-widest mt-0.5">Kutai Kartanegara</span>
+                    </div>
+                </a>
+            </div>
 
             {{-- ── Desktop Nav Links ── --}}
             <ul class="hidden lg:flex items-center gap-2 overflow-visible" role="list">

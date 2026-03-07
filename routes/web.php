@@ -16,7 +16,7 @@ Route::controller(PageController::class)->group(function () {
     
     Route::group(['prefix' => 'berita'], function () {
         Route::get('/', 'berita');
-        Route::get('/detail', 'beritaDetail');
+        Route::get('/{slug}', 'beritaDetail')->name('berita.detail');
     });
 
     Route::get('/pengumuman', 'pengumuman');

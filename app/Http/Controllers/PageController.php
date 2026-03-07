@@ -33,12 +33,14 @@ class PageController extends Controller
 
     public function berita()
     {
-        return view('berita.index');
+        $berita = \App\Models\Berita::orderBy('published_at', 'desc')->get();
+        return view('berita.index', compact('berita'));
     }
 
-    public function beritaDetail()
+    public function beritaDetail($slug)
     {
-        return view('berita.show');
+        $berita = \App\Models\Berita::where('slug', $slug)->firstOrFail();
+        return view('berita.show', compact('berita'));
     }
 
     public function pengumuman()

@@ -95,7 +95,7 @@
                         </p>
 
                         {{-- Read More --}}
-                        <a href="{{ url('/berita/detail') }}" wire:navigate class="inline-flex items-center gap-2 text-sm font-black text-slate-900 group-hover:text-red-600 uppercase tracking-widest w-max transition-all">
+                        <a :href="'/berita/' + paginatedNews[0].slug" x-show="paginatedNews.length > 0" wire:navigate class="inline-flex items-center gap-2 text-sm font-black text-slate-900 group-hover:text-red-600 uppercase tracking-widest w-max transition-all">
                             Baca Selengkapnya
                             <svg class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
                         </a>
@@ -116,16 +116,23 @@
         sortOrder: 'terbaru',
         currentPage: 1,
         itemsPerPage: 6,
-        newsData: [
-            { id: 1, date: '15 Agustus 2024', timestamp: '2024-08-15', category: 'kegiatan-csr', label: 'Kegiatan CSR', title: 'MGRM Salurkan Bantuan Pendidikan untuk Ring 1', desc: 'Program Corporate Social Responsibility (CSR) kembali disalurkan berupa beasiswa pendidikan bagi putra/putri daerah di wilayah ring 1 operasional.', img: 'images/vendor2webp.webp' },
-            { id: 2, date: '02 Agustus 2024', timestamp: '2024-08-02', category: 'press-release', label: 'Press Release', title: 'Peresmian Fasilitas Kapal SPBN Nelayan Terbaru', desc: 'Dukungan terhadap komunitas nelayan pesisir Kutai Kartanegara diwujudkan melalui peresmian armada SPBN terbaru oleh Direktur Utama.', img: 'images/kapal.webp' },
-            { id: 3, date: '21 Juli 2024', timestamp: '2024-07-21', category: 'info-korporat', label: 'Info Korporat', title: 'Sertifikasi ISO 9001:2015 Berhasil Dipertahankan', desc: 'PT. Mahakam Gerbang Raja Migas sukses mempertahankan sertifikasi manajemen mutu internasional melalui serangkaian audit ketat.', img: 'images/menujuperseroidaman.webp' },
-            { id: 4, date: '10 Juli 2024', timestamp: '2024-07-10', category: 'kegiatan-csr', label: 'Kegiatan CSR', title: 'Pemberdayaan UMKM Lokal Binaan MGRM', desc: 'Puluhan UMKM unggulan daerah mendapatkan pelatihan manajemen keuangan dan bantuan modal kerja untuk mendorong kemandirian ekonomi.', img: 'images/kontraktor.webp' },
-            { id: 5, date: '28 Juni 2024', timestamp: '2024-06-28', category: 'penghargaan', label: 'Penghargaan', title: 'Raih Predikat \'Zero Accident\' Tingkat Provinsi', desc: 'Komitmen pada K3LL membuahkan hasil, PT MGRM meraih penghargaan zero accident dari Pemerintah Provinsi Kalimantan Timur.', img: 'images/kontrakto1.webp' },
-            { id: 6, date: '15 Juni 2024', timestamp: '2024-06-15', category: 'info-korporat', label: 'Info Korporat', title: 'Penandatanganan Mou Transportir BBM Industri', desc: 'Perluasan lini bisnis kembali digalakkan dengan penandatanganan kesepakatan kerjasama transportir bersama mitra Pertamina.', img: 'images/transporterwebp.webp' },
-            { id: 7, date: '05 Mei 2024', timestamp: '2024-05-05', category: 'press-release', label: 'Press Release', title: 'Rapat Umum Pemegang Saham Tahunan PT MGRM Tahun Buku 2023', desc: 'RUPS-T mengesahkan laporan keuangan dengan predikat WTP (Wajar Tanpa Pengecualian) dan menyetujui pembagian dividen bagi hasil daerah.', img: 'images/vendor2webp.webp' },
-            { id: 8, date: '12 April 2024', timestamp: '2024-04-12', category: 'kegiatan-csr', label: 'Kegiatan CSR', title: 'Bantuan Sembako Ramadhan Untuk Warga Pesisir Anggana', desc: 'Menyemarakkan bulan suci Ramadhan, PT MGRM menyalurkan ratusan paket sembako untuk masyarakat pesisir di sekitar fasilitas operasional Anggana.', img: 'images/kapal.webp' }
-        ],
+        newsData: @js($berita->map(function($item) {
+            $catSlug = \Illuminate\Support\Str::slug($item->category ?? 'Info Korporat');
+            $img = $item->featured_image_path ? 'storage/' . $item->featured_image_path : 'images/WhatsApp-Image-2023-07-25-at-11.11.33.webp';
+            
+            return [
+                'id' => $item->id,
+                'date' => $item->published_at ? $item->published_at->translatedFormat('d F Y') : '',
+                'timestamp' => $item->published_at ? $item->published_at->format('Y-m-d') : '',
+                'category' => $catSlug,
+                'label' => $item->category ?: 'Info Korporat',
+                'title' => $item->title,
+                'slug' => $item->slug,
+                'desc' => \Illuminate\Support\Str::limit(strip_tags($item->excerpt ?: $item->content), 150),
+                'img' => $img,
+                'url' => $item->url,
+            ];
+        })),
         get filteredNews() {
             let result = this.newsData;
             
@@ -343,7 +350,7 @@
                             </div>
                             
                             {{-- Pseudo full link --}}
-                            <a href="{{ url('/berita/detail') }}" wire:navigate class="absolute inset-0" :aria-label="'Baca selengkapnya: ' + news.title"></a>
+                            <a :href="'/berita/' + news.slug" wire:navigate class="absolute inset-0" :aria-label="'Baca selengkapnya: ' + news.title"></a>
                         </div>
 
                     </article>

@@ -69,13 +69,9 @@
                     {{-- Glow Corner --}}
                     <div class="absolute -top-20 -right-20 w-60 h-60 bg-red-500/5 rounded-full blur-3xl pointer-events-none"></div>
                     
-                    {{-- Placeholder area for org chart image --}}
-                    <div class="w-full min-h-[400px] md:min-h-[500px] lg:min-h-[600px] bg-slate-50 rounded-3xl border-2 border-dashed border-slate-200 flex flex-col items-center justify-center text-slate-400 relative overflow-hidden hover:bg-slate-100/50 hover:border-slate-300 transition-all duration-300">
-                        <svg class="w-20 h-20 mb-4 text-slate-300 group-hover:text-slate-400 group-hover:scale-110 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                        </svg>
-                        <span class="font-bold tracking-widest uppercase text-sm text-slate-400">Tempat Gambar</span>
-                        <span class="text-xs mt-1 font-medium text-slate-400">(Bagan Struktur Organisasi)</span>
+                    {{-- Original Image for org chart --}}
+                    <div class="w-full bg-slate-50 rounded-3xl border-2 border-slate-100 flex items-center justify-center relative overflow-hidden p-2 hover:border-slate-300 transition-all duration-500">
+                        <img src="{{ asset('images/struktur organisasi.webp') }}" alt="Bagan Struktur Organisasi MGRM" class="w-full h-auto object-contain rounded-2xl group-hover:scale-[1.02] transition-transform duration-700">
                     </div>
                 </div>
             </div>
@@ -115,19 +111,14 @@
                  class="transition-all duration-700 ease-out delay-200">
 
                 @foreach([
-                    ['name' => 'Elin Sumarlinah, S.Sos., M.Si', 'position' => 'Direktur', 'role' => 'PT. MGRM (Perseroda)'],
-                    ['name' => 'Alfian Wanjah Amiruji', 'position' => 'Komisaris', 'role' => 'PT. MGRM (Perseroda)'],
+                    ['name' => 'Elin Sumarlinah, S.Sos., M.Si', 'position' => 'Direktur', 'role' => 'PT. MGRM (Perseroda)', 'img' => 'Efri.webp'],
+                    ['name' => 'Alfian Wanjah Amiruji', 'position' => 'Komisaris', 'role' => 'PT. MGRM (Perseroda)', 'img' => 'Alfianoor.webp'],
                 ] as $i => $person)
                 <div class="group bg-white rounded-3xl p-8 text-center shadow-[0_10px_40px_rgba(0,0,0,0.04)] border border-slate-100 hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] hover:-translate-y-2 transition-all duration-500 active:scale-[0.98]">
                     
-                    {{-- Photo Placeholder --}}
+                    {{-- Photo Frame --}}
                     <div class="w-36 h-36 mx-auto mb-6 rounded-full bg-slate-100 border-4 border-white shadow-lg overflow-hidden relative flex items-center justify-center group-hover:shadow-xl group-hover:shadow-red-500/10 transition-all duration-500">
-                        <svg class="w-16 h-16 text-slate-300 group-hover:text-slate-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
-                        </svg>
-                        {{-- Ganti SVG di atas dengan tag <img> saat foto sudah tersedia:
-                        <img src="{{ asset('images/foto-nama.webp') }}" alt="{{ $person['name'] }}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                        --}}
+                        <img src="{{ asset('images/' . $person['img']) }}" alt="{{ $person['name'] }}" class="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-500">
                     </div>
 
                     {{-- Info --}}

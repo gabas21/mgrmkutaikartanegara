@@ -1,5 +1,5 @@
 <x-layouts.app>
-    <x-slot:title>Kunjungan Strategis SKK Migas Kalsul | PT. Mahakam Gerbang Raja Migas</x-slot:title>
+    <x-slot:title>{{ $berita->title }} | PT. Mahakam Gerbang Raja Migas</x-slot:title>
 
     {{-- ═══════════════════════════════════════════════
          ARTICLE HERO SECTION (Soft Light Version)
@@ -37,18 +37,18 @@
             {{-- Category Pill --}}
             <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-red-100 border border-red-200 mb-6">
                 <span class="flex h-2 w-2 rounded-full bg-red-600"></span>
-                <span class="text-red-700 font-bold tracking-widest text-[11px] uppercase">Berita Utama</span>
+                <span class="text-red-700 font-bold tracking-widest text-[11px] uppercase">{{ $berita->category ?? 'Info Korporat' }}</span>
             </div>
             
             <h1 class="text-3xl md:text-5xl lg:text-[52px] font-black text-slate-900 leading-[1.15] mb-8 tracking-tight">
-                Kunjungan Strategis SKK Migas Kalsul ke Fasilitas MGRM
+                {{ $berita->title }}
             </h1>
             
             {{-- Article Meta info --}}
             <div class="flex flex-wrap items-center justify-center gap-y-4 gap-x-6 text-sm font-semibold text-slate-500">
                 <div class="flex items-center gap-2 bg-slate-50 px-4 py-2 rounded-full border border-slate-100">
                     <svg class="w-4 h-4 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-                    24 Agustus 2024
+                    {{ $berita->published_at ? $berita->published_at->translatedFormat('d F Y') : '' }}
                 </div>
                 <div class="flex items-center gap-2 bg-slate-50 px-4 py-2 rounded-full border border-slate-100">
                     <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
@@ -74,7 +74,7 @@
                  x-data="{ show: false }" x-intersect.once="show = true"
                  :class="show ? 'opacity-100 scale-100' : 'opacity-0 scale-95'"
                  class="transition-all duration-700 ease-out delay-200">
-                <img src="{{ asset('images/WhatsApp-Image-2023-07-25-at-11.11.33.webp') }}" alt="Kunjungan SKK Migas" class="w-full h-full object-cover">
+                <img src="{{ $berita->featured_image_path ? asset('storage/' . $berita->featured_image_path) : asset('images/WhatsApp-Image-2023-07-25-at-11.11.33.webp') }}" alt="{{ $berita->title }}" class="w-full h-full object-cover">
             </div>
 
             {{-- Typography Post Content (Prose Wrapper) --}}
@@ -83,41 +83,7 @@
                      :class="show ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'"
                      class="transition-all duration-700 ease-out delay-300 relative z-10">
                 
-                <p class="lead text-xl text-slate-700 font-bold">
-                    TENGGARONG – Dalam rangka memperkuat sinergi operasional dan manajemen hulu migas di wilayah Kalimantan Timur, Satuan Kerja Khusus Pelaksana Kegiatan Usaha Hulu Minyak dan Gas Bumi (SKK Migas) perwakilan Kalimantan Sulawesi (Kalsul) melakukan kunjungan kerja komprehensif ke area proyek PT. Mahakam Gerbang Raja Migas (Perseroda).
-                </p>
-
-                <p>
-                    Kunjungan strategis yang berlangsung pada Kamis (24/8) ini dihadiri langsung oleh Kepala Perwakilan SKK Migas Kalsul beserta jajaran pimpinan yang disambut dengan antusias oleh jajaran Direksi PT MGRM. Momentum ini menjadi wadah penting untuk mendiskusikan berbagai perkembangan terkait hak partisipasi (<a href="#">Participating Interest / PI 10%</a>) di Blok Mahakam dan area operasi lainnya di sekitar wilayah Kutai Kartanegara.
-                </p>
-
-                <h2>Sinergi Hulu Hilir Migas</h2>
-                
-                <p>
-                    Direktur Utama PT. MGRM menyampaikan pentingnya kolaborasi antara pemerintah daerah melalui BUMD dan pihak regulator pusat demi memastikan kelancaran operasional.
-                </p>
-                
-                <blockquote class="border-l-4 border-red-500 bg-red-50/50 p-6 rounded-r-2xl italic font-semibold text-slate-700">
-                    "Kami sangat mengapresiasi dukungan berkelanjutan dari SKK Migas Kalsul. Kunjungan ini menegaskan bahwa langkah PT. MGRM dalam mengelola Participating Interest 10% dikerjakan dengan penuh tanggung jawab, transparan, dan sesuai dengan standar tata kelola korporat yang baik (Good Corporate Governance)."
-                </blockquote>
-
-                <p>
-                    Pihak SKK Migas Kalsul meninjau langsung kesiapan infrastruktur pendukung, kelengkapan aspek K3LL (Keselamatan, Kesehatan Kerja, dan Lindung Lingkungan), hingga progress realisasi proyek yang sedang dikelola oleh mitra kontraktor maupun operasional mandiri perusahaan. 
-                </p>
-
-                <div class="grid grid-cols-2 gap-6 my-10">
-                    <img src="{{ asset('images/vendor2webp.webp') }}" alt="Kegiatan Diskusi" class="w-full h-auto mt-0 mb-0 object-cover aspect-[4/3]">
-                    <img src="{{ asset('images/kontrakto1.webp') }}" alt="Tinjauan Lokasi" class="w-full h-auto mt-0 mb-0 object-cover aspect-[4/3]">
-                </div>
-
-                <h2>Harapan dan Tindak Lanjut</h2>
-
-                <p>
-                    Kedepannya, PT MGRM akan terus memperkuat kapasitasnya baik dalam hal penyediaan layanan energi, distribusi BBM (transportir), maupun pengelolaan infrastruktur migas agar semakin andal. Integrasi dan kelancaran komunikasi antar stakeholder menjadi harga mati dalam menggerakkan ekosistem perekonomian Kabupaten Kutai Kartanegara.
-                </p>
-                <p>
-                    Pertemuan ditutup dengan pertukaran cinderamata dan kesepakatan untuk melaksanakan pembinaan rutin dari otoritas regulator kepada BUMD demi mewujudkan tata kelola energi lokal yang mandiri dan berdaya saing global.
-                </p>
+                {!! $berita->content !!}
             </article>
 
             {{-- Tags & Share Component --}}

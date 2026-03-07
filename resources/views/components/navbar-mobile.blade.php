@@ -7,7 +7,7 @@
         openSheet(name) { this.activeSheet = this.activeSheet === name ? null : name },
         closeSheet() { this.activeSheet = null }
     }"
-    class="lg:hidden fixed bottom-0 inset-x-0 z-50 rounded-t-3xl overflow-hidden"
+    class="lg:hidden fixed bottom-0 inset-x-0 z-50"
     role="navigation"
     aria-label="Navigasi Mobile"
 >
@@ -94,7 +94,7 @@
 
             {{-- Layanan (FAB/Center) --}}
             <a href="{{ url('/layanan') }}" wire:navigate
-               class="flex flex-col items-center justify-center -mt-7 relative group active:scale-95 transition-transform"
+               class="flex flex-col items-center justify-center -translate-y-6 relative group active:scale-95 transition-transform"
                aria-label="Layanan">
                 <div class="w-16 h-16 rounded-full bg-gradient-to-tr from-slate-900 to-slate-800 shadow-[0_8px_30px_rgba(220,38,38,0.3)] flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:-translate-y-1 group-hover:shadow-[0_15px_40px_rgba(220,38,38,0.5)] border border-slate-700">
                     <span class="absolute inset-0 rounded-full bg-red-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>

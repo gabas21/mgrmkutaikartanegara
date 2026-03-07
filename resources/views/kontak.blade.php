@@ -95,7 +95,7 @@
                      class="transition-all duration-700 ease-out delay-100">
                     
                     <div class="relative aspect-[4/5] rounded-[2.5rem] overflow-hidden shadow-2xl border-[12px] border-white group">
-                        <img src="{{ asset('images/team-placeholder.webp') }}" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out" onerror="this.src='https://placehold.co/600x800/e2e8f0/0f172a?text=Tim+Pemasaran'">
+                        <img src="{{ asset('images/vendor2webp.webp') }}" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out" onerror="this.src='https://placehold.co/600x800/e2e8f0/0f172a?text=Tim+Pemasaran'">
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent"></div>
                         
                         <div class="absolute bottom-8 left-8 right-8">

@@ -908,8 +908,8 @@
 
                 @php
                 $pimpinan = [
-                    ['nama' => 'Efri Novianto',  'jabatan' => 'Direktur',   'foto' => 'direktur.svg',  'color' => 'red'],
-                    ['nama' => 'Alfian Noor',    'jabatan' => 'Komisaris',  'foto' => '',              'color' => 'slate'],
+                    ['nama' => 'Efri Novianto',  'jabatan' => 'Direktur',   'foto' => 'images/Efri.webp',  'color' => 'red'],
+                    ['nama' => 'Alfian Noor',    'jabatan' => 'Komisaris',  'foto' => 'images/Alfianoor.webp',              'color' => 'slate'],
                 ];
                 @endphp
 
@@ -969,9 +969,9 @@
 
                 @php
                 $managers = [
-                    ['nama' => 'Denny Dharmawan', 'jabatan' => 'Manager SDM & SJB',              'color' => 'slate'],
-                    ['nama' => 'Marsuki',          'jabatan' => 'Manager Keuangan',               'color' => 'red'],
-                    ['nama' => 'Syamsudi Sese',    'jabatan' => 'Manager Operasional, RISET & Pengembangan Bisnis', 'color' => 'slate'],
+                    ['nama' => 'Denny Dharmawan', 'jabatan' => 'Manager SDM & SJB',              'color' => 'slate', 'foto' => ''],
+                    ['nama' => 'Marsuki',          'jabatan' => 'Manager Keuangan',               'color' => 'red',   'foto' => ''],
+                    ['nama' => 'Syamsudi Sese',    'jabatan' => 'Manager Operasional, RISET & Pengembangan Bisnis', 'color' => 'slate', 'foto' => ''],
                 ];
                 @endphp
 
@@ -990,15 +990,21 @@
                         <div class="absolute -inset-1 {{ $m['color'] === 'red' ? 'bg-red-600' : 'bg-slate-900' }} rounded-3xl translate-x-2 translate-y-2 transition-transform group-hover:translate-x-1 group-hover:translate-y-1 duration-300"></div>
 
                         <div class="relative z-10 bg-white border border-slate-200 rounded-3xl overflow-hidden shadow-md">
-                            {{-- Avatar placeholder --}}
+                            {{-- Avatar --}}
                             <div class="h-52 bg-slate-100 overflow-hidden flex items-center justify-center">
-                                <svg viewBox="0 0 200 200" class="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <rect width="200" height="200" fill="#f1f5f9"/>
-                                    <circle cx="100" cy="75" r="40" fill="#cbd5e1"/>
-                                    <ellipse cx="100" cy="200" rx="80" ry="80" fill="#cbd5e1"/>
-                                    <circle cx="100" cy="75" r="33" fill="#e2e8f0"/>
-                                    <ellipse cx="100" cy="70" rx="15" ry="16" fill="#94a3b8"/>
-                                </svg>
+                                @if($m['foto'])
+                                    <img src="{{ asset($m['foto']) }}"
+                                         alt="{{ $m['nama'] }}"
+                                         class="w-full h-full object-cover object-top">
+                                @else
+                                    <svg viewBox="0 0 200 200" class="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect width="200" height="200" fill="#f1f5f9"/>
+                                        <circle cx="100" cy="75" r="40" fill="#cbd5e1"/>
+                                        <ellipse cx="100" cy="200" rx="80" ry="80" fill="#cbd5e1"/>
+                                        <circle cx="100" cy="75" r="33" fill="#e2e8f0"/>
+                                        <ellipse cx="100" cy="70" rx="15" ry="16" fill="#94a3b8"/>
+                                    </svg>
+                                @endif
                             </div>
 
                             {{-- Nama & jabatan --}}
