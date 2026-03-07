@@ -174,10 +174,20 @@
                 offsetX = touch.clientX - widget.getBoundingClientRect().left;
                 offsetY = touch.clientY - widget.getBoundingClientRect().top;
                 widget.style.transition = 'none';
-            }, { passive: true });
+                
+                // Prevent default to stop scrolling if the touch starts on the widget
+                if (e.cancelable) {
+                    e.preventDefault();
+                }
+            }, { passive: false });
 
             document.addEventListener('touchmove', function(e) {
                 if (!isDragging) return;
+                
+                // Prevent background scrolling while dragging
+                if (e.cancelable) {
+                    e.preventDefault();
+                }
                 
                 const touch = e.touches[0];
                 const x = touch.clientX - offsetX;
