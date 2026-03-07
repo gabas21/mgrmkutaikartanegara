@@ -1,4 +1,4 @@
-<x-layouts.app>
+﻿<x-layouts.app>
     <x-slot:title>Kontak Kami | PT. Mahakam Gerbang Raja Migas</x-slot:title>
 
     {{-- ═══════════════════════════════════════════════
@@ -40,29 +40,29 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
                 {{-- Phone Card --}}
-                <div class="bg-white rounded-[2rem] p-8 flex flex-col items-center text-center shadow-[0_15px_50px_rgba(0,0,0,0.06)] border border-slate-100 hover:border-red-100 hover:-translate-y-2 transition-all duration-300 ring-1 ring-slate-900/5 group">
-                    <div class="w-16 h-16 rounded-[1.25rem] bg-red-50 text-red-600 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-red-600 group-hover:text-white transition-all duration-300">
+                <div class="bg-white rounded-[2rem] p-8 flex flex-col items-center text-center shadow-[0_15px_50px_rgba(0,0,0,0.06)] border border-slate-100 hover:border-red-100 hover:-translate-y-2 active:scale-95 touch-manipulation transition-all duration-300 ring-1 ring-slate-900/5 group cursor-default">
+                    <div class="w-16 h-16 rounded-[1.25rem] bg-red-50 text-red-600 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-red-600 group-hover:text-white group-active:scale-90 transition-all duration-300">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
                     </div>
-                    <h3 class="text-xl font-black text-slate-800 mb-2">Telepon Pusat</h3>
+                    <h3 class="text-xl font-black text-slate-800 mb-2 group-hover:text-red-600 transition-colors">Telepon Pusat</h3>
                     <p class="text-slate-500 font-medium">(0541) 6666324</p>
                 </div>
 
                 {{-- Email Card --}}
-                <div class="bg-white rounded-[2rem] p-8 flex flex-col items-center text-center shadow-[0_15px_50px_rgba(0,0,0,0.06)] border border-slate-100 hover:border-red-100 hover:-translate-y-2 transition-all duration-300 ring-1 ring-slate-900/5 group xl:scale-105 relative overflow-hidden">
-                    <div class="w-16 h-16 rounded-[1.25rem] bg-slate-900 text-white flex items-center justify-center mb-6 shadow-xl shadow-slate-900/20 group-hover:scale-110 group-hover:bg-red-600 transition-all duration-300">
+                <div class="bg-white rounded-[2rem] p-8 flex flex-col items-center text-center shadow-[0_15px_50px_rgba(0,0,0,0.06)] border border-slate-100 hover:border-red-100 hover:-translate-y-2 active:scale-95 touch-manipulation transition-all duration-300 ring-1 ring-slate-900/5 group xl:scale-105 relative overflow-hidden cursor-default">
+                    <div class="w-16 h-16 rounded-[1.25rem] bg-slate-900 text-white flex items-center justify-center mb-6 shadow-xl shadow-slate-900/20 group-hover:scale-110 group-hover:bg-red-600 group-active:scale-90 transition-all duration-300">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
                     </div>
-                    <h3 class="text-xl font-black text-slate-800 mb-2">Email Resmi</h3>
-                    <p class="text-slate-500 font-medium">mgrm.pt@gmail.com</p>
+                    <h3 class="text-xl font-black text-slate-800 mb-2 group-hover:text-red-600 transition-colors">Email Resmi</h3>
+                    <p class="text-slate-500 font-medium relative z-10">mgrm.pt@gmail.com</p>
                 </div>
 
                 {{-- Address Card --}}
-                <div class="bg-white rounded-[2rem] p-8 flex flex-col items-center text-center shadow-[0_15px_50px_rgba(0,0,0,0.06)] border border-slate-100 hover:border-red-100 hover:-translate-y-2 transition-all duration-300 ring-1 ring-slate-900/5 group">
-                    <div class="w-16 h-16 rounded-[1.25rem] bg-red-50 text-red-600 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-red-600 group-hover:text-white transition-all duration-300">
+                <div class="bg-white rounded-[2rem] p-8 flex flex-col items-center text-center shadow-[0_15px_50px_rgba(0,0,0,0.06)] border border-slate-100 hover:border-red-100 hover:-translate-y-2 active:scale-95 touch-manipulation transition-all duration-300 ring-1 ring-slate-900/5 group cursor-default">
+                    <div class="w-16 h-16 rounded-[1.25rem] bg-red-50 text-red-600 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-red-600 group-hover:text-white group-active:scale-90 transition-all duration-300">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
                     </div>
-                    <h3 class="text-xl font-black text-slate-800 mb-2">Alamat Kantor</h3>
+                    <h3 class="text-xl font-black text-slate-800 mb-2 group-hover:text-red-600 transition-colors">Alamat Kantor</h3>
                     <p class="text-slate-500 font-medium text-sm leading-relaxed">
                         Jl. Lais No.77 RT.7, Timbau, Kec. Tenggarong, Kabupaten Kutai Kartanegara, Kalimantan Timur 75513
                     </p>
@@ -192,10 +192,10 @@
                                 </p>
                                 <button type="submit" 
                                         :disabled="isSubmitting"
-                                        class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full transition-all duration-300 shadow-lg shadow-blue-500/30 flex items-center justify-center gap-2 group disabled:opacity-70 disabled:cursor-not-allowed">
+                                        class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full active:scale-95 touch-manipulation transition-all duration-300 shadow-lg shadow-blue-500/30 flex items-center justify-center gap-2 group disabled:opacity-70 disabled:cursor-not-allowed">
                                     
                                     <span x-show="!isSubmitting">Kirim</span>
-                                    <svg x-show="!isSubmitting" class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 5l7 7-7 7"/></svg>
+                                    <svg x-show="!isSubmitting" class="w-4 h-4 group-hover:translate-x-1 group-active:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 5l7 7-7 7"/></svg>
 
                                     {{-- Loading Spinner --}}
                                     <svg x-show="isSubmitting" style="display: none;" class="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">

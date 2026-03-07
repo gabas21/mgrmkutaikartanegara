@@ -1,4 +1,4 @@
-<x-layouts.app>
+﻿<x-layouts.app>
     <x-slot:title>OKE GAS - Antrian Tabung LPG 3Kg | PT. Mahakam Gerbang Raja Migas</x-slot:title>
 
     {{-- ═══════════════════════════════════════════════
@@ -34,7 +34,7 @@
                 Sistem antrian digital untuk pembelian tabung gas LPG 3Kg bersubsidi. Mudah, cepat, dan transparan untuk masyarakat Kutai Kartanegara.
             </p>
 
-            <a href="#panduan" class="inline-flex flex-col items-center gap-2 text-slate-500 hover:text-emerald-400 transition-colors group">
+            <a href="#panduan" class="inline-flex flex-col items-center gap-2 text-slate-500 hover:text-emerald-400 active:scale-95 touch-manipulation transition-colors group">
                 <span class="text-xs font-bold uppercase tracking-widest">Baca Panduan Dulu</span>
                 <svg class="w-5 h-5 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
             </a>
@@ -79,10 +79,10 @@
                     ['step' => '02', 'icon' => 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z', 'title' => 'Verifikasi Data', 'desc' => 'Sistem akan otomatis memverifikasi NIK Anda untuk memastikan kelayakan sebagai penerima gas subsidi.'],
                     ['step' => '03', 'icon' => 'M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z', 'title' => 'Dapatkan Nomor Antrian', 'desc' => 'Nomor antrian digital akan langsung muncul di layar. Simpan dan tunjukkan saat pengambilan tabung di agen.'],
                 ] as $item)
-                <div class="group bg-white rounded-3xl p-8 shadow-[0_10px_40px_rgba(0,0,0,0.04)] border border-slate-100 hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] hover:-translate-y-2 transition-all duration-500 active:scale-[0.98] text-center relative">
+                <div class="group bg-white rounded-3xl p-8 shadow-[0_10px_40px_rgba(0,0,0,0.04)] border border-slate-100 hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] hover:-translate-y-2 active:scale-95 touch-manipulation transition-all duration-500 text-center relative cursor-default">
                     <div class="absolute top-5 right-6 text-6xl font-black text-slate-100 group-hover:text-emerald-50 transition-colors select-none pointer-events-none">{{ $item['step'] }}</div>
                     
-                    <div class="w-16 h-16 mx-auto mb-6 rounded-2xl bg-emerald-50 flex items-center justify-center group-hover:bg-emerald-500 group-hover:shadow-lg group-hover:shadow-emerald-500/20 transition-all duration-300">
+                    <div class="w-16 h-16 mx-auto mb-6 rounded-2xl bg-emerald-50 flex items-center justify-center group-hover:bg-emerald-500 group-hover:shadow-lg group-hover:shadow-emerald-500/20 group-active:scale-90 transition-all duration-300">
                         <svg class="w-7 h-7 text-emerald-600 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="{{ $item['icon'] }}"/></svg>
                     </div>
                     
@@ -129,7 +129,7 @@
                  :class="visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'"
                  class="transition-all duration-700 ease-out delay-[400ms]">
                 <a href="#form-antrian"
-                   class="group inline-flex items-center gap-3 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 text-white font-black py-5 px-12 rounded-full uppercase tracking-wide text-lg transition-all duration-300 shadow-[0_8px_30px_rgba(16,185,129,0.3)] hover:shadow-[0_12px_40px_rgba(16,185,129,0.4)] hover:scale-105 active:scale-95">
+                   class="group inline-flex items-center gap-3 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 text-white font-black py-5 px-12 rounded-full uppercase tracking-wide text-lg transition-all duration-300 shadow-[0_8px_30px_rgba(16,185,129,0.3)] hover:shadow-[0_12px_40px_rgba(16,185,129,0.4)] hover:scale-105 active:scale-95 touch-manipulation">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"/></svg>
                     Mulai Ambil Antrian
                     <svg class="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
@@ -178,8 +178,8 @@
                             ['value' => '24/7', 'label' => 'Sistem Online'],
                             ['value' => '100%', 'label' => 'Terverifikasi'],
                         ] as $stat)
-                        <div class="bg-white/5 rounded-2xl p-4 border border-white/5 text-center hover:bg-white/10 transition-all duration-300 group active:scale-95">
-                            <p class="text-2xl font-black text-emerald-400 mb-1 group-hover:scale-110 transition-transform">{{ $stat['value'] }}</p>
+                        <div class="bg-white/5 rounded-2xl p-4 border border-white/5 text-center hover:bg-white/10 active:scale-95 touch-manipulation transition-all duration-300 group cursor-default">
+                            <p class="text-2xl font-black text-emerald-400 mb-1 group-hover:scale-110 group-active:scale-95 transition-transform">{{ $stat['value'] }}</p>
                             <p class="text-[10px] text-slate-500 font-bold uppercase tracking-widest">{{ $stat['label'] }}</p>
                         </div>
                         @endforeach
@@ -237,12 +237,12 @@
 
                                     <button @click="if(nik.length === 16) { loading = true; setTimeout(() => { loading = false; result = true; }, 1500); }"
                                             :disabled="nik.length !== 16"
-                                            :class="nik.length === 16 ? 'bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 shadow-lg shadow-emerald-500/25 hover:shadow-emerald-500/40 hover:scale-[1.02] cursor-pointer' : 'bg-slate-800 cursor-not-allowed opacity-50'"
-                                            class="w-full py-4 rounded-2xl text-white font-black text-lg uppercase tracking-wider transition-all duration-300 active:scale-95 flex items-center justify-center gap-3 relative overflow-hidden">
+                                            :class="nik.length === 16 ? 'bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 shadow-[0_8px_30px_rgba(16,185,129,0.3)] hover:shadow-[0_12px_40px_rgba(16,185,129,0.4)] hover:scale-[1.02] cursor-pointer' : 'bg-slate-800 cursor-not-allowed opacity-50'"
+                                            class="w-full py-4 rounded-2xl text-white font-black text-lg uppercase tracking-wider active:scale-95 touch-manipulation transition-all duration-300 flex items-center justify-center gap-3 relative overflow-hidden group">
                                         
                                         <template x-if="!loading">
                                             <span class="flex items-center gap-3">
-                                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                                                <svg class="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
                                                 Cek NIK
                                             </span>
                                         </template>
@@ -349,13 +349,13 @@
                                 {{-- Download & Back Buttons --}}
                                 <div class="space-y-3">
                                     <button @click="window.downloadTiket()"
-                                            class="w-full py-4 rounded-2xl bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 text-white font-black text-sm uppercase tracking-wider transition-all duration-300 shadow-lg shadow-emerald-500/25 hover:shadow-emerald-500/40 hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-3">
+                                            class="w-full py-4 rounded-2xl bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 text-white font-black text-sm uppercase tracking-wider transition-all duration-300 shadow-lg shadow-emerald-500/25 hover:shadow-emerald-500/40 hover:scale-[1.02] active:scale-95 touch-manipulation flex items-center justify-center gap-3">
                                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
                                         Download Tiket PDF
                                     </button>
 
                                     <button @click="result = false; nik = ''"
-                                            class="w-full py-3.5 rounded-2xl border border-white/10 text-white/70 hover:text-white hover:bg-white/5 font-bold text-sm uppercase tracking-wider transition-all duration-300 active:scale-95 flex items-center justify-center gap-2">
+                                            class="w-full py-3.5 rounded-2xl border border-white/10 text-white/70 hover:text-white hover:bg-white/5 font-bold text-sm uppercase tracking-wider transition-all duration-300 active:scale-95 touch-manipulation flex items-center justify-center gap-2">
                                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
                                         Cek NIK Lain
                                     </button>
@@ -384,9 +384,9 @@
                     <p class="text-slate-500 text-sm font-medium">Hubungi kami jika mengalami kendala dalam proses pendaftaran antrian.</p>
                 </div>
                 <a href="{{ url('/kontak') }}" wire:navigate
-                   class="group inline-flex items-center gap-3 bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-4 px-8 rounded-full uppercase tracking-wide transition-all duration-300 hover:shadow-[0_0_20px_rgba(16,185,129,0.4)] hover:scale-[1.02] active:scale-95 flex-shrink-0">
+                   class="group inline-flex items-center gap-3 bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-4 px-8 rounded-full uppercase tracking-wide transition-all duration-300 hover:shadow-[0_0_20px_rgba(16,185,129,0.4)] hover:scale-[1.02] active:scale-95 touch-manipulation flex-shrink-0">
                     Hubungi Kami
-                    <svg class="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg class="w-5 h-5 transition-transform group-hover:translate-x-1 group-active:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
                     </svg>
                 </a>

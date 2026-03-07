@@ -1,4 +1,4 @@
-<x-layouts.app>
+﻿<x-layouts.app>
     <x-slot:title>PT. Mahakam Gerbang Raja Migas | BUMD Kutai Kartanegara</x-slot:title>
 
     {{-- ═══════════════════════════════════════════════
@@ -46,7 +46,7 @@
                     <!-- CTA Buttons -->
                     <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-5 w-full sm:w-auto">
                         <!-- Primary CTA: Glow & Rounded-full -->
-                        <a href="#layanan" wire:navigate class="group relative flex items-center justify-center w-full sm:w-auto bg-red-600 text-white font-bold px-8 py-4 rounded-full overflow-hidden transition-all duration-300 hover:scale-105 active:scale-95 hover:shadow-[0_0_30px_rgba(220,38,38,0.4)]">
+                        <a href="#layanan" wire:navigate class="group relative flex items-center justify-center w-full sm:w-auto bg-red-600 text-white font-bold px-8 py-4 rounded-full overflow-hidden transition-all duration-300 hover:scale-105 active:scale-95 hover:shadow-[0_0_30px_rgba(220,38,38,0.4)] touch-manipulation">
                             <span class="absolute inset-0 bg-gradient-to-r from-red-500 to-red-600 opacity-0 group-hover:opacity-100 transition-opacity"></span>
                             <span class="relative z-10 flex items-center gap-2">
                                 Pelajari Bisnis Kami
@@ -55,7 +55,7 @@
                         </a>
                         
                         <!-- Secondary CTA: Glassmorphism Outline -->
-                        <a href="{{ url('/tentang/visi-misi') }}" wire:navigate class="flex items-center justify-center w-full sm:w-auto px-8 py-4 rounded-full text-white font-bold bg-white/5 border border-white/20 backdrop-blur-sm hover:bg-white/10 hover:border-white/40 transition-all duration-300 hover:scale-105 active:scale-95">
+                        <a href="{{ url('/tentang/visi-misi') }}" wire:navigate class="flex items-center justify-center w-full sm:w-auto px-8 py-4 rounded-full text-white font-bold bg-white/5 border border-white/20 backdrop-blur-sm hover:bg-white/10 hover:border-white/40 transition-all duration-300 hover:scale-105 active:scale-95 touch-manipulation">
                             Profil MGRM
                         </a>
                     </div>
@@ -111,35 +111,35 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 bg-white/10 backdrop-blur-2xl border border-white/10 shadow-[0_8px_40px_rgba(0,0,0,0.3)] rounded-3xl p-4 divide-y md:divide-y-0 md:divide-x divide-white/10">
                 
                 <!-- Stat Item 1 -->
-                <div class="flex items-center gap-6 p-6 group hover:-translate-y-1 active:scale-95 transition-all duration-300 cursor-default">
-                    <div class="w-16 h-16 flex items-center justify-center bg-gradient-to-br from-red-500 to-red-600 text-white rounded-2xl shadow-lg shrink-0 group-hover:shadow-red-500/40 transition-shadow">
+                <div class="flex items-center gap-6 p-6 group hover:-translate-y-2 active:scale-95 transition-all duration-500 cursor-default">
+                    <div class="w-16 h-16 flex items-center justify-center bg-gradient-to-br from-red-500 to-red-600 text-white rounded-2xl shadow-lg shrink-0 group-hover:shadow-red-500/40 group-hover:scale-110 group-active:scale-90 transition-all duration-500">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
                     </div>
                     <div>
-                        <h3 class="text-3xl font-black text-white leading-none mb-1 drop-shadow-md">PI 10%</h3>
-                        <p class="text-sm text-red-300 font-semibold uppercase tracking-wider">Blok Mahakam</p>
+                        <h3 class="text-3xl font-black text-white leading-none mb-1 drop-shadow-md group-hover:text-red-400 transition-colors">PI 10%</h3>
+                        <p class="text-sm text-red-300 font-semibold uppercase tracking-wider group-hover:text-red-200 transition-colors">Blok Mahakam</p>
                     </div>
                 </div>
 
                 <!-- Stat Item 2 -->
-                <div class="flex items-center gap-6 p-6 group hover:-translate-y-1 active:scale-95 transition-all duration-300 cursor-default">
-                    <div class="w-16 h-16 flex items-center justify-center bg-gradient-to-br from-slate-700 to-slate-800 border border-slate-600 text-white rounded-2xl shadow-lg shrink-0 group-hover:shadow-slate-600/40 transition-shadow">
+                <div class="flex items-center gap-6 p-6 group hover:-translate-y-2 active:scale-95 transition-all duration-500 cursor-default">
+                    <div class="w-16 h-16 flex items-center justify-center bg-gradient-to-br from-slate-700 to-slate-800 border border-slate-600 text-white rounded-2xl shadow-lg shrink-0 group-hover:shadow-slate-600/40 group-hover:scale-110 group-active:scale-90 transition-all duration-500">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M21 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6M10 3h4a2 2 0 012 2v2H8V5a2 2 0 012-2z"/></svg>
                     </div>
                     <div>
-                        <h3 class="text-3xl font-black text-white leading-none mb-1 drop-shadow-md">10+</h3>
-                        <p class="text-sm text-slate-300 font-semibold uppercase tracking-wider">Fokus Lini Bisnis</p>
+                        <h3 class="text-3xl font-black text-white leading-none mb-1 drop-shadow-md group-hover:text-slate-300 transition-colors">10+</h3>
+                        <p class="text-sm text-slate-300 font-semibold uppercase tracking-wider group-hover:text-slate-100 transition-colors">Fokus Lini Bisnis</p>
                     </div>
                 </div>
 
                 <!-- Stat Item 3 -->
-                <div class="flex items-center gap-6 p-6 group hover:-translate-y-1 active:scale-95 transition-all duration-300 cursor-default">
-                    <div class="w-16 h-16 flex items-center justify-center bg-gradient-to-br from-red-500 to-red-600 text-white rounded-2xl shadow-lg shrink-0 group-hover:shadow-red-500/40 transition-shadow">
+                <div class="flex items-center gap-6 p-6 group hover:-translate-y-2 active:scale-95 transition-all duration-500 cursor-default">
+                    <div class="w-16 h-16 flex items-center justify-center bg-gradient-to-br from-red-500 to-red-600 text-white rounded-2xl shadow-lg shrink-0 group-hover:shadow-red-500/40 group-hover:scale-110 group-active:scale-90 transition-all duration-500">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1v2H9V7zm0 4h1v2H9v-2zm0 4h1v2H9v-2zm3-8h1v2h-1V7zm0 4h1v2h-1v-2zm0 4h1v2h-1v-2zm3-8h1v2h-1V7zm0 4h1v2h-1v-2zm0 4h1v2h-1v-2z"/></svg>
                     </div>
                     <div>
-                        <h3 class="text-3xl font-black text-white leading-none mb-1 drop-shadow-md">BUMD</h3>
-                        <p class="text-sm text-red-300 font-semibold uppercase tracking-wider">Kutai Kartanegara</p>
+                        <h3 class="text-3xl font-black text-white leading-none mb-1 drop-shadow-md group-hover:text-red-400 transition-colors">BUMD</h3>
+                        <p class="text-sm text-red-300 font-semibold uppercase tracking-wider group-hover:text-red-200 transition-colors">Kutai Kartanegara</p>
                     </div>
                 </div>
 
@@ -201,14 +201,15 @@
                     <div class="absolute bottom-4 left-4 sm:bottom-6 sm:left-6">
                         <button
                             @click="muted = !muted"
-                            class="flex items-center gap-2 px-4 py-2 sm:px-5 sm:py-2.5 rounded-full bg-slate-900/80 backdrop-blur-md hover:bg-red-600 text-white text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-300 border border-white/10 hover:border-red-500 hover:shadow-[0_0_20px_rgba(220,38,38,0.5)] group"
+                            class="flex items-center gap-2 px-4 py-2 sm:px-5 sm:py-2.5 rounded-full bg-slate-900/80 backdrop-blur-md hover:bg-red-600 text-white text-xs sm:text-sm font-bold uppercase tracking-wider border border-white/10 hover:border-red-500 hover:shadow-[0_0_20px_rgba(220,38,38,0.5)] group active:scale-90 touch-manipulation transition-all duration-300"
+                           
                             :aria-label="muted ? 'Aktifkan suara' : 'Matikan suara'"
                         >
                             <template x-if="muted">
-                                <svg class="w-4 h-4 sm:w-5 sm:h-5 transition-transform group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/><path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2"/></svg>
+                                <svg class="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/><path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2"/></svg>
                             </template>
                             <template x-if="!muted">
-                                <svg class="w-4 h-4 sm:w-5 sm:h-5 transition-transform group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M15.536 8.464a5 5 0 010 7.072M12 6v12m0 0l-3-3m3 3l3-3M9 9H5a2 2 0 00-2 2v2a2 2 0 002 2h4l5 5V4L9 9z"/></svg>
+                                <svg class="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M15.536 8.464a5 5 0 010 7.072M12 6v12m0 0l-3-3m3 3l3-3M9 9H5a2 2 0 00-2 2v2a2 2 0 002 2h4l5 5V4L9 9z"/></svg>
                             </template>
                             <span x-text="muted ? 'Suara Off' : 'Suara On'"></span>
                         </button>
@@ -257,7 +258,7 @@
                             </svg>
                         </div>
                         <h4 class="text-xl lg:text-2xl font-black text-slate-900 uppercase tracking-wide mb-3">BLOK <span class="whitespace-nowrap">MAHAKAM</span></h4>
-                        <a href="https://www.google.com/maps/search/Blok+Mahakam+Kaltim" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 mb-5 bg-slate-50 hover:bg-red-50 text-slate-500 hover:text-red-600 border border-slate-100 hover:border-red-100 rounded-full text-[10px] font-bold uppercase tracking-wider transition-colors group-hover:bg-red-50 group-hover:text-red-600 group-hover:border-red-100">
+                        <a href="https://www.google.com/maps/search/Blok+Mahakam+Kaltim" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 mb-5 bg-slate-50 hover:bg-red-50 text-slate-500 hover:text-red-600 border border-slate-100 hover:border-red-100 rounded-full text-[10px] font-bold uppercase tracking-wider transition-all duration-300 group-hover:bg-red-50 group-hover:text-red-600 group-hover:border-red-100 active:scale-95 touch-manipulation">
                             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
                             <span>Lihat di Peta</span>
                         </a>
@@ -277,7 +278,7 @@
                             </svg>
                         </div>
                         <h4 class="text-xl lg:text-2xl font-black text-slate-900 uppercase tracking-wide mb-3">BLOK <span class="whitespace-nowrap">SANGA-SANGA</span></h4>
-                        <a href="https://www.google.com/maps/search/Sanga-Sanga+Kutai+Kartanegara" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 mb-5 bg-slate-50 hover:bg-slate-100 text-slate-500 hover:text-slate-700 border border-slate-100 hover:border-slate-200 rounded-full text-[10px] font-bold uppercase tracking-wider transition-colors group-hover:bg-slate-100 group-hover:text-slate-700 group-hover:border-slate-200">
+                        <a href="https://www.google.com/maps/search/Sanga-Sanga+Kutai+Kartanegara" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 mb-5 bg-slate-50 hover:bg-slate-100 text-slate-500 hover:text-slate-700 border border-slate-100 hover:border-slate-200 rounded-full text-[10px] font-bold uppercase tracking-wider transition-all duration-300 group-hover:bg-slate-100 group-hover:text-slate-700 group-hover:border-slate-200 active:scale-95 touch-manipulation">
                             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
                             <span>Lihat di Peta</span>
                         </a>
@@ -297,7 +298,7 @@
                             </svg>
                         </div>
                         <h4 class="text-xl lg:text-2xl font-black text-slate-900 uppercase tracking-wide mb-3">BLOK <span class="whitespace-nowrap">EASTKAL-ATTAKA</span></h4>
-                        <a href="https://www.google.com/maps/search/Attaka+Eastkal+Kaltim" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 mb-5 bg-slate-50 hover:bg-red-50 text-slate-500 hover:text-red-600 border border-slate-100 hover:border-red-100 rounded-full text-[10px] font-bold uppercase tracking-wider transition-colors group-hover:bg-red-50 group-hover:text-red-600 group-hover:border-red-100">
+                        <a href="https://www.google.com/maps/search/Attaka+Eastkal+Kaltim" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 mb-5 bg-slate-50 hover:bg-red-50 text-slate-500 hover:text-red-600 border border-slate-100 hover:border-red-100 rounded-full text-[10px] font-bold uppercase tracking-wider transition-all duration-300 group-hover:bg-red-50 group-hover:text-red-600 group-hover:border-red-100 active:scale-95 touch-manipulation">
                             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
                             <span>Lihat di Peta</span>
                         </a>
@@ -485,23 +486,23 @@
                 }
             }">
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 lg:gap-6">
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-5 lg:gap-6">
                     <template x-for="(svc, index) in services" :key="index">
                         <button @click="openModal(index)"
                             x-data="{ visible: false }"
                             x-intersect.once="visible = true"
                             :class="visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'"
                             :style="'transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease; transition-delay: ' + (index * 0.05) + 's'"
-                            class="group block relative bg-white border border-slate-100 p-6 flex flex-col items-start text-left rounded-3xl shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_40px_rgba(220,38,38,0.1)] hover:-translate-y-2 hover:border-red-100 active:scale-[0.98] transition-all duration-300 w-full h-full"
+                            class="group block relative bg-white border border-slate-100 p-4 sm:p-6 flex flex-col items-start text-left rounded-2xl sm:rounded-3xl shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_40px_rgba(220,38,38,0.1)] active:scale-95 touch-manipulation transition-all duration-300 w-full h-full"
                         >
                             {{-- Icon Container --}}
-                            <div class="w-14 h-14 bg-slate-50 text-slate-400 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-gradient-to-br group-hover:from-red-500 group-hover:to-red-600 group-hover:text-white group-hover:shadow-lg group-hover:shadow-red-500/30 transition-all duration-300 flex-shrink-0">
-                                <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true" x-html="svc.icon"></svg>
+                            <div class="w-10 h-10 sm:w-14 sm:h-14 bg-slate-50 text-slate-400 rounded-xl sm:rounded-2xl flex items-center justify-center mb-3 sm:mb-6 group-hover:bg-gradient-to-br group-hover:from-red-500 group-hover:to-red-600 group-hover:text-white group-hover:shadow-lg group-hover:shadow-red-500/30 transition-all duration-300 flex-shrink-0">
+                                <svg class="w-5 h-5 sm:w-7 sm:h-7" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true" x-html="svc.icon"></svg>
                             </div>
 
                             {{-- Content --}}
-                            <h3 class="text-[17px] font-black text-slate-800 mb-3 group-hover:text-red-600 transition-colors leading-snug" x-html="svc.title"></h3>
-                            <p class="text-[13px] text-slate-500 leading-relaxed font-medium mb-4 flex-grow" x-html="svc.desc"></p>
+                            <h3 class="text-[14px] sm:text-[17px] font-black text-slate-800 mb-2 sm:mb-3 group-hover:text-red-600 transition-colors leading-snug" x-html="svc.title"></h3>
+                            <p class="text-[11px] sm:text-[13px] text-slate-500 leading-relaxed font-medium mb-3 sm:mb-4 flex-grow" x-html="svc.desc"></p>
 
                             <div class="flex items-center gap-1.5 text-[11px] font-bold text-red-600 uppercase tracking-widest opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 mt-auto">
                                 Detail <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
@@ -599,7 +600,7 @@
                         </div>
                         
                         <a href="{{ url('/tentang/visi-misi') }}" wire:navigate 
-                           class="group inline-flex items-center justify-center gap-3 bg-red-600 hover:bg-red-500 text-white font-bold py-4 px-8 rounded-full uppercase tracking-wide transition-all duration-300 hover:shadow-[0_0_20px_rgba(220,38,38,0.4)] hover:scale-105 active:scale-95">
+                           class="group inline-flex items-center justify-center gap-3 bg-red-600 hover:bg-red-500 text-white font-bold py-4 px-8 rounded-full uppercase tracking-wide transition-all duration-300 hover:shadow-[0_0_20px_rgba(220,38,38,0.4)] hover:-translate-y-1 active:scale-95 touch-manipulation">
                             Pelajari Visi Kami
                             <svg class="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
@@ -689,7 +690,7 @@
                     </h2>
                 </div>
                 
-                <a href="{{ url('/berita') }}" wire:navigate class="inline-flex items-center gap-2 font-bold text-slate-700 bg-white border border-slate-200 hover:border-red-300 hover:text-red-600 px-6 py-3 rounded-full transition-all duration-300 hover:shadow-lg active:scale-95 group">
+                <a href="{{ url('/berita') }}" wire:navigate class="inline-flex items-center gap-2 font-bold text-slate-700 bg-white border border-slate-200 hover:border-red-300 hover:text-red-600 px-6 py-3 rounded-full transition-all duration-300 hover:shadow-lg hover:-translate-y-1 active:scale-95 touch-manipulation group">
                     Kunjungi Halaman Berita
                     <svg class="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
                 </a>
@@ -706,8 +707,8 @@
                 
                 <template x-for="(news, index) in newsData" :key="news.id">
                     {{-- Card --}}
-                    <a href="{{ url('/berita/detail') }}" wire:navigate class="group bg-white rounded-3xl overflow-hidden shadow-[0_10px_40px_rgba(0,0,0,0.04)] border border-slate-100 hover:shadow-[0_20px_40px_rgba(220,38,38,0.1)] hover:-translate-y-2 transition-all duration-500 flex flex-col h-full"
-                       :style="'transition-delay: ' + (index * 100) + 'ms'">
+                    <a href="{{ url('/berita/detail') }}" wire:navigate class="group bg-white rounded-3xl overflow-hidden shadow-[0_10px_40px_rgba(0,0,0,0.04)] border border-slate-100 hover:shadow-[0_20px_40px_rgba(220,38,38,0.1)] hover:-translate-y-2 active:scale-95 touch-manipulation transition-all duration-500 flex flex-col h-full"
+                       :style="'transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1); transition-delay: ' + (index * 100) + 'ms'">
                         
                         <div class="aspect-[16/10] relative overflow-hidden bg-slate-900">
                             <img :src="'/' + news.img" :alt="news.title" class="w-full h-full object-cover mix-blend-screen opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-transform duration-700"

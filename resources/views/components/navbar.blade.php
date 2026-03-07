@@ -38,7 +38,8 @@
                     </div>
                     
                     {{-- Logo Kukar --}}
-                    <div class="w-14 h-14 rounded-full bg-white flex items-center justify-center shadow-md p-1.5 transition-all duration-300 group-hover:shadow-blue-500/20 border border-slate-100 shrink-0">
+                    <div class="w-14 h-14 rounded-full bg-white flex items-center justify-center shadow-md p-1.5 transition-all duration-500 group-hover:shadow-blue-500/20 border border-slate-100 shrink-0"
+                         :class="scrolled ? 'max-w-0 opacity-0 ml-0 p-0 border-0 shadow-none invisible overflow-hidden' : 'max-w-[56px] opacity-100 ml-0'">
                         <img src="{{ asset('images/kabupaten-kukar-seeklogo.png') }}" alt="Logo Kab Kukar" class="w-full h-full object-contain">
                     </div>
 
@@ -48,6 +49,16 @@
                         <span class="block text-[10px] text-slate-500 font-bold uppercase tracking-widest mt-0.5">Kutai Kartanegara</span>
                     </div>
                 </a>
+            </div>
+
+            {{-- ── Center Text (Kedaulatan Energi Daerah) — Mobile Scrolled Only ── --}}
+            <div class="absolute left-1/2 -translate-x-1/2 flex lg:hidden items-center justify-center pointer-events-none transition-all duration-500 ease-out"
+                 :class="scrolled ? 'opacity-100 scale-100' : 'opacity-0 scale-90 translate-y-2 pointer-events-none'">
+                <div class="flex items-center gap-2 sm:gap-4">
+                    <span class="text-[10px] sm:text-xs font-black text-slate-900 tracking-[0.15em] uppercase whitespace-nowrap bg-gradient-to-r from-slate-900 via-slate-700 to-slate-900 bg-clip-text text-transparent">
+                        Kedaulatan Energi Daerah
+                    </span>
+                </div>
             </div>
 
             {{-- ── Desktop Nav Links ── --}}
@@ -138,7 +149,6 @@
                     </a>
                 </li>
 
-                {{-- Kontak --}}
                 <li>
                     <a href="{{ url('/kontak') }}" wire:navigate
                        :class="scrolled ? 'px-5 py-2 text-xs' : 'px-7 py-2.5 text-sm'"
@@ -146,8 +156,18 @@
                         Kontak
                     </a>
                 </li>
-
             </ul>
+
+            {{-- ── Logo Kukar Right (Only scrolled) ── --}}
+            <div x-show="scrolled"
+                 class="flex-shrink-0"
+                 x-transition:enter="transition ease-out duration-500"
+                 x-transition:enter-start="opacity-0 translate-x-10 scale-90"
+                 x-transition:enter-end="opacity-100 translate-x-0 scale-100">
+                <div class="w-14 h-14 rounded-full bg-white flex items-center justify-center shadow-md p-1.5 border border-slate-100 shrink-0">
+                    <img src="{{ asset('images/kabupaten-kukar-seeklogo.png') }}" alt="Logo Kab Kukar" class="w-full h-full object-contain">
+                </div>
+            </div>
         </div>
     </nav>
 </header>

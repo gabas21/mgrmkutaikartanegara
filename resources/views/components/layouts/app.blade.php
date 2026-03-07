@@ -13,7 +13,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @livewireStyles
-    /bagas keren
 </head>
 <body class="font-sans text-text-body bg-surface antialiased">
 
@@ -63,7 +62,7 @@
 
     <x-footer />
 
-    <x-navbar-mobile /> {{-- hanya tampil di mobile --}}
+    <x-mobile-navbar /> {{-- hanya tampil di mobile --}}
 
     @livewireScriptConfig
 
@@ -78,6 +77,136 @@
                 scrollProgress.style.width = progress + '%'
             }
         })
+    </script>
+
+    <!-- UserWay widget styling to avoid mobile navbar -->
+    <style>
+        .userway_buttons_wrapper, .uwy {
+            bottom: 100px !important;
+            cursor: grab !important;
+        }
+        @media (max-width: 768px) {
+            .userway_buttons_wrapper, .uwy {
+                bottom: 90px !important; /* Above mobile navbar */
+                right: 10px !important;
+                transform: scale(0.9) !important; /* Slightly smaller on mobile */
+                transform-origin: bottom right !important;
+            }
+        }
+    </style>
+    
+    <!-- UserWay widget -->
+    <script src="https://cdn.userway.org/widget.js" data-account="YOUR_ACCOUNT_ID_HERE"></script>
+    
+    <script>
+        // Function to make UserWay widget draggable (Reference: inspektoratmahulu.akkreatif.my.id)
+        function makeUserWayDraggable() {
+            // Try multiple possible selectors
+            const selectors = [
+                '.userway_buttons_wrapper',
+                '#userwayAccessibilityWidget',
+                '[data-uw-container]',
+                '.userway',
+                'div[class*="userway"]',
+                '.uwy'
+            ];
+            
+            let widget = null;
+            for (const sel of selectors) {
+                widget = document.querySelector(sel);
+                if (widget) break;
+            }
+
+            if (!widget) {
+                // Widget not loaded yet, retry (max 20 attempts)
+                if (typeof makeUserWayDraggable.attempts === 'undefined') {
+                    makeUserWayDraggable.attempts = 0;
+                }
+                if (makeUserWayDraggable.attempts < 20) {
+                    makeUserWayDraggable.attempts++;
+                    setTimeout(makeUserWayDraggable, 500);
+                }
+                return;
+            }
+
+            // Adjust UserWay widget styling
+            widget.style.position = 'fixed';
+            widget.style.zIndex = '999999';
+
+            let isDragging = false;
+            let offsetX, offsetY;
+
+            // Mouse events
+            widget.addEventListener('mousedown', function(e) {
+                isDragging = true;
+                offsetX = e.clientX - widget.getBoundingClientRect().left;
+                offsetY = e.clientY - widget.getBoundingClientRect().top;
+                widget.style.transition = 'none';
+            }, { passive: true });
+
+            document.addEventListener('mousemove', function(e) {
+                if (!isDragging) return;
+                
+                const x = e.clientX - offsetX;
+                const y = e.clientY - offsetY;
+                
+                // Keep within viewport
+                const maxX = window.innerWidth - widget.offsetWidth;
+                const maxY = window.innerHeight - widget.offsetHeight;
+
+                widget.style.left = Math.max(0, Math.min(x, maxX)) + 'px';
+                widget.style.top = Math.max(0, Math.min(y, maxY)) + 'px';
+                widget.style.right = 'auto';
+                widget.style.bottom = 'auto';
+            });
+
+            document.addEventListener('mouseup', function() {
+                if (isDragging) {
+                    isDragging = false;
+                    widget.style.cursor = 'grab';
+                }
+            });
+
+            // Touch events for mobile
+            widget.addEventListener('touchstart', function(e) {
+                isDragging = true;
+                const touch = e.touches[0];
+                offsetX = touch.clientX - widget.getBoundingClientRect().left;
+                offsetY = touch.clientY - widget.getBoundingClientRect().top;
+                widget.style.transition = 'none';
+            }, { passive: true });
+
+            document.addEventListener('touchmove', function(e) {
+                if (!isDragging) return;
+                
+                const touch = e.touches[0];
+                const x = touch.clientX - offsetX;
+                const y = touch.clientY - offsetY;
+                
+                // Keep within viewport
+                const maxX = window.innerWidth - widget.offsetWidth;
+                const maxY = window.innerHeight - widget.offsetHeight;
+
+                widget.style.left = Math.max(0, Math.min(x, maxX)) + 'px';
+                widget.style.top = Math.max(0, Math.min(y, maxY)) + 'px';
+                widget.style.right = 'auto';
+                widget.style.bottom = 'auto';
+            }, { passive: false });
+
+            document.addEventListener('touchend', function() {
+                isDragging = false;
+            });
+
+            // Set initial cursor
+            widget.style.cursor = 'grab';
+        }
+
+        // Start after page fully loaded
+        if (document.readyState === 'complete') {
+            setTimeout(makeUserWayDraggable, 1500);
+        } else {
+            window.addEventListener('load', () => setTimeout(makeUserWayDraggable, 1500));
+        }
     </script>
 </body>
 </html>

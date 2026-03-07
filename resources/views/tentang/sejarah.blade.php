@@ -1,4 +1,4 @@
-<x-layouts.app>
+﻿<x-layouts.app>
     <x-slot:title>Sejarah Perusahaan — PT. Mahakam Gerbang Raja Migas</x-slot:title>
 
     {{-- ═══════════════════════════════════════════════
@@ -80,21 +80,21 @@
                     :class="visible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'"
                     class="transition-all duration-1000 ease-out order-2 lg:order-1 relative"
                 >
-                    <div class="relative w-full max-w-sm mx-auto lg:mr-auto rounded-[3rem] bg-white border border-slate-100 shadow-[0_20px_40px_rgba(0,0,0,0.06)] p-12 aspect-square flex flex-col items-center justify-center group hover:-translate-y-2 transition-transform duration-500">
+                    <div class="relative w-full max-w-sm mx-auto lg:mr-auto rounded-[3rem] bg-white border border-slate-100 shadow-[0_20px_40px_rgba(0,0,0,0.06)] p-12 aspect-square flex flex-col items-center justify-center group hover:-translate-y-2 active:scale-95 touch-manipulation transition-all duration-500 cursor-default">
                         {{-- Glow Belakang Box --}}
                         <div class="absolute -z-10 -inset-4 bg-gradient-to-br from-amber-500/20 to-red-600/10 rounded-[3.5rem] blur-2xl group-hover:blur-3xl transition-all duration-500 opacity-50"></div>
                         
                         {{-- Ikon Palu Sidang (Dummy/Placeholder) --}}
                         <div class="w-32 h-32 mb-8 relative">
                             <div class="absolute inset-0 bg-yellow-500/20 rounded-full animate-ping opacity-50"></div>
-                            <div class="relative z-10 w-full h-full bg-gradient-to-br from-amber-400 to-amber-600 rounded-full flex items-center justify-center p-6 shadow-lg shadow-amber-500/30">
+                            <div class="relative z-10 w-full h-full bg-gradient-to-br from-amber-400 to-amber-600 rounded-full flex items-center justify-center p-6 shadow-lg shadow-amber-500/30 group-active:scale-90 transition-transform duration-500">
                                 <svg class="w-full h-full text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
                                 </svg>
                             </div>
                         </div>
 
-                        <h3 class="text-3xl font-black text-slate-900 tracking-tight text-center uppercase">Dasar<br>Hukum</h3>
+                        <h3 class="text-3xl font-black text-slate-900 tracking-tight text-center uppercase transition-colors group-hover:text-red-600">Dasar<br>Hukum</h3>
                     </div>
                 </div>
 
@@ -163,8 +163,8 @@
                     
                     {{-- Icon Visual Kiri --}}
                     <div class="lg:col-span-3 flex items-start justify-center lg:justify-start lg:pt-4">
-                        <div class="w-full max-w-[200px] aspect-square rounded-[2rem] bg-white border border-slate-100 flex flex-col items-center justify-center p-6 shadow-[0_20px_40px_rgba(0,0,0,0.15)] group hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.25)] transition-all duration-300 cursor-default relative overflow-hidden">
-                            <div class="w-24 h-24 bg-blue-50/50 rounded-full flex items-center justify-center mb-4 ring-8 ring-blue-50 group-hover:ring-red-50 transition-all">
+                        <div class="w-full max-w-[200px] aspect-square rounded-[2rem] bg-white border border-slate-100 flex flex-col items-center justify-center p-6 shadow-[0_20px_40px_rgba(0,0,0,0.15)] group hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.25)] active:scale-95 touch-manipulation transition-all duration-300 cursor-default relative overflow-hidden">
+                            <div class="w-24 h-24 bg-blue-50/50 rounded-full flex items-center justify-center mb-4 ring-8 ring-blue-50 group-hover:ring-red-50 group-active:scale-90 transition-all duration-300">
                                 <svg class="w-12 h-12 text-blue-900 group-hover:text-red-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9.5a2.5 2.5 0 00-2.5-2.5H15M9 11l3 3L22 4"/>
                                 </svg>
@@ -195,12 +195,12 @@
                             @endphp
 
                             @foreach($legalList as $list)
-                            <li class="flex items-start gap-4 group">
+                            <li class="flex items-start gap-4 group active:scale-95 touch-manipulation transition-transform duration-300 cursor-default">
                                 <span class="w-6 h-6 shrink-0 mt-0.5 rounded-full bg-slate-800/50 border border-slate-700 flex items-center justify-center group-hover:bg-red-500 group-hover:border-red-500 transition-all duration-300">
                                     <svg class="w-3.5 h-3.5 text-slate-400 group-hover:text-white" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg>
                                 </span>
                                 <span class="text-slate-300 leading-snug text-sm group-hover:text-white transition-colors">
-                                    {!! str_replace('PT. Mahakam Gerbang Raja Migas', '<strong class="text-white font-medium">PT. Mahakam Gerbang Raja Migas</strong>', $list) !!}
+                                    {!! str_replace('PT. Mahakam Gerbang Raja Migas', '<strong class="text-white font-medium group-hover:text-red-400 transition-colors">PT. Mahakam Gerbang Raja Migas</strong>', $list) !!}
                                 </span>
                             </li>
                             @endforeach

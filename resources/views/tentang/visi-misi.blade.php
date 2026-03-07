@@ -1,4 +1,4 @@
-<x-layouts.app>
+﻿<x-layouts.app>
     <x-slot:title>Profil Perusahaan — PT. Mahakam Gerbang Raja Migas</x-slot:title>
 
     {{-- ═══════════════════════════════════════════════
@@ -116,7 +116,7 @@
                         <div class="relative z-10 rounded-[2rem] overflow-hidden shadow-xl bg-slate-100">
                             <img src="{{ asset('images/IMG-20230103-WA0022-768x436-1.webp') }}"
                                  alt="Tentang PT. MGRM"
-                                 class="w-full h-[420px] object-cover transition-transform duration-700 group-hover:scale-105"
+                                 class="w-full h-64 sm:h-[420px] object-contain sm:object-cover p-4 sm:p-0 transition-transform duration-700 group-hover:scale-105"
                                  onerror="this.outerHTML='<div class=\'w-full h-[420px] bg-slate-100 flex flex-col items-center justify-center border border-slate-200\'><svg class=\'w-16 h-16 text-slate-300 mb-4\' fill=\'none\' stroke=\'currentColor\' viewBox=\'0 0 24 24\'><path stroke-linecap=\'round\' stroke-width=\'1.5\' d=\'M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z\'/></svg><span class=\'text-slate-400 font-bold text-sm uppercase tracking-widest\'>Foto Perusahaan</span></div>'">
                         </div>
                         <div class="absolute -bottom-4 -right-4 z-20 bg-slate-900 text-white px-6 py-4 text-center shadow-xl rounded-2xl border border-slate-700 backdrop-blur-md">
@@ -254,7 +254,7 @@
                         <div class="absolute -inset-4 border-2 border-red-500/30 rounded-[2.5rem] translate-x-5 translate-y-5 hidden lg:block transition-transform duration-700 group-hover:translate-x-3 group-hover:translate-y-3"></div>
 
                         {{-- Foto besar --}}
-                        <div class="relative z-10 border border-slate-200 rounded-[2rem] shadow-2xl overflow-hidden h-full min-h-[500px] bg-slate-100">
+                        <div class="relative z-10 border border-slate-200 rounded-[2rem] shadow-2xl overflow-hidden h-full min-h-[500px] bg-slate-50">
                             <img src="{{ asset('images/direktur.svg') }}"
                                  alt="Efri Novianto — Direktur PT. MGRM"
                                  class="w-full h-full object-cover object-top"
@@ -331,10 +331,10 @@
                     <div class="absolute bottom-0 left-0 w-20 h-20 border-b-4 border-l-4 rounded-bl-3xl border-red-500 z-20"></div>
 
                     {{-- Foto --}}
-                    <div class="relative z-10 overflow-hidden rounded-[2rem] shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-slate-100 group">
+                    <div class="relative z-10 overflow-hidden rounded-[2rem] shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-slate-100 group bg-slate-50">
                         <img src="{{ asset('images/WhatsApp-Image-2023-07-25-at-11.11.33.webp') }}"
                              alt="Kantor PT. MGRM Kutai Kartanegara"
-                             class="w-full h-[380px] object-cover object-center"
+                             class="w-full h-64 sm:h-[380px] object-contain sm:object-cover p-4 sm:p-0"
                              onerror="this.outerHTML='<div class=\'w-full h-[380px] bg-slate-100 flex flex-col items-center justify-center\'><svg class=\'w-16 h-16 text-slate-300 mb-3\' fill=\'none\' stroke=\'currentColor\' viewBox=\'0 0 24 24\'><path stroke-linecap=\'round\' stroke-linejoin=\'round\' stroke-width=\'1.5\' d=\'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4\'/></svg><span class=\'text-slate-400 text-sm font-bold uppercase tracking-widest\'>Foto Kantor</span></div>'">
                     </div>
                 </div>
@@ -419,14 +419,14 @@
                     <div class="grid grid-cols-1 gap-4">
 
                         {{-- Inovatif --}}
-                        <div class="flex gap-5 items-start bg-slate-800/50 hover:bg-slate-800 border border-white/5 hover:border-red-500/40 rounded-3xl p-6 transition-all duration-300 group hover:shadow-[0_8px_30px_rgba(220,38,38,0.15)] hover:-translate-y-1">
-                            <div class="w-12 h-12 rounded-full flex-shrink-0 bg-gradient-to-br from-red-500 to-red-600 shadow-lg shadow-red-500/20 flex items-center justify-center group-hover:shadow-red-500/50 transition-shadow duration-300">
+                        <div class="flex gap-5 items-start bg-slate-800/50 hover:bg-slate-800 border border-white/5 hover:border-red-500/40 rounded-3xl p-6 transition-all duration-300 group hover:shadow-[0_8px_30px_rgba(220,38,38,0.15)] hover:-translate-y-1 active:scale-95 touch-manipulation">
+                            <div class="w-12 h-12 rounded-full flex-shrink-0 bg-gradient-to-br from-red-500 to-red-600 shadow-lg shadow-red-500/20 flex items-center justify-center group-hover:shadow-red-500/50 group-active:scale-90 transition-all duration-300">
                                 <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
                                 </svg>
                             </div>
                             <div>
-                                <p class="text-white font-black text-base uppercase tracking-wide mb-1">Inovatif</p>
+                                <p class="text-white font-black text-base uppercase tracking-wide mb-1 transition-colors">Inovatif</p>
                                 <p class="text-slate-400 text-sm leading-relaxed group-hover:text-slate-300 transition-colors duration-300">
                                     PT. MGRM terus berinovasi untuk menghasilkan PAD bagi daerah dengan terus mengembangkan bisnis perusahaan.
                                 </p>
@@ -434,14 +434,14 @@
                         </div>
 
                         {{-- Berdaya Saing --}}
-                        <div class="flex gap-5 items-start bg-slate-800/50 hover:bg-slate-800 border border-white/5 hover:border-red-500/40 rounded-3xl p-6 transition-all duration-300 group hover:shadow-[0_8px_30px_rgba(220,38,38,0.15)] hover:-translate-y-1">
-                            <div class="w-12 h-12 rounded-full flex-shrink-0 bg-slate-800 border border-slate-600 group-hover:border-red-500 group-hover:bg-slate-700 shadow-lg flex items-center justify-center transition-all duration-300">
+                        <div class="flex gap-5 items-start bg-slate-800/50 hover:bg-slate-800 border border-white/5 hover:border-red-500/40 rounded-3xl p-6 transition-all duration-300 group hover:shadow-[0_8px_30px_rgba(220,38,38,0.15)] hover:-translate-y-1 active:scale-95 touch-manipulation">
+                            <div class="w-12 h-12 rounded-full flex-shrink-0 bg-slate-800 border border-slate-600 group-hover:border-red-500 group-hover:bg-slate-700 shadow-lg flex items-center justify-center group-active:scale-90 transition-all duration-300">
                                 <svg class="w-5 h-5 text-slate-300 group-hover:text-red-400 transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"/>
                                 </svg>
                             </div>
                             <div>
-                                <p class="text-white font-black text-base uppercase tracking-wide mb-1">Berdaya Saing</p>
+                                <p class="text-white font-black text-base uppercase tracking-wide mb-1 transition-colors">Berdaya Saing</p>
                                 <p class="text-slate-400 text-sm leading-relaxed group-hover:text-slate-300 transition-colors duration-300">
                                     PT. MGRM menjadi perseroda yang kompetitif di Kalimantan Timur sebagai penghasil PAD.
                                 </p>
@@ -449,14 +449,14 @@
                         </div>
 
                         {{-- Mandiri --}}
-                        <div class="flex gap-5 items-start bg-slate-800/50 hover:bg-slate-800 border border-white/5 hover:border-red-500/40 rounded-3xl p-6 transition-all duration-300 group hover:shadow-[0_8px_30px_rgba(220,38,38,0.15)] hover:-translate-y-1">
-                            <div class="w-12 h-12 rounded-xl flex-shrink-0 bg-gradient-to-br from-red-500 to-red-600 shadow-md shadow-red-500/20 flex items-center justify-center group-hover:shadow-lg group-hover:shadow-red-500/50 transition-shadow duration-300">
+                        <div class="flex gap-5 items-start bg-slate-800/50 hover:bg-slate-800 border border-white/5 hover:border-red-500/40 rounded-3xl p-6 transition-all duration-300 group hover:shadow-[0_8px_30px_rgba(220,38,38,0.15)] hover:-translate-y-1 active:scale-95 touch-manipulation">
+                            <div class="w-12 h-12 rounded-xl flex-shrink-0 bg-gradient-to-br from-red-500 to-red-600 shadow-md shadow-red-500/20 flex items-center justify-center group-hover:shadow-lg group-hover:shadow-red-500/50 group-active:scale-90 transition-all duration-300">
                                 <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
                                 </svg>
                             </div>
                             <div>
-                                <p class="text-white font-black text-base uppercase tracking-wide mb-1">Mandiri</p>
+                                <p class="text-white font-black text-base uppercase tracking-wide mb-1 transition-colors">Mandiri</p>
                                 <p class="text-slate-400 text-sm leading-relaxed group-hover:text-slate-300 transition-colors duration-300">
                                     PT. MGRM menjadi perseroda yang mandiri, sehat dan profesional serta tidak menjadi beban Pemerintah Daerah.
                                 </p>
@@ -638,14 +638,14 @@
 
                     <div class="space-y-6">
                         {{-- Profesional --}}
-                        <div class="flex gap-4 items-start group hover:-translate-y-1 transition-transform">
-                            <div class="w-12 h-12 rounded-full flex-shrink-0 bg-gradient-to-br from-red-500 to-red-600 flex items-center justify-center shadow-lg shadow-red-600/30 group-hover:scale-110 transition-transform">
+                        <div class="flex gap-4 items-start group hover:-translate-y-1 active:scale-95 touch-manipulation transition-all duration-300 cursor-default">
+                            <div class="w-12 h-12 rounded-full flex-shrink-0 bg-gradient-to-br from-red-500 to-red-600 flex items-center justify-center shadow-lg shadow-red-600/30 group-hover:scale-110 group-active:scale-90 transition-all duration-300">
                                 <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
                                 </svg>
                             </div>
                             <div>
-                                <p class="font-black text-slate-900 uppercase text-sm tracking-widest mb-1">Profesional</p>
+                                <p class="font-black text-slate-900 group-hover:text-red-600 uppercase text-sm tracking-widest mb-1 transition-colors">Profesional</p>
                                 <p class="text-slate-600 text-sm leading-relaxed">
                                     Inti dari prinsip <em>Good Corporate Governance</em> (GCG) sebagai dasar pengelolaan perusahaan.
                                 </p>
@@ -655,14 +655,14 @@
                         <div class="w-full h-px bg-slate-100"></div>
 
                         {{-- Tanggung Jawab --}}
-                        <div class="flex gap-4 items-start group hover:-translate-y-1 transition-transform">
-                            <div class="w-12 h-12 rounded-full flex-shrink-0 bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center shadow-lg shadow-slate-900/30 group-hover:scale-110 transition-transform">
+                        <div class="flex gap-4 items-start group hover:-translate-y-1 active:scale-95 touch-manipulation transition-all duration-300 cursor-default">
+                            <div class="w-12 h-12 rounded-full flex-shrink-0 bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center shadow-lg shadow-slate-900/30 group-hover:scale-110 group-active:scale-90 transition-all duration-300">
                                 <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
                                 </svg>
                             </div>
                             <div>
-                                <p class="font-black text-slate-900 uppercase text-sm tracking-widest mb-1">Tanggung Jawab</p>
+                                <p class="font-black text-slate-900 group-hover:text-red-600 uppercase text-sm tracking-widest mb-1 transition-colors">Tanggung Jawab</p>
                                 <p class="text-slate-600 text-sm leading-relaxed">
                                     Setiap pekerjaan yang diamban oleh karyawan wajib dijalankan dengan rasa tanggung jawab.
                                 </p>
@@ -672,14 +672,14 @@
                         <div class="w-full h-px bg-slate-100"></div>
 
                         {{-- Bersih --}}
-                        <div class="flex gap-4 items-start group hover:-translate-y-1 transition-transform">
-                            <div class="w-12 h-12 rounded-full flex-shrink-0 bg-gradient-to-br from-red-500 to-red-600 flex items-center justify-center shadow-lg shadow-red-600/30 group-hover:scale-110 transition-transform">
+                        <div class="flex gap-4 items-start group hover:-translate-y-1 active:scale-95 touch-manipulation transition-all duration-300 cursor-default">
+                            <div class="w-12 h-12 rounded-full flex-shrink-0 bg-gradient-to-br from-red-500 to-red-600 flex items-center justify-center shadow-lg shadow-red-600/30 group-hover:scale-110 group-active:scale-90 transition-all duration-300">
                                 <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9"/>
                                 </svg>
                             </div>
                             <div>
-                                <p class="font-black text-slate-900 uppercase text-sm tracking-widest mb-1">Bersih</p>
+                                <p class="font-black text-slate-900 group-hover:text-red-600 uppercase text-sm tracking-widest mb-1 transition-colors">Bersih</p>
                                 <p class="text-slate-600 text-sm leading-relaxed">
                                     Perusahaan bebas dari benturan kepentingan dan korupsi, menjunjung tinggi integritas dan loyalitas.
                                 </p>
@@ -736,11 +736,11 @@
                     x-data="{ visible: false }"
                     x-intersect.once="visible = true"
                     :class="visible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-16'"
-                    class="transition-all duration-1000 ease-out relative overflow-hidden min-h-[320px] lg:min-h-0 lg:m-8 lg:rounded-[2.5rem] lg:shadow-[0_20px_40px_rgba(0,0,0,0.3)]"
+                    class="transition-all duration-1000 ease-out relative overflow-hidden min-h-[220px] sm:min-h-[320px] lg:m-8 lg:rounded-[2.5rem] lg:shadow-[0_20px_40px_rgba(0,0,0,0.3)] bg-slate-800 flex items-center justify-center p-4 lg:p-0"
                 >
                     <img src="{{ asset('images/IMG-20230103-WA0022-768x436-1.webp') }}"
                          alt="Pekerja Lapangan PT. MGRM"
-                         class="w-full h-full object-cover object-center absolute inset-0"
+                         class="w-full h-full object-contain lg:object-cover lg:object-center lg:absolute lg:inset-0"
                          onerror="this.outerHTML='<div class=\'w-full h-full bg-slate-800 flex flex-col items-center justify-center min-h-[320px]\'><svg class=\'w-14 h-14 text-slate-600 mb-3\' fill=\'none\' stroke=\'currentColor\' viewBox=\'0 0 24 24\'><path stroke-linecap=\'round\' stroke-linejoin=\'round\' stroke-width=\'1.5\' d=\'M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z\'/></svg><span class=\'text-slate-500 text-xs tracking-widest uppercase\'>Foto Lapangan</span></div>'">
                     {{-- Overlay gradient --}}
                     <div class="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-slate-900/60 lg:to-slate-900/10"></div>
@@ -927,11 +927,11 @@
 
                         <div class="relative z-10 bg-white border border-slate-200 rounded-[2rem] overflow-hidden shadow-lg">
                             {{-- Foto --}}
-                            <div class="h-72 bg-slate-100 overflow-hidden flex items-center justify-center">
+                            <div class="h-52 sm:h-72 bg-slate-50 flex items-center justify-center p-6 sm:p-4 rounded-t-[2rem]">
                                 @if($p['foto'])
                                     <img src="{{ asset($p['foto']) }}"
                                          alt="{{ $p['nama'] }}"
-                                         class="w-full h-full object-cover object-top">
+                                         class="max-w-full max-h-full object-contain rounded-2xl">
                                 @else
                                     {{-- Avatar placeholder SVG --}}
                                     <svg viewBox="0 0 200 240" class="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -991,11 +991,11 @@
 
                         <div class="relative z-10 bg-white border border-slate-200 rounded-3xl overflow-hidden shadow-md">
                             {{-- Avatar --}}
-                            <div class="h-52 bg-slate-100 overflow-hidden flex items-center justify-center">
+                            <div class="h-44 sm:h-56 bg-slate-50 flex items-center justify-center p-5 sm:p-4 rounded-t-3xl">
                                 @if($m['foto'])
                                     <img src="{{ asset($m['foto']) }}"
                                          alt="{{ $m['nama'] }}"
-                                         class="w-full h-full object-cover object-top">
+                                         class="max-w-full max-h-full object-contain rounded-xl">
                                 @else
                                     <svg viewBox="0 0 200 200" class="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <rect width="200" height="200" fill="#f1f5f9"/>

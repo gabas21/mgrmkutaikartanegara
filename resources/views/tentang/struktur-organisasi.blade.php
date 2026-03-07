@@ -1,4 +1,4 @@
-<x-layouts.app>
+﻿<x-layouts.app>
     <x-slot:title>Struktur Organisasi | PT. Mahakam Gerbang Raja Migas</x-slot:title>
 
     {{-- ═══════════════════════════════════════════════
@@ -114,7 +114,7 @@
                     ['name' => 'Elin Sumarlinah, S.Sos., M.Si', 'position' => 'Direktur', 'role' => 'PT. MGRM (Perseroda)', 'img' => 'Efri.webp'],
                     ['name' => 'Alfian Wanjah Amiruji', 'position' => 'Komisaris', 'role' => 'PT. MGRM (Perseroda)', 'img' => 'Alfianoor.webp'],
                 ] as $i => $person)
-                <div class="group bg-white rounded-3xl p-8 text-center shadow-[0_10px_40px_rgba(0,0,0,0.04)] border border-slate-100 hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] hover:-translate-y-2 transition-all duration-500 active:scale-[0.98]">
+                <div class="group bg-white rounded-3xl p-8 text-center shadow-[0_10px_40px_rgba(0,0,0,0.04)] border border-slate-100 hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] hover:-translate-y-2 active:scale-95 touch-manipulation transition-all duration-500 cursor-default">
                     
                     {{-- Photo Frame --}}
                     <div class="w-36 h-36 mx-auto mb-6 rounded-full bg-slate-100 border-4 border-white shadow-lg overflow-hidden relative flex items-center justify-center group-hover:shadow-xl group-hover:shadow-red-500/10 transition-all duration-500">
@@ -151,7 +151,7 @@
                     </h3>
                 </div>
                 <a href="{{ url('/kontak') }}" wire:navigate
-                   class="group inline-flex items-center gap-3 bg-red-600 hover:bg-red-500 text-white font-bold py-4 px-8 rounded-full uppercase tracking-wide transition-all duration-300 hover:shadow-[0_0_30px_rgba(220,38,38,0.4)] hover:scale-105 active:scale-95 flex-shrink-0">
+                   class="group inline-flex items-center gap-3 bg-red-600 hover:bg-red-500 text-white font-bold py-4 px-8 rounded-full uppercase tracking-wide transition-all duration-300 hover:shadow-[0_0_30px_rgba(220,38,38,0.4)] hover:scale-105 active:scale-95 touch-manipulation flex-shrink-0">
                     Contact Us
                     <svg class="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/>

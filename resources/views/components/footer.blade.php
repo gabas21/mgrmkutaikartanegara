@@ -27,10 +27,24 @@
                         <p class="text-[10px] text-red-500 font-bold tracking-widest uppercase mt-1">Kutai Kartanegara</p>
                     </div>
                 </div>
-                <div class="mb-6">
+                <div class="mb-4">
                     <p class="text-base font-bold text-white mb-1.5">PT Mahakam Gerbang Raja Migas</p>
                     <p class="text-xs text-slate-400 font-medium">BUMD Kabupaten Kutai Kartanegara</p>
                 </div>
+
+                {{-- Jam Kerja --}}
+                <div class="flex items-start gap-3 group py-2 mb-6 rounded-2xl transition-colors w-max">
+                    <div class="w-10 h-10 rounded-full bg-white/5 group-hover:bg-gradient-to-br from-red-500 to-red-600 text-slate-400 group-hover:text-white flex items-center justify-center flex-shrink-0 mt-0.5 border border-white/10 group-hover:border-red-500 transition-all shadow-[0_4px_10px_rgba(0,0,0,0.1)] group-hover:shadow-[0_4px_15px_rgba(220,38,38,0.4)]">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <p class="text-sm font-semibold text-slate-400 group-hover:text-white transition-colors leading-relaxed">
+                        Sen – Jum: 08.00 – 16.00 WITA<br>
+                        <span class="text-white/40 text-xs">Sabtu & Minggu: Tutup</span>
+                    </p>
+                </div>
+
                 {{-- Social Media --}}
                 <div class="flex items-center gap-3" role="list" aria-label="Media Sosial">
                     @foreach([
@@ -138,19 +152,7 @@
                         <a href="mailto:info@mgrm.co.id" class="text-sm font-semibold text-slate-400 group-hover:text-white transition-colors">info@mgrm.co.id</a>
                     </div>
 
-                    {{-- Jam Kerja --}}
-                    <div class="flex items-start gap-4 group px-3 py-2 -mx-3 rounded-2xl hover:bg-white/5 transition-colors">
-                        <div class="w-10 h-10 rounded-full bg-white/5 group-hover:bg-gradient-to-br from-red-500 to-red-600 text-slate-400 group-hover:text-white flex items-center justify-center flex-shrink-0 mt-0.5 border border-white/10 group-hover:border-red-500 transition-all shadow-[0_4px_10px_rgba(0,0,0,0.1)] group-hover:shadow-[0_4px_15px_rgba(220,38,38,0.4)]">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                      d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                            </svg>
-                        </div>
-                        <p class="text-sm font-semibold text-slate-400 group-hover:text-white transition-colors leading-relaxed">
-                            Sen – Jum: 08.00 – 16.00 WITA<br>
-                            <span class="text-white/40 text-xs">Sabtu & Minggu: Tutup</span>
-                        </p>
-                    </div>
+
 
                 </address>
             </div>

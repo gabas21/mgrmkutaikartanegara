@@ -1,4 +1,4 @@
-<x-layouts.app>
+﻿<x-layouts.app>
     <x-slot:title>Berita & Press | PT. Mahakam Gerbang Raja Migas</x-slot:title>
 
     {{-- ═══════════════════════════════════════════════
@@ -36,7 +36,7 @@
             {{-- Category Filter Pills --}}
             <div class="flex flex-wrap justify-center gap-3">
                 @foreach(['Semua Berita', 'Press Release', 'Kegiatan CSR', 'Penghargaan', 'Info Korporat'] as $i => $label)
-                <button class="px-5 py-2.5 rounded-full text-sm font-bold transition-all duration-300 active:scale-95
+                <button class="px-5 py-2.5 rounded-full text-sm font-bold transition-all duration-300 active:scale-95 touch-manipulation
                     {{ $i === 0 ? 'bg-red-600 text-white shadow-lg shadow-red-600/30 hover:bg-red-500' : 'bg-white/5 text-white/70 border border-white/10 hover:bg-white/10 hover:text-white' }}">
                     {{ $label }}
                 </button>
@@ -57,7 +57,7 @@
              :class="show ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'"
              class="transition-all duration-700 ease-out delay-100">
             
-            <div class="group relative rounded-3xl overflow-hidden bg-white shadow-[0_15px_50px_rgba(0,0,0,0.06)] border border-slate-100 hover:shadow-[0_25px_60px_rgba(0,0,0,0.12)] transition-all duration-500">
+            <div class="group relative rounded-3xl overflow-hidden bg-white shadow-[0_15px_50px_rgba(0,0,0,0.06)] border border-slate-100 hover:shadow-[0_25px_60px_rgba(0,0,0,0.12)] active:scale-95 touch-manipulation transition-all duration-500 cursor-pointer">
                 <div class="grid grid-cols-1 lg:grid-cols-2">
                     
                     {{-- Image Side --}}
@@ -95,7 +95,7 @@
                         </p>
 
                         {{-- Read More --}}
-                        <a :href="'/berita/' + paginatedNews[0].slug" x-show="paginatedNews.length > 0" wire:navigate class="inline-flex items-center gap-2 text-sm font-black text-slate-900 group-hover:text-red-600 uppercase tracking-widest w-max transition-all">
+                        <a :href="'/berita/' + paginatedNews[0].slug" x-show="paginatedNews.length > 0" wire:navigate class="inline-flex items-center gap-2 text-sm font-black text-slate-900 group-hover:text-red-600 uppercase tracking-widest w-max transition-all after:content-[''] after:absolute after:inset-0">
                             Baca Selengkapnya
                             <svg class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
                         </a>
@@ -300,7 +300,7 @@
                 </div>
                 <h3 class="text-2xl font-black text-slate-800 mb-2">Pencarian Tidak Ditemukan</h3>
                 <p class="text-slate-500 font-medium max-w-md">Maaf, kami tidak dapat menemukan artikel yang sesuai dengan kriteria filter Anda. Coba reset pencarian Anda.</p>
-                <button @click="searchQuery = ''; selectedCategory = ''; sortOrder = 'terbaru';" class="mt-8 px-6 py-2.5 rounded-full bg-red-50 text-red-600 font-bold text-sm hover:bg-red-600 hover:text-white transition-colors duration-300">
+                <button @click="searchQuery = ''; selectedCategory = ''; sortOrder = 'terbaru';" class="mt-8 px-6 py-2.5 rounded-full bg-red-50 text-red-600 font-bold text-sm hover:bg-red-600 hover:text-white active:scale-95 touch-manipulation transition-colors duration-300">
                     Reset Pencarian
                 </button>
             </div>
@@ -310,10 +310,10 @@
                 
                 <template x-for="(news, index) in paginatedNews" :key="news.id">
                     {{-- Card --}}
-                    <article class="group bg-white rounded-3xl border border-slate-100 shadow-[0_10px_30px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] overflow-hidden transition-all duration-500 hover:-translate-y-2 flex flex-col h-full"
+                    <article class="group bg-white rounded-3xl border border-slate-100 shadow-[0_10px_30px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] overflow-hidden hover:-translate-y-2 active:scale-95 touch-manipulation flex flex-col h-full cursor-pointer"
                              x-data="{ show: false }" x-intersect.once="show = true"
                              :class="show ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'"
-                             style="transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s ease, opacity 0.6s ease; transition-delay: 50ms">
+                             style="transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.6s ease, opacity 0.6s ease; transition-delay: 50ms">
                         
                         {{-- Image Wrapper --}}
                         <div class="relative h-56 bg-slate-900 overflow-hidden flex-shrink-0">
@@ -362,7 +362,7 @@
             <div x-show="totalPages > 1" class="mt-16 flex justify-center items-center gap-2">
                 {{-- Previous Button --}}
                 <button @click="prevPage()" :disabled="currentPage === 1" 
-                        class="w-10 h-10 rounded-full flex items-center justify-center transition-colors shadow-sm disabled:opacity-50 disabled:cursor-not-allowed"
+                        class="w-10 h-10 rounded-full flex items-center justify-center transition-colors shadow-sm disabled:opacity-50 disabled:cursor-not-allowed active:scale-95 touch-manipulation"
                         :class="currentPage === 1 ? 'text-slate-400 bg-slate-50' : 'text-slate-700 bg-white border border-slate-200 hover:bg-slate-50 hover:text-red-600'">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
                 </button>
@@ -371,7 +371,7 @@
                 <div class="flex items-center gap-1">
                     <template x-for="page in totalPages" :key="page">
                         <button @click="goToPage(page)" 
-                                class="w-10 h-10 rounded-full flex items-center justify-center font-bold transition-colors shadow-sm"
+                                class="w-10 h-10 rounded-full flex items-center justify-center font-bold transition-colors shadow-sm active:scale-95 touch-manipulation"
                                 :class="currentPage === page ? 'bg-red-600 text-white shadow-md shadow-red-600/30' : 'text-slate-600 bg-white border border-slate-200 hover:bg-slate-50'">
                             <span x-text="page"></span>
                         </button>
@@ -380,7 +380,7 @@
 
                 {{-- Next Button --}}
                 <button @click="nextPage()" :disabled="currentPage === totalPages" 
-                        class="w-10 h-10 rounded-full flex items-center justify-center transition-colors shadow-sm disabled:opacity-50 disabled:cursor-not-allowed"
+                        class="w-10 h-10 rounded-full flex items-center justify-center transition-colors shadow-sm disabled:opacity-50 disabled:cursor-not-allowed active:scale-95 touch-manipulation"
                         :class="currentPage === totalPages ? 'text-slate-400 bg-slate-50' : 'text-slate-700 bg-white border border-slate-200 hover:bg-slate-50 hover:text-red-600'">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                 </button>
