@@ -15,7 +15,7 @@
             });
         }
     }"
-    class="lg:hidden fixed bottom-0 left-0 right-0 z-[100] pb-[env(safe-area-inset-bottom)]"
+    class="lg:hidden fixed bottom-0 left-0 right-0 z-[100] pb-[env(safe-area-inset-bottom)] overflow-visible"
     style="height: calc(68px + env(safe-area-inset-bottom));"
 >
     <style>
@@ -94,11 +94,24 @@
             transform: translateY(-24px) scale(1.15);
         }
 
+        /* ── Navigation Item Constraint ── */
+        .mnav-item {
+            min-width: 0; /* Prevents flex items from overflowing when there are 7 items */
+        }
+
         /* ── Label ── */
         .mnav-lbl {
             font-family: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif;
             transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
             transform-origin: top center;
+            /* Adjustments for 7 items tight layout */
+            font-size: clamp(6px, 2.2vw, 8px) !important;
+            letter-spacing: -0.01em !important;
+            display: block;
+            width: 100%;
+            text-align: center;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
         .mnav-lbl.on-red   { color: #dc2626; font-weight: 800; transform: translateY(2px); }
         .mnav-lbl.on-green { color: #059669; font-weight: 800; transform: translateY(2px); }
@@ -121,7 +134,7 @@
         /* ── Little Dot Indicator under active label (REMOVED) ── */
     </style>
 
-    <div class="mnav-bar flex items-end justify-around h-[68px] px-1 pb-1.5 relative">
+    <div class="mnav-bar flex items-end justify-around h-[68px] px-1 pb-1.5 relative !overflow-visible">
 
         <!-- ① Beranda -->
         <a href="{{ url('/') }}" wire:navigate
