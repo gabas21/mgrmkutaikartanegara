@@ -95,10 +95,12 @@
                         </p>
 
                         {{-- Read More --}}
-                        <a :href="'/berita/' + paginatedNews[0].slug" x-show="paginatedNews.length > 0" wire:navigate class="inline-flex items-center gap-2 text-sm font-black text-slate-900 group-hover:text-red-600 uppercase tracking-widest w-max transition-all after:content-[''] after:absolute after:inset-0">
+                        @if($berita->isNotEmpty())
+                        <a href="{{ url('/berita/' . $berita->first()->slug) }}" wire:navigate class="inline-flex items-center gap-2 text-sm font-black text-slate-900 group-hover:text-red-600 uppercase tracking-widest w-max transition-all after:content-[''] after:absolute after:inset-0">
                             Baca Selengkapnya
                             <svg class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
                         </a>
+                        @endif
                     </div>
 
                 </div>

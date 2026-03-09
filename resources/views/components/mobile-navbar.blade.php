@@ -2,6 +2,7 @@
     x-data="{
         active: '{{ request()->is('/') ? 'beranda' : (request()->is('layanan*') ? 'layanan' : (request()->is('okegas*') ? 'okegas' : (request()->is('berita*') ? 'berita' : (request()->is('tentang*') ? 'tentang' : (request()->is('ppid*') ? 'ppid' : (request()->is('kontak*') ? 'kontak' : '')))))) }}',
         pressed: null,
+        showTentangMenu: false,
         init() {
             document.addEventListener('livewire:navigated', () => {
                 const path = window.location.pathname;
@@ -12,6 +13,8 @@
                 else if (path.includes('/tentang'))  this.active = 'tentang';
                 else if (path.includes('/ppid'))     this.active = 'ppid';
                 else if (path.includes('/kontak'))   this.active = 'kontak';
+                
+                this.showTentangMenu = false;
             });
         }
     }"
@@ -180,27 +183,67 @@
             </span>
         </a>
 
-        <!-- ③ Tentang -->
-        <a href="{{ url('/tentang/visi-misi') }}" wire:navigate
-           @click="active = 'tentang'"
-           @touchstart="pressed = 'tentang'" @touchend="pressed = null" @touchcancel="pressed = null"
-           @mousedown="pressed = 'tentang'" @mouseup="pressed = null" @mouseleave="pressed = null"
-           class="mnav-item flex flex-col items-center flex-1 pt-2 relative select-none cursor-pointer"
-           :class="pressed === 'tentang' ? 'is-pressed' : ''"
-           aria-label="Tentang Kami">
-            <div class="mnav-icon flex items-center justify-center w-9 h-9 rounded-2xl"
-                 :class="active === 'tentang' ? 'is-active' : 'text-slate-400 bg-transparent'">
-                <svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                          d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
-                </svg>
-                <div x-show="active === 'tentang'" class="mnav-ripple" aria-hidden="true"></div>
+        <!-- ③ Tentang (Drop-up Menu) -->
+        <div class="relative flex flex-col items-center flex-1 pt-2 select-none" @click.away="showTentangMenu = false">
+            <button @click="showTentangMenu = !showTentangMenu"
+               @touchstart="pressed = 'tentang'" @touchend="pressed = null" @touchcancel="pressed = null"
+               @mousedown="pressed = 'tentang'" @mouseup="pressed = null" @mouseleave="pressed = null"
+               class="mnav-item flex flex-col items-center w-full relative cursor-pointer outline-none"
+               :class="pressed === 'tentang' ? 'is-pressed' : ''"
+               aria-label="Tentang Kami"
+               aria-haspopup="true"
+               :aria-expanded="showTentangMenu">
+                <div class="mnav-icon flex items-center justify-center w-9 h-9 rounded-2xl"
+                     :class="active === 'tentang' ? 'is-active' : 'text-slate-400 bg-transparent'">
+                    <svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                              d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                    </svg>
+                    <div x-show="active === 'tentang'" class="mnav-ripple" aria-hidden="true"></div>
+                </div>
+                <span class="mnav-lbl relative text-[8px] mt-1 uppercase tracking-wider whitespace-nowrap"
+                      :class="active === 'tentang' ? 'on-red' : 'text-slate-500 font-semibold'">
+                    Tentang
+                </span>
+            </button>
+
+            <!-- Drop-up Menu Panel -->
+            <div x-show="showTentangMenu"
+                 x-transition:enter="transition ease-out duration-200"
+                 x-transition:enter-start="opacity-0 translate-y-4 scale-95"
+                 x-transition:enter-end="opacity-100 translate-y-0 scale-100"
+                 x-transition:leave="transition ease-in duration-150"
+                 x-transition:leave-start="opacity-100 translate-y-0 scale-100"
+                 x-transition:leave-end="opacity-0 translate-y-4 scale-95"
+                 class="absolute bottom-[110%] left-1/2 -translate-x-1/2 w-48 bg-white/95 backdrop-blur-xl border border-red-100 shadow-[0_-10px_40px_rgba(0,0,0,0.1)] rounded-2xl py-2 z-[110] flex flex-col overflow-hidden"
+                 style="display: none;"
+                 role="menu">
+                
+                <a href="{{ url('/tentang/visi-misi') }}" wire:navigate
+                   @click="showTentangMenu = false; active = 'tentang'"
+                   class="px-4 py-3 text-xs font-semibold text-slate-600 hover:text-red-700 hover:bg-red-50 active:bg-red-100 transition-colors border-b border-slate-100 last:border-0 text-center flex items-center justify-center gap-2">
+                   <div class="w-1.5 h-1.5 rounded-full bg-red-500"></div>
+                   Profil Perusahaan
+                </a>
+                <a href="{{ url('/tentang/sejarah') }}" wire:navigate
+                   @click="showTentangMenu = false; active = 'tentang'"
+                   class="px-4 py-3 text-xs font-semibold text-slate-600 hover:text-red-700 hover:bg-red-50 active:bg-red-100 transition-colors border-b border-slate-100 last:border-0 text-center flex items-center justify-center gap-2">
+                   <div class="w-1.5 h-1.5 rounded-full bg-red-500"></div>
+                   Sejarah Perusahaan
+                </a>
+                <a href="{{ url('/tentang/struktur-organisasi') }}" wire:navigate
+                   @click="showTentangMenu = false; active = 'tentang'"
+                   class="px-4 py-3 text-xs font-semibold text-slate-600 hover:text-red-700 hover:bg-red-50 active:bg-red-100 transition-colors border-b border-slate-100 last:border-0 text-center flex items-center justify-center gap-2">
+                   <div class="w-1.5 h-1.5 rounded-full bg-red-500"></div>
+                   Struktur Organisasi
+                </a>
             </div>
-            <span class="mnav-lbl relative text-[8px] mt-1 uppercase tracking-wider whitespace-nowrap"
-                  :class="active === 'tentang' ? 'on-red' : 'text-slate-500 font-semibold'">
-                Tentang
-            </span>
-        </a>
+            
+            <!-- Triangle indicator -->
+            <div x-show="showTentangMenu"
+                 class="absolute bottom-full left-1/2 -translate-x-1/2 w-3 h-3 bg-white border-b border-r border-red-100 rotate-45 translate-y-1.5 z-[111]"
+                 style="display: none;"></div>
+        </div>
 
         <!-- ④ OKE GAS — FAB Center -->
         <a href="{{ url('/okegas') }}" wire:navigate
