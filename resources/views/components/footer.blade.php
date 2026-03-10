@@ -20,7 +20,7 @@
                 <div class="flex items-center gap-3 mb-5">
                     <div class="w-12 h-12 rounded-2xl bg-white flex items-center justify-center flex-shrink-0 shadow-[0_4px_20px_rgba(255,255,255,0.1)] p-1.5 border border-white/20 relative group">
                         <span class="absolute inset-0 rounded-2xl bg-white/50 blur opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                        <img src="{{ asset('images/Desain tanpa judul.svg') }}" alt="Logo MGRM" class="w-full h-full object-contain relative z-10">
+                        <img src="{{ asset('images/Desain tanpa judul.webp') }}" alt="Logo MGRM" class="w-full h-full object-contain relative z-10">
                     </div>
                     <div class="leading-none">
                         <p class="text-xl font-black text-white italic tracking-tight uppercase drop-shadow-md">PT. MGRM</p>

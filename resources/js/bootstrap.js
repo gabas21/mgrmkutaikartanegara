@@ -1,4 +1,2 @@
-import axios from 'axios';
-window.axios = axios;
-
-window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+// Bootstrap file — Axios removed (unused, saves ~15KB gzipped)
+// Livewire handles HTTP requests natively.

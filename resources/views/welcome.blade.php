@@ -74,7 +74,7 @@
                         <div class="absolute inset-0 bg-white/10 blur-[40px] rounded-full scale-75 group-hover:scale-100 transition-all duration-700 pointer-events-none"></div>
                         
                         {{-- Logo Icon Image --}}
-                        <img src="{{ asset('images/Desain tanpa judul.svg') }}" alt="Logo Icon MGRM" 
+                        <img src="{{ asset('images/Desain tanpa judul.webp') }}" alt="Logo Icon MGRM" 
                              class="relative z-10 w-full h-auto max-w-full drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)] transition-all duration-700 ease-out group-hover:-translate-y-4 group-hover:scale-110 transform-gpu"
                              style="filter: drop-shadow(0 0 30px rgba(220, 38, 38, 0.3));">
                     </div>
@@ -147,12 +147,7 @@
         </div>
     </div>
 
-    <style>
-        @keyframes scrolldown {
-            0% { transform: translateY(0); opacity: 1; }
-            100% { transform: translateY(8px); opacity: 0; }
-        }
-    </style>
+
 
     {{-- ═══════════════════════════════════════════════
          VIDEO SECTION — Autoplay Loop (Modern & Rounded)
@@ -181,40 +176,34 @@
                 </p>
             </div>
 
-            {{-- Right: Autoplay Embed (Rounded Glass Frame) --}}
-            <div class="lg:w-2/3 w-full" x-data="{ muted: true }">
+            {{-- Right: YouTube Facade (loads iframe only on click) --}}
+            <div class="lg:w-2/3 w-full" x-data="{ playing: false }">
                 <div class="relative rounded-3xl overflow-hidden border-[6px] lg:border-[8px] border-slate-800/50 shadow-[0_20px_50px_rgba(0,0,0,0.5)] bg-slate-800">
-                    <div class="aspect-video w-full bg-black">
-                        <iframe
-                            id="mgrm-video"
-                            :src="muted
-                                ? 'https://www.youtube.com/embed/{{ $videoId }}?autoplay=1&loop=1&playlist={{ $videoId }}&mute=1&rel=0&modestbranding=1&controls=1'
-                                : 'https://www.youtube.com/embed/{{ $videoId }}?autoplay=1&loop=1&playlist={{ $videoId }}&mute=0&rel=0&modestbranding=1&controls=1'"
-                            title="Video Profil PT. Mahakam Gerbang Raja Migas"
-                            class="w-full h-full"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen
-                        ></iframe>
-                    </div>
-
-                    {{-- Mute / Unmute pill badge --}}
-                    <div class="absolute bottom-4 left-4 sm:bottom-6 sm:left-6">
-                        <button
-                            @click="muted = !muted"
-                            class="flex items-center gap-2 px-4 py-2 sm:px-5 sm:py-2.5 rounded-full bg-slate-900/80 backdrop-blur-md hover:bg-red-600 text-white text-xs sm:text-sm font-bold uppercase tracking-wider border border-white/10 hover:border-red-500 hover:shadow-[0_0_20px_rgba(220,38,38,0.5)] group active:scale-90 touch-manipulation transition-all duration-300"
-                           
-                            :aria-label="muted ? 'Aktifkan suara' : 'Matikan suara'"
-                        >
-                            <template x-if="muted">
-                                <svg class="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/><path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2"/></svg>
-                            </template>
-                            <template x-if="!muted">
-                                <svg class="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M15.536 8.464a5 5 0 010 7.072M12 6v12m0 0l-3-3m3 3l3-3M9 9H5a2 2 0 00-2 2v2a2 2 0 002 2h4l5 5V4L9 9z"/></svg>
-                            </template>
-                            <span x-text="muted ? 'Suara Off' : 'Suara On'"></span>
-                        </button>
+                    <div class="aspect-video w-full bg-black relative">
+                        {{-- Thumbnail (shown before play) --}}
+                        <template x-if="!playing">
+                            <div class="absolute inset-0 cursor-pointer group" @click="playing = true">
+                                <img src="https://img.youtube.com/vi/{{ $videoId }}/hqdefault.jpg" alt="Video Profil MGRM" class="w-full h-full object-cover" loading="lazy">
+                                <div class="absolute inset-0 bg-black/30 flex items-center justify-center group-hover:bg-black/20 transition-colors">
+                                    <div class="w-20 h-20 rounded-full bg-red-600 flex items-center justify-center shadow-[0_0_40px_rgba(220,38,38,0.5)] group-hover:scale-110 group-hover:bg-red-500 transition-all duration-300">
+                                        <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </template>
+                        {{-- Iframe (loaded only after click) --}}
+                        <template x-if="playing">
+                            <iframe
+                                src="https://www.youtube.com/embed/{{ $videoId }}?autoplay=1&rel=0&modestbranding=1&controls=1"
+                                title="Video Profil PT. Mahakam Gerbang Raja Migas"
+                                class="w-full h-full"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen
+                            ></iframe>
+                        </template>
                     </div>
                 </div>
+
             </div>
 
         </div>
@@ -320,20 +309,20 @@
                     <div class="h-px bg-slate-200 flex-1"></div>
                 </div>
                 
-                <style>
-                    @keyframes marqueeLogo {
-                        0% { transform: translateX(0); }
-                        100% { transform: translateX(-50%); }
-                    }
-                    .animate-marquee-logo {
-                        animation: marqueeLogo 30s linear infinite;
-                        display: flex;
-                        width: max-content;
-                    }
-                    .animate-marquee-logo:hover {
-                        animation-play-state: paused;
-                    }
-                </style>
+    <style>
+        @keyframes marqueeLogo {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee-logo {
+            animation: marqueeLogo 30s linear infinite;
+            display: flex;
+            width: max-content;
+        }
+        .animate-marquee-logo:hover {
+            animation-play-state: paused;
+        }
+    </style>
                 
                 <div class="relative w-full overflow-hidden bg-white/70 backdrop-blur-md rounded-[2.5rem] p-8 md:p-10 shadow-[0_10px_40px_rgba(0,0,0,0.03)] border border-slate-100 flex items-center">
                     {{-- Gradient Edge Masks --}}
@@ -344,12 +333,12 @@
                     <div class="animate-marquee-logo gap-8 md:gap-12 pl-8 md:pl-12">
                         @php
                             $mitra = [
-                                ['img' => 'images/kutaireadymix.svg', 'alt' => 'Kutai Ready Mix'],
-                                ['img' => 'images/tp.svg', 'alt' => 'TP'],
-                                ['img' => 'images/skmmigas.svg', 'alt' => 'SKK Migas'],
-                                ['img' => 'images/pertamina.svg', 'alt' => 'Pertamina'],
-                                ['img' => 'images/kutaimahakam.svg', 'alt' => 'Kutai Mahakam'],
-                                ['img' => 'images/logofix.svg', 'alt' => 'MGRM'],
+                                ['img' => 'images/kutaireadymix.webp', 'alt' => 'Kutai Ready Mix'],
+                                ['img' => 'images/tp.webp', 'alt' => 'TP'],
+                                ['img' => 'images/skmmigas.webp', 'alt' => 'SKK Migas'],
+                                ['img' => 'images/pertamina.webp', 'alt' => 'Pertamina'],
+                                ['img' => 'images/kutaimahakam.webp', 'alt' => 'Kutai Mahakam'],
+                                ['img' => 'images/logofix.webp', 'alt' => 'MGRM'],
                             ];
                         @endphp
                         

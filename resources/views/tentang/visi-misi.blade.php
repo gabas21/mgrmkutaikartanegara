@@ -255,10 +255,11 @@
 
                         {{-- Foto besar --}}
                         <div class="relative z-10 border border-slate-200 rounded-[2rem] shadow-2xl overflow-hidden h-full min-h-[500px] bg-slate-50">
-                            <img src="{{ asset('images/direktur.svg') }}"
+                            <img src="{{ asset('images/direktur.webp') }}"
                                  alt="Efri Novianto — Direktur PT. MGRM"
                                  class="w-full h-full object-cover object-top"
                                  style="min-height: 500px;"
+                                 loading="lazy"
                                  onerror="this.outerHTML='<div style=\'min-height:500px\' class=\'w-full h-full bg-slate-200 flex flex-col items-center justify-center\'><svg class=\'w-20 h-20 text-slate-400 mb-4\' fill=\'none\' stroke=\'currentColor\' viewBox=\'0 0 24 24\'><path stroke-linecap=\'round\' stroke-width=\'1.5\' d=\'M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z\'/></svg><span class=\'text-slate-500 text-sm font-bold uppercase tracking-widest\'>Foto Direktur</span></div>'">
 
                             {{-- Overlay badge nama di bagian bawah foto --}}

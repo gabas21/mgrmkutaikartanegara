@@ -201,7 +201,7 @@
                             {{-- Logo --}}
                             <div class="flex justify-center mb-8">
                                 <div class="w-20 h-20 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center shadow-lg">
-                                    <img src="{{ asset('images/Desain tanpa judul.svg') }}" alt="Logo MGRM" class="w-14 h-14 object-contain">
+                                    <img src="{{ asset('images/Desain tanpa judul.webp') }}" alt="Logo MGRM" class="w-14 h-14 object-contain">
                                 </div>
                             </div>
 
@@ -302,7 +302,7 @@
                                     {{-- Logo Perusahaan (logo.webp) --}}
                                     <div class="flex justify-center mb-5">
                                         <div class="w-28 h-28 rounded-xl border-2 border-slate-100 flex items-center justify-center bg-white p-4 shadow-sm">
-                                            <img id="logo-tiket" src="{{ asset('images/Desain tanpa judul.svg') }}" alt="Logo MGRM" class="w-full h-full object-contain">
+                                            <img id="logo-tiket" src="{{ asset('images/Desain tanpa judul.webp') }}" alt="Logo MGRM" class="w-full h-full object-contain">
                                         </div>
                                     </div>
 

@@ -34,13 +34,13 @@
                    class="flex items-center gap-3 group"
                    aria-label="MGRM – Beranda">
                     <div class="w-14 h-14 rounded-full bg-white flex items-center justify-center shadow-md p-1.5 transition-all duration-300 group-hover:shadow-red-500/20 group-hover:-translate-y-0.5 border border-slate-100 shrink-0">
-                        <img src="{{ asset('images/logofix.svg') }}" alt="Logo MGRM" class="w-full h-full object-contain">
+                        <img src="{{ asset('images/logofix.webp') }}" alt="Logo MGRM" class="w-full h-full object-contain">
                     </div>
                     
                     {{-- Logo Kukar --}}
                     <div class="w-14 h-14 rounded-full bg-white flex items-center justify-center shadow-md p-1.5 transition-all duration-500 group-hover:shadow-blue-500/20 border border-slate-100 shrink-0"
                          :class="scrolled ? 'max-w-0 opacity-0 ml-0 p-0 border-0 shadow-none invisible overflow-hidden' : 'max-w-[56px] opacity-100 ml-0'">
-                        <img src="{{ asset('images/kabupaten-kukar-seeklogo.png') }}" alt="Logo Kab Kukar" class="w-full h-full object-contain">
+                        <img src="{{ asset('images/kabupaten-kukar-seeklogo.webp') }}" alt="Logo Kab Kukar" class="w-full h-full object-contain">
                     </div>
 
                     <div class="leading-none overflow-hidden transition-all duration-500 ease-in-out whitespace-nowrap"
@@ -165,7 +165,7 @@
                  x-transition:enter-start="opacity-0 translate-x-10 scale-90"
                  x-transition:enter-end="opacity-100 translate-x-0 scale-100">
                 <div class="w-14 h-14 rounded-full bg-white flex items-center justify-center shadow-md p-1.5 border border-slate-100 shrink-0">
-                    <img src="{{ asset('images/kabupaten-kukar-seeklogo.png') }}" alt="Logo Kab Kukar" class="w-full h-full object-contain">
+                    <img src="{{ asset('images/kabupaten-kukar-seeklogo.webp') }}" alt="Logo Kab Kukar" class="w-full h-full object-contain">
                 </div>
             </div>
         </div>
