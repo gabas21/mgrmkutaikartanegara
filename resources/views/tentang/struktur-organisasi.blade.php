@@ -1,4 +1,4 @@
-﻿<x-layouts.app>
+<x-layouts.app>
     <x-slot:title>Struktur Organisasi | PT. Mahakam Gerbang Raja Migas</x-slot:title>
 
     {{-- ═══════════════════════════════════════════════
@@ -104,8 +104,8 @@
                 </p>
             </div>
 
-            {{-- Management Cards: 2 people --}}
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto"
+            {{-- Management Cards: 3 people --}}
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto"
                  x-data="{ visible: false }" x-intersect.once="visible = true"
                  :class="visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'"
                  class="transition-all duration-700 ease-out delay-200">
@@ -114,17 +114,63 @@
                     ['name' => 'Elin Sumarlinah, S.Sos., M.Si', 'position' => 'Direktur', 'role' => 'PT. MGRM (Perseroda)', 'img' => 'Efri.webp'],
                     ['name' => 'Alfian Wanjah Amiruji', 'position' => 'Komisaris', 'role' => 'PT. MGRM (Perseroda)', 'img' => 'Alfianoor.webp'],
                 ] as $i => $person)
-                <div class="group bg-white rounded-3xl p-8 text-center shadow-[0_10px_40px_rgba(0,0,0,0.04)] border border-slate-100 hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] hover:-translate-y-2 active:scale-95 touch-manipulation transition-all duration-500 cursor-default">
-                    
-                    {{-- Photo Frame --}}
-                    <div class="w-36 h-36 mx-auto mb-6 rounded-full bg-slate-100 border-4 border-white shadow-lg overflow-hidden relative flex items-center justify-center group-hover:shadow-xl group-hover:shadow-red-500/10 transition-all duration-500">
-                        <img src="{{ asset('images/' . $person['img']) }}" alt="{{ $person['name'] }}" class="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-500">
-                    </div>
+                <div class="group relative text-center">
+                    {{-- Solid offset shadow (Red for Efri, Dark for Alfian) --}}
+                    @php $bgColor = $i === 0 ? 'bg-red-600' : 'bg-[#0B1120]'; @endphp
+                    <div class="absolute inset-0 {{ $bgColor }} rounded-[1.5rem] translate-x-3 translate-y-3 transition-transform group-hover:translate-x-4 group-hover:translate-y-4 duration-500"></div>
 
-                    {{-- Info --}}
-                    <h3 class="text-lg font-black text-slate-800 mb-1 group-hover:text-red-600 transition-colors">{{ $person['name'] }}</h3>
-                    <p class="text-red-600 font-bold text-sm mb-1 tracking-wide uppercase">{{ $person['position'] }}</p>
-                    <p class="text-slate-400 text-xs font-medium tracking-wider">{{ $person['role'] }}</p>
+                    <div class="relative z-10 bg-white border border-slate-100 rounded-[1.5rem] overflow-hidden">
+                        {{-- Photo Container (White Background) --}}
+                        <div class="h-64 sm:h-80 bg-white flex items-center justify-center p-6 sm:p-4 pt-8">
+                            <div class="w-40 h-40 sm:w-48 sm:h-48 rounded-full bg-slate-50 shadow-md overflow-hidden relative flex items-center justify-center group-hover:shadow-xl transition-all duration-500">
+                                <img src="{{ asset('images/' . $person['img']) }}" alt="{{ $person['name'] }}" class="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-700">
+                            </div>
+                        </div>
+
+                        {{-- Info (Inset Banner) --}}
+                        <div class="p-4 pt-0 pb-6">
+                            <div class="{{ $bgColor }} px-4 py-4 text-white flex flex-col justify-center min-h-[5rem]">
+                                <h3 class="text-xs sm:text-sm font-black uppercase tracking-wide leading-tight group-hover:text-white transition-colors">{{ $person['name'] }}</h3>
+                                <p class="text-white/80 font-bold text-[10px] sm:text-xs mt-1 tracking-widest uppercase">{{ $person['position'] }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+
+            {{-- Management Cards: Operational Team --}}
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto mt-12"
+                 x-data="{ visible: false }" x-intersect.once="visible = true"
+                 :class="visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'"
+                 class="transition-all duration-700 ease-out delay-300">
+
+                @foreach([
+                    ['name' => 'Denny Dharmawan', 'position' => 'Manager SDM & SJB', 'img' => 'denny.png'],
+                    ['name' => 'Marsuki', 'position' => 'Manager Keuangan', 'img' => 'marsuki.png'],
+                    ['name' => 'Syamsudi Sese', 'position' => 'Manager Operasional, RISET & Pengembangan Bisnis', 'img' => 'syamsudi.png'],
+                ] as $i => $manager)
+                <div class="group relative text-center">
+                    {{-- Solid offset shadow (Red for Marsuki[1], Dark for others) --}}
+                    @php $bColor = $i === 1 ? 'bg-red-600' : 'bg-[#0B1120]'; @endphp
+                    <div class="absolute inset-0 {{ $bColor }} rounded-[1.5rem] translate-x-3 translate-y-3 transition-transform group-hover:translate-x-4 group-hover:translate-y-4 duration-500"></div>
+
+                    <div class="relative z-10 bg-white border border-slate-100 rounded-[1.5rem] overflow-hidden">
+                        {{-- Photo Container (White Background) --}}
+                        <div class="h-56 sm:h-64 bg-white flex items-center justify-center p-5 sm:p-4 pt-8">
+                            <div class="w-36 h-36 sm:w-44 sm:h-44 rounded-full bg-slate-50 shadow-md overflow-hidden relative flex items-center justify-center group-hover:shadow-xl transition-all duration-500">
+                                <img src="{{ asset('images/' . $manager['img']) }}" alt="{{ $manager['name'] }}" class="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-700">
+                            </div>
+                        </div>
+
+                        {{-- Info (Inset Banner) --}}
+                        <div class="p-4 pt-0 pb-6">
+                            <div class="{{ $bColor }} px-3 py-4 text-white flex flex-col justify-center min-h-[5.5rem]">
+                                <h3 class="text-xs sm:text-sm font-black uppercase tracking-wide leading-tight">{{ $manager['name'] }}</h3>
+                                <p class="text-white/80 font-bold text-[9px] sm:text-[10px] mt-1 tracking-widest uppercase">{{ $manager['position'] }}</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 @endforeach
             </div>

@@ -106,6 +106,12 @@ class WpFetchPosts extends Command
 
             $this->info("Successfully processed {$count} posts.");
 
+            $this->info("Exporting data to JSON for seeding...");
+            $allBeritas = Berita::all();
+            $jsonPath = base_path('database/seeders/beritas.json');
+            file_put_contents($jsonPath, $allBeritas->toJson(JSON_PRETTY_PRINT));
+            $this->info("Exported " . $allBeritas->count() . " records to database/seeders/beritas.json");
+
         } catch (\Exception $e) {
             $this->error("Error: " . $e->getMessage());
         }

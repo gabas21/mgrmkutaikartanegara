@@ -1,4 +1,4 @@
-﻿<x-layouts.app>
+<x-layouts.app>
     <x-slot:title>Profil Perusahaan — PT. Mahakam Gerbang Raja Migas</x-slot:title>
 
     {{-- ═══════════════════════════════════════════════
@@ -923,33 +923,33 @@
                     style="transition-delay: {{ $idx * 150 }}ms"
                 >
                     <div class="group relative text-center">
-                        {{-- Frame luar --}}
-                        <div class="absolute -inset-1 {{ $p['color'] === 'red' ? 'bg-red-600' : 'bg-slate-900' }} rounded-[2rem] translate-x-2 translate-y-2 transition-transform group-hover:translate-x-1 group-hover:translate-y-1 duration-300"></div>
+                        {{-- Solid offset shadow --}}
+                        <div class="absolute inset-0 {{ $p['color'] === 'red' ? 'bg-red-600' : 'bg-[#0B1120]' }} rounded-[1.5rem] translate-x-3 translate-y-3 transition-transform group-hover:translate-x-4 group-hover:translate-y-4 duration-500"></div>
 
-                        <div class="relative z-10 bg-white border border-slate-200 rounded-[2rem] overflow-hidden shadow-lg">
-                            {{-- Foto --}}
-                            <div class="h-52 sm:h-72 bg-slate-50 flex items-center justify-center p-6 sm:p-4 rounded-t-[2rem]">
-                                @if($p['foto'])
-                                    <img src="{{ asset($p['foto']) }}"
-                                         alt="{{ $p['nama'] }}"
-                                         class="max-w-full max-h-full object-contain rounded-2xl">
-                                @else
-                                    {{-- Avatar placeholder SVG --}}
-                                    <svg viewBox="0 0 200 240" class="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <rect width="200" height="240" fill="#1e293b"/>
-                                        <circle cx="100" cy="90" r="45" fill="#334155"/>
-                                        <ellipse cx="100" cy="210" rx="75" ry="60" fill="#334155"/>
-                                        <circle cx="100" cy="90" r="38" fill="#475569"/>
-                                        <ellipse cx="100" cy="85" rx="18" ry="20" fill="#94a3b8"/>
-                                        <ellipse cx="100" cy="220" rx="60" ry="50" fill="#475569"/>
-                                    </svg>
-                                @endif
+                        <div class="relative z-10 bg-white border border-slate-100 rounded-[1.5rem] overflow-hidden">
+                            {{-- Photo Container (White Background) --}}
+                            <div class="h-64 sm:h-80 bg-white flex items-center justify-center p-6 sm:p-4 pt-8">
+                                <div class="w-40 h-40 sm:w-48 sm:h-48 rounded-full bg-slate-50 shadow-md overflow-hidden relative flex items-center justify-center group-hover:shadow-xl transition-all duration-500">
+                                    @if($p['foto'])
+                                        <img src="{{ asset($p['foto']) }}"
+                                             alt="{{ $p['nama'] }}"
+                                             class="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-700">
+                                    @else
+                                        <svg viewBox="0 0 200 240" class="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="200" height="240" fill="#1e293b"/>
+                                            <circle cx="100" cy="90" r="45" fill="#334155"/>
+                                            <ellipse cx="100" cy="210" rx="75" ry="60" fill="#334155"/>
+                                        </svg>
+                                    @endif
+                                </div>
                             </div>
 
-                            {{-- Nama & jabatan --}}
-                            <div class="{{ $p['color'] === 'red' ? 'bg-red-600' : 'bg-slate-900' }} px-4 py-4 text-white">
-                                <p class="font-black text-base uppercase tracking-wide leading-tight">{{ $p['nama'] }}</p>
-                                <p class="text-white/70 text-xs uppercase tracking-widest mt-1">{{ $p['jabatan'] }}</p>
+                            {{-- Nama & jabatan (Inset Banner) --}}
+                            <div class="p-4 pt-0 pb-6">
+                                <div class="{{ $p['color'] === 'red' ? 'bg-red-600' : 'bg-[#0B1120]' }} px-4 py-4 text-white">
+                                    <p class="font-black text-sm sm:text-base uppercase tracking-wide leading-tight">{{ $p['nama'] }}</p>
+                                    <p class="text-white/80 text-[10px] sm:text-xs uppercase tracking-widest mt-1">{{ $p['jabatan'] }}</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -970,9 +970,9 @@
 
                 @php
                 $managers = [
-                    ['nama' => 'Denny Dharmawan', 'jabatan' => 'Manager SDM & SJB',              'color' => 'slate', 'foto' => ''],
-                    ['nama' => 'Marsuki',          'jabatan' => 'Manager Keuangan',               'color' => 'red',   'foto' => ''],
-                    ['nama' => 'Syamsudi Sese',    'jabatan' => 'Manager Operasional, RISET & Pengembangan Bisnis', 'color' => 'slate', 'foto' => ''],
+                    ['nama' => 'Denny Dharmawan', 'jabatan' => 'Manager SDM & SJB',              'color' => 'slate', 'foto' => 'images/denny.png'],
+                    ['nama' => 'Marsuki',          'jabatan' => 'Manager Keuangan',               'color' => 'red',   'foto' => 'images/marsuki.png'],
+                    ['nama' => 'Syamsudi Sese',    'jabatan' => 'Manager Operasional, RISET & Pengembangan Bisnis', 'color' => 'slate', 'foto' => 'images/syamsudi.png'],
                 ];
                 @endphp
 
@@ -988,30 +988,33 @@
                         <div class="w-px h-8 bg-slate-300"></div>
                     </div>
                     <div class="group relative text-center">
-                        <div class="absolute -inset-1 {{ $m['color'] === 'red' ? 'bg-red-600' : 'bg-slate-900' }} rounded-3xl translate-x-2 translate-y-2 transition-transform group-hover:translate-x-1 group-hover:translate-y-1 duration-300"></div>
+                        {{-- Solid offset shadow --}}
+                        <div class="absolute inset-0 {{ $m['color'] === 'red' ? 'bg-red-600' : 'bg-[#0B1120]' }} rounded-[1.5rem] translate-x-3 translate-y-3 transition-transform group-hover:translate-x-4 group-hover:translate-y-4 duration-500"></div>
 
-                        <div class="relative z-10 bg-white border border-slate-200 rounded-3xl overflow-hidden shadow-md">
-                            {{-- Avatar --}}
-                            <div class="h-44 sm:h-56 bg-slate-50 flex items-center justify-center p-5 sm:p-4 rounded-t-3xl">
-                                @if($m['foto'])
-                                    <img src="{{ asset($m['foto']) }}"
-                                         alt="{{ $m['nama'] }}"
-                                         class="max-w-full max-h-full object-contain rounded-xl">
-                                @else
-                                    <svg viewBox="0 0 200 200" class="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <rect width="200" height="200" fill="#f1f5f9"/>
-                                        <circle cx="100" cy="75" r="40" fill="#cbd5e1"/>
-                                        <ellipse cx="100" cy="200" rx="80" ry="80" fill="#cbd5e1"/>
-                                        <circle cx="100" cy="75" r="33" fill="#e2e8f0"/>
-                                        <ellipse cx="100" cy="70" rx="15" ry="16" fill="#94a3b8"/>
-                                    </svg>
-                                @endif
+                        <div class="relative z-10 bg-white border border-slate-100 rounded-[1.5rem] overflow-hidden">
+                            {{-- Photo Container (White Background) --}}
+                            <div class="h-56 sm:h-64 bg-white flex items-center justify-center p-5 sm:p-4 pt-8">
+                                <div class="w-36 h-36 sm:w-44 sm:h-44 rounded-full bg-slate-50 shadow-md overflow-hidden relative flex items-center justify-center group-hover:shadow-xl transition-all duration-500">
+                                    @if($m['foto'])
+                                        <img src="{{ asset($m['foto']) }}"
+                                             alt="{{ $m['nama'] }}"
+                                             class="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-700">
+                                    @else
+                                        <svg viewBox="0 0 200 200" class="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="200" height="200" fill="#f1f5f9"/>
+                                            <circle cx="100" cy="75" r="40" fill="#cbd5e1"/>
+                                            <ellipse cx="100" cy="200" rx="80" ry="80" fill="#cbd5e1"/>
+                                        </svg>
+                                    @endif
+                                </div>
                             </div>
 
-                            {{-- Nama & jabatan --}}
-                            <div class="{{ $m['color'] === 'red' ? 'bg-red-600' : 'bg-slate-900' }} px-4 py-3 text-white">
-                                <p class="font-black text-sm uppercase tracking-wide leading-tight">{{ $m['nama'] }}</p>
-                                <p class="text-white/70 text-xs tracking-wide mt-1 leading-snug">{{ $m['jabatan'] }}</p>
+                            {{-- Nama & jabatan (Inset Banner) --}}
+                            <div class="p-4 pt-0 pb-6">
+                                <div class="{{ $m['color'] === 'red' ? 'bg-red-600' : 'bg-[#0B1120]' }} px-3 py-4 text-white">
+                                    <p class="font-black text-sm uppercase tracking-wide leading-tight">{{ $m['nama'] }}</p>
+                                    <p class="text-white/70 text-[10px] uppercase tracking-widest mt-1">{{ $m['jabatan'] }}</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1162,9 +1165,8 @@
 
     {{-- ═══════════════════════════════════════════════
          SECTION 9 — LEGALITAS & SERTIFIKASI
-         Background putih, card dokumen legalitas
     ═══════════════════════════════════════════════ --}}
-    <section class="py-24 lg:py-32 bg-slate-50 relative overflow-hidden">
+    <section class="py-24 lg:py-32 bg-slate-50 relative overflow-hidden" x-data="{ openModal: false, imgSrc: '' }">
 
         {{-- Aksen kanan --}}
         <div class="absolute top-0 right-0 w-2 h-full bg-red-600"></div>
@@ -1191,73 +1193,53 @@
                 </p>
             </div>
 
-            @php
-            $legalitas = [
-                ['nama' => 'KTA KADIN',                         'ket' => 'Kamar Dagang dan Industri Indonesia',              'ikon_type' => 'badge'],
-                ['nama' => 'KTA GAPENSI',                       'ket' => 'Gabungan Pelaksana Konstruksi Nasional Indonesia',  'ikon_type' => 'building'],
-                ['nama' => 'KTA PJIM',                          'ket' => 'Perkumpulan Jasa Industri Migas',                  'ikon_type' => 'fire'],
-                ['nama' => 'Sertifikat Izin Usaha Perdagangan Migas & Gas Bumi', 'ket' => 'Kementerian ESDM',               'ikon_type' => 'document'],
-                ['nama' => 'SBU Kualifikasi ISGH',              'ket' => 'Sertifikat Badan Usaha',                           'ikon_type' => 'shield'],
-                ['nama' => 'NPWP Perusahaan',                   'ket' => '88.549.160.9-728.000',                            'ikon_type' => 'id'],
-                ['nama' => 'SKT Vendor Pertamina',              'ket' => 'Surat Keterangan Terdaftar – Pertamina Group',     'ikon_type' => 'check'],
-                ['nama' => 'SPA di Pertamina No.1',             'ket' => 'Surat Perjanjian Afiliasi',                       'ikon_type' => 'document'],
-                ['nama' => 'Sra Jual Kontrol Bidang Larutan',   'ket' => 'Ijin Distribusi Produk Spesifik',                 'ikon_type' => 'document'],
-                ['nama' => 'Sra Jual Kontrol Bidang TP',        'ket' => 'Ijin Distribusi Produk Tegak Penuh',              'ikon_type' => 'document'],
-            ];
-
-            $ikons = [
-                'badge'    => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>',
-                'building' => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>',
-                'fire'     => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z"/>',
-                'document' => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>',
-                'shield'   => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>',
-                'id'       => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2"/>',
-                'check'    => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>',
-            ];
-            @endphp
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-                @foreach($legalitas as $idx => $leg)
-                <div
-                    x-data="{ visible: false }"
-                    x-intersect.once="visible = true"
-                    :class="visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'"
-                    class="transition-all duration-700 ease-out group hover:-translate-y-1"
-                    style="transition-delay: {{ $idx * 80 }}ms"
-                >
-                    <div class="bg-white rounded-[2rem] shadow-sm hover:shadow-2xl hover:shadow-red-600/10 border border-slate-200 group-hover:border-red-200 transition-all duration-300 p-6 h-full flex flex-col relative overflow-hidden">
-
-                        {{-- Nomor pojok --}}
-                        <div class="absolute top-3 right-3 text-slate-200 font-black text-4xl leading-none select-none group-hover:text-red-600/20 transition-colors duration-300">
-                            {{ str_pad($idx + 1, 2, '0', STR_PAD_LEFT) }}
-                        </div>
-
-                        {{-- Ikon --}}
-                        <div class="w-12 h-12 rounded-full bg-slate-900 group-hover:bg-gradient-to-br group-hover:from-red-500 group-hover:to-red-600 transition-all duration-300 flex items-center justify-center mb-5 flex-shrink-0 shadow-sm group-hover:shadow-red-500/30">
-                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                {!! $ikons[$leg['ikon_type']] !!}
-                            </svg>
-                        </div>
-
-                        {{-- Garis --}}
-                        <div class="w-8 h-0.5 bg-red-600 mb-3"></div>
-
-                        {{-- Nama --}}
-                        <p class="text-slate-900 font-black text-sm uppercase tracking-wide leading-tight mb-2 flex-1">{{ $leg['nama'] }}</p>
-
-                        {{-- Keterangan --}}
-                        <p class="text-slate-500 text-xs leading-relaxed">{{ $leg['ket'] }}</p>
-
-                        {{-- Centang verified --}}
-                        <div class="flex items-center gap-1.5 mt-4 pt-3 border-t border-slate-100">
-                            <svg class="w-4 h-4 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                            </svg>
-                            <span class="text-green-600 text-xs font-bold uppercase tracking-wide">Terverifikasi</span>
+            <div class="max-w-5xl mx-auto"
+                x-data="{ visible: false }"
+                x-intersect.once="visible = true"
+                :class="visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'"
+                class="transition-all duration-700 ease-out"
+            >
+                <div class="bg-white rounded-[2.5rem] p-3 sm:p-6 shadow-2xl border border-slate-200 overflow-hidden relative group cursor-pointer" @click="openModal = true; imgSrc = '{{ asset('images/sertifikat.png') }}'">
+                    
+                    {{-- Hover overlay (Pulsing info) --}}
+                    <div class="absolute inset-0 bg-slate-900/40 z-20 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-[2.5rem]">
+                        <div class="bg-white text-slate-900 px-6 py-3 rounded-full font-black text-sm sm:text-base uppercase tracking-widest shadow-2xl flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+                            <svg class="w-5 h-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" /></svg>
+                            Klik untuk Perbesar
                         </div>
                     </div>
+
+                    {{-- Tempat Foto Legalitas --}}
+                    <div class="w-full bg-slate-50 flex items-center justify-center rounded-[1.5rem] overflow-hidden relative z-10">
+                        <img src="{{ asset('images/sertifikat.png') }}" alt="Sertifikasi dan Legalitas PT MGRM" class="w-full h-auto object-contain group-hover:scale-105 transition-transform duration-700">
+                    </div>
                 </div>
-                @endforeach
+            </div>
+
+            {{-- Modal / Lightbox Overlay --}}
+            <div x-show="openModal" 
+                 x-transition:enter="transition ease-out duration-300"
+                 x-transition:enter-start="opacity-0"
+                 x-transition:enter-end="opacity-100"
+                 x-transition:leave="transition ease-in duration-200"
+                 x-transition:leave-start="opacity-100"
+                 x-transition:leave-end="opacity-0"
+                 class="fixed inset-0 z-[100] flex items-center justify-center bg-slate-900/90 backdrop-blur-sm p-4 sm:p-10"
+                 x-cloak
+                 style="display: none;">
+                 
+                {{-- Close Button --}}
+                <button @click="openModal = false" class="absolute top-6 right-6 sm:top-10 sm:right-10 text-white hover:text-red-500 transition-colors bg-white/10 hover:bg-white/20 rounded-full p-2" title="Tutup">
+                    <svg class="w-8 h-8 sm:w-10 sm:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+
+                {{-- Image Container inside Modal --}}
+                <div class="relative max-w-7xl max-h-full w-full mx-auto" @click.away="openModal = false">
+                    <img :src="imgSrc" alt="Zoomed Sertifikat" class="w-full h-auto max-h-[90vh] object-contain rounded-2xl shadow-2xl mx-auto"
+                         x-transition:enter="transition ease-out duration-300 delay-100"
+                         x-transition:enter-start="opacity-0 scale-90"
+                         x-transition:enter-end="opacity-100 scale-100">
+                </div>
             </div>
 
         </div>
@@ -1300,15 +1282,15 @@
 
             @php
             $mitras = [
-                ['nama' => 'Pertamina',              'ket' => 'Vendor & Kontraktor Utama',     'warna' => 'from-blue-900 to-blue-800',  'aksen' => '#60a5fa'],
-                ['nama' => 'Sinergi',                'ket' => 'Mitra Bisnis Energi',           'warna' => 'from-green-900 to-green-800','aksen' => '#4ade80'],
-                ['nama' => 'PT. Danapati Mulia',     'ket' => 'Kemitraan Investasi',           'warna' => 'from-amber-900 to-amber-800','aksen' => '#fbbf24'],
-                ['nama' => 'Patra Jasa',             'ket' => 'Anak Perusahaan Pertamina',     'warna' => 'from-sky-900 to-sky-800',    'aksen' => '#38bdf8'],
-                ['nama' => 'PT. Wiranaga Energi Mandiri', 'ket' => 'Mitra Distribusi Energi',  'warna' => 'from-purple-900 to-purple-800','aksen' => '#c084fc'],
-                ['nama' => 'PT. Surya Baja Utama',  'ket' => 'Mitra Konstruksi & Material',  'warna' => 'from-orange-900 to-orange-800','aksen' => '#fb923c'],
-                ['nama' => 'MMP',                   'ket' => 'Mahakam Mitra Pertambangan',    'warna' => 'from-red-900 to-red-800',    'aksen' => '#f87171'],
-                ['nama' => 'KODE Perseroda',         'ket' => 'Koperasi Daerah Energi',       'warna' => 'from-teal-900 to-teal-800',  'aksen' => '#2dd4bf'],
-                ['nama' => 'TP',                    'ket' => 'Tunggang Parangan (Perseroda)', 'warna' => 'from-rose-900 to-rose-800',  'aksen' => '#fb7185'],
+                ['nama' => 'Pertamina',              'ket' => 'Vendor & Kontraktor Utama',     'warna' => 'from-blue-900 to-blue-800',  'aksen' => '#60a5fa', 'logo' => 'images/pertamina.svg'],
+                ['nama' => 'Sinergi',                'ket' => 'Mitra Bisnis Energi',           'warna' => 'from-green-900 to-green-800','aksen' => '#4ade80', 'logo' => 'images/sinergi.svg'],
+                ['nama' => 'PT. Danapati Mulia',     'ket' => 'Kemitraan Investasi',           'warna' => 'from-amber-900 to-amber-800','aksen' => '#fbbf24', 'logo' => 'images/PT.danapati.svg'],
+                ['nama' => 'Patra Jasa',             'ket' => 'Anak Perusahaan Pertamina',     'warna' => 'from-sky-900 to-sky-800',    'aksen' => '#38bdf8', 'logo' => 'images/patrajasa.svg'],
+                ['nama' => 'PT. Wiranaga Energi Mandiri', 'ket' => 'Mitra Distribusi Energi',  'warna' => 'from-purple-900 to-purple-800','aksen' => '#c084fc', 'logo' => 'images/ptwira.svg'],
+                ['nama' => 'PT. Surya Baja Utama',  'ket' => 'Mitra Konstruksi & Material',  'warna' => 'from-orange-900 to-orange-800','aksen' => '#fb923c', 'logo' => 'images/kutaireadymix.svg'],
+                ['nama' => 'MMP',                   'ket' => 'Mahakam Mitra Pertambangan',    'warna' => 'from-red-900 to-red-800',    'aksen' => '#f87171', 'logo' => 'images/mmp.svg'],
+                ['nama' => 'KODE Perseroda',         'ket' => 'Koperasi Daerah Energi',       'warna' => 'from-teal-900 to-teal-800',  'aksen' => '#2dd4bf', 'logo' => 'images/kide.svg'],
+                ['nama' => 'TP',                    'ket' => 'Tunggang Parangan (Perseroda)', 'warna' => 'from-rose-900 to-rose-800',  'aksen' => '#fb7185', 'logo' => 'images/tp.png'],
             ];
             @endphp
 
@@ -1318,19 +1300,20 @@
                     x-data="{ visible: false }"
                     x-intersect.once="visible = true"
                     :class="visible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'"
-                    class="transition-all duration-500 ease-out group"
+                    class="transition-all duration-500 ease-out group mt-6"
                     style="transition-delay: {{ $idx * 80 }}ms"
                 >
-                    <div class="relative rounded-[2rem] bg-gradient-to-br {{ $mitra['warna'] }} border border-white/10 group-hover:border-white/30 p-7 flex flex-col items-center justify-center text-center h-36 overflow-hidden transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-xl group-hover:shadow-black/30">
+                    <div class="relative rounded-[2rem] bg-white border border-slate-200 group-hover:border-red-500/30 px-6 sm:px-8 pb-6 pt-14 flex flex-col items-start text-left min-h-[170px] overflow-visible transition-all duration-300 group-hover:-translate-y-1 shadow-sm group-hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)]">
 
-                        {{-- Lingkaran dekoratif --}}
-                        <div class="absolute -bottom-6 -right-6 w-24 h-24 rounded-full border border-white/10"></div>
-                        <div class="absolute -top-4 -left-4 w-16 h-16 rounded-full border border-white/5"></div>
+                        {{-- Logo besar (Floating & Bebas Potong) --}}
+                        <div class="absolute -top-7 -left-3 sm:-left-5 w-[76px] h-[76px] rounded-[1.25rem] bg-white flex items-center justify-center z-20 border border-slate-200 shadow-[0_12px_24px_rgba(0,0,0,0.08)] p-1 transition-transform duration-500 group-hover:scale-105 group-hover:-rotate-3 group-hover:border-red-100 group-hover:shadow-red-500/15">
+                            <img src="{{ asset($mitra['logo'] ?? 'images/Desain tanpa judul.webp') }}" alt="Logo {{ $mitra['nama'] }}" class="w-full h-full object-contain scale-110 drop-shadow-sm {{ isset($mitra['logo']) ? 'opacity-100' : 'opacity-90' }}">
+                        </div>
 
-                        {{-- Nama logo (teks besar) --}}
-                        <p class="text-white font-black text-lg uppercase tracking-wide leading-tight relative z-10">{{ $mitra['nama'] }}</p>
-                        <div class="w-8 h-0.5 my-2 relative z-10" style="background-color: {{ $mitra['aksen'] }}"></div>
-                        <p class="text-white/60 text-xs leading-snug relative z-10">{{ $mitra['ket'] }}</p>
+                        {{-- Teks --}}
+                        <p class="text-slate-800 font-black text-lg uppercase tracking-wide leading-tight relative z-10 group-hover:text-red-700 transition-colors">{{ $mitra['nama'] }}</p>
+                        <div class="w-10 h-1 my-3 relative z-10 rounded-full transition-all group-hover:w-16 duration-500" style="background-color: {{ $mitra['aksen'] }}"></div>
+                        <p class="text-slate-500 text-sm font-medium leading-snug relative z-10">{{ $mitra['ket'] }}</p>
                     </div>
                 </div>
                 @endforeach
