@@ -929,7 +929,7 @@
                         <div class="relative z-10 bg-white border border-slate-100 rounded-[1.5rem] overflow-hidden">
                             {{-- Photo Container (White Background) --}}
                             <div class="h-64 sm:h-80 bg-white flex items-center justify-center p-6 sm:p-4 pt-8">
-                                <div class="w-40 h-40 sm:w-48 sm:h-48 rounded-full bg-slate-50 shadow-md overflow-hidden relative flex items-center justify-center group-hover:shadow-xl transition-all duration-500">
+                                <div class="w-40 h-40 sm:w-48 sm:h-48 rounded-full bg-slate-50 shadow-md overflow-hidden relative flex items-center justify-center group-hover:shadow-xl transition-all duration-500 mx-auto">
                                     @if($p['foto'])
                                         <img src="{{ asset($p['foto']) }}"
                                              alt="{{ $p['nama'] }}"
@@ -994,7 +994,7 @@
                         <div class="relative z-10 bg-white border border-slate-100 rounded-[1.5rem] overflow-hidden">
                             {{-- Photo Container (White Background) --}}
                             <div class="h-56 sm:h-64 bg-white flex items-center justify-center p-5 sm:p-4 pt-8">
-                                <div class="w-36 h-36 sm:w-44 sm:h-44 rounded-full bg-slate-50 shadow-md overflow-hidden relative flex items-center justify-center group-hover:shadow-xl transition-all duration-500">
+                                <div class="w-36 h-36 sm:w-44 sm:h-44 rounded-full bg-slate-50 shadow-md overflow-hidden relative flex items-center justify-center group-hover:shadow-xl transition-all duration-500 mx-auto">
                                     @if($m['foto'])
                                         <img src="{{ asset($m['foto']) }}"
                                              alt="{{ $m['nama'] }}"
@@ -1016,6 +1016,7 @@
                                     <p class="text-white/70 text-[10px] uppercase tracking-widest mt-1">{{ $m['jabatan'] }}</p>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
@@ -1066,35 +1067,35 @@
                     'judul' => 'Trading & Transportir BBM Industri',
                     'sub'   => 'HSD B-40',
                     'ikon'  => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7h8M8 11h4m-6 4h8M5 3h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 3v4m6-4v4"/>',
-                    'foto'  => 'WhatsApp-Image-2023-07-25-at-11.11.33.webp',
+                    'foto'  => 'images/WhatsApp-Image-2023-07-25-at-11.11.33.webp',
                     'span'  => '',
                 ],
                 [
                     'judul' => 'Vendor & Kontraktor Pertamina Group',
                     'sub'   => 'Oil & Gas Services',
                     'ikon'  => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>',
-                    'foto'  => 'IMG-20230103-WA0022-768x436-1.webp',
+                    'foto'  => 'images/IMG-20230103-WA0022-768x436-1.webp',
                     'span'  => 'lg:col-span-1 lg:row-span-2',
                 ],
                 [
                     'judul' => 'Supplier Gas LPG PSO & Non PSO',
                     'sub'   => 'LPG Distribution',
                     'ikon'  => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 4a1 1 0 00-1 1v10a1 1 0 001 1h3m10-12h3a1 1 0 011 1v10a1 1 0 01-1 1h-3m-13 0h10m-5-16v16"/>',
-                    'foto'  => '',
+                    'foto'  => 'images/vendor.webp',
                     'span'  => '',
                 ],
                 [
                     'judul' => 'Rental Kendaraan Operasional & Lapangan',
                     'sub'   => 'Fleet Management',
                     'ikon'  => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7h8M8 11h4m4-8H4a2 2 0 00-2 2v8a2 2 0 002 2h1l3 3 3-3h7a2 2 0 002-2V5a2 2 0 00-2-2z"/>',
-                    'foto'  => '',
+                    'foto'  => 'images/transporterwebp.webp',
                     'span'  => '',
                 ],
                 [
                     'judul' => 'Vendor Held Stock (VHS)',
                     'sub'   => 'Supply Chain & Warehouse',
                     'ikon'  => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>',
-                    'foto'  => 'menujuperseroidaman.webp',
+                    'foto'  => 'images/menujuperseroidaman.webp',
                     'span'  => 'sm:col-span-2 lg:col-span-1',
                 ],
             ];
@@ -1303,10 +1304,10 @@
                     class="transition-all duration-500 ease-out group mt-6"
                     style="transition-delay: {{ $idx * 80 }}ms"
                 >
-                    <div class="relative rounded-[2rem] bg-white border border-slate-200 group-hover:border-red-500/30 px-6 sm:px-8 pb-6 pt-14 flex flex-col items-start text-left min-h-[170px] overflow-visible transition-all duration-300 group-hover:-translate-y-1 shadow-sm group-hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)]">
+                    <div class="relative rounded-3xl bg-white border border-slate-200 group-hover:border-red-500/30 px-6 sm:px-8 pb-6 pt-14 flex flex-col items-start text-left min-h-44 overflow-visible transition-all duration-300 group-hover:-translate-y-1 shadow-sm group-hover:shadow-2xl">
 
                         {{-- Logo besar (Floating & Bebas Potong) --}}
-                        <div class="absolute -top-7 -left-3 sm:-left-5 w-[76px] h-[76px] rounded-[1.25rem] bg-white flex items-center justify-center z-20 border border-slate-200 shadow-[0_12px_24px_rgba(0,0,0,0.08)] p-1 transition-transform duration-500 group-hover:scale-105 group-hover:-rotate-3 group-hover:border-red-100 group-hover:shadow-red-500/15">
+                        <div class="absolute -top-6 -left-3 sm:-left-5 w-20 h-20 rounded-2xl bg-white flex items-center justify-center z-20 border border-slate-200 shadow-xl p-1 transition-transform duration-500 group-hover:scale-105 group-hover:-rotate-3 group-hover:border-red-100 group-hover:shadow-red-500/15">
                             <img src="{{ asset($mitra['logo'] ?? 'images/Desain tanpa judul.webp') }}" alt="Logo {{ $mitra['nama'] }}" class="w-full h-full object-contain scale-110 drop-shadow-sm {{ isset($mitra['logo']) ? 'opacity-100' : 'opacity-90' }}">
                         </div>
 

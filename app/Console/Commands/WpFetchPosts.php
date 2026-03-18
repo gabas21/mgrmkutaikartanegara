@@ -65,12 +65,19 @@ class WpFetchPosts extends Command
                         $imageUrl = $post['_embedded']['wp:featuredmedia'][0]['source_url'];
                         
                         try {
-                            $imageContents = Http::get($imageUrl)->body();
+                            $imageContents = Http::timeout(15)->get($imageUrl)->body();
                             $filename = basename(parse_url($imageUrl, PHP_URL_PATH));
-                            $path = 'news/' . uniqid() . '_' . $filename;
+                            $safeFilename = uniqid() . '_' . preg_replace('/[^a-zA-Z0-9._-]/', '_', $filename);
                             
-                            Storage::disk('public')->put($path, $imageContents);
-                            $localImagePath = $path;
+                            // Save directly to public/images/news/ — no symlink needed
+                            $saveDir = public_path('images/news');
+                            if (!is_dir($saveDir)) {
+                                mkdir($saveDir, 0755, true);
+                            }
+                            file_put_contents($saveDir . '/' . $safeFilename, $imageContents);
+                            
+                            // Path relative to public/ so we can call asset() on it
+                            $localImagePath = 'images/news/' . $safeFilename;
                         } catch (\Exception $e) {
                             $this->warn('Failed to download image: ' . $imageUrl);
                         }

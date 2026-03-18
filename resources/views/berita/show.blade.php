@@ -1,4 +1,4 @@
-﻿<x-layouts.app>
+<x-layouts.app>
     <x-slot:title>{{ $berita->title }} | PT. Mahakam Gerbang Raja Migas</x-slot:title>
 
     {{-- ═══════════════════════════════════════════════
@@ -74,7 +74,7 @@
                  x-data="{ show: false }" x-intersect.once="show = true"
                  :class="show ? 'opacity-100 scale-100' : 'opacity-0 scale-95'"
                  class="transition-all duration-700 ease-out delay-200">
-                <img src="{{ $berita->featured_image_path ? asset('storage/' . $berita->featured_image_path) : asset('images/WhatsApp-Image-2023-07-25-at-11.11.33.webp') }}" alt="{{ $berita->title }}" class="w-full h-full object-cover">
+                <img src="{{ $berita->featured_image_path ? asset($berita->featured_image_path) : asset('images/WhatsApp-Image-2023-07-25-at-11.11.33.webp') }}" alt="{{ $berita->title }}" class="w-full h-full object-cover">
             </div>
 
             {{-- Typography Post Content (Prose Wrapper) --}}

@@ -1,4 +1,4 @@
-﻿<x-layouts.app>
+<x-layouts.app>
     <x-slot:title>Berita & Press | PT. Mahakam Gerbang Raja Migas</x-slot:title>
 
     {{-- ═══════════════════════════════════════════════
@@ -33,15 +33,7 @@
                 Pusat informasi dan pembaruan terkini seputar aktivitas, program, dan pencapaian PT. Mahakam Gerbang Raja Migas.
             </p>
 
-            {{-- Category Filter Pills --}}
-            <div class="flex flex-wrap justify-center gap-3">
-                @foreach(['Semua Berita', 'Press Release', 'Kegiatan CSR', 'Penghargaan', 'Info Korporat'] as $i => $label)
-                <button class="px-5 py-2.5 rounded-full text-sm font-bold transition-all duration-300 active:scale-95 touch-manipulation
-                    {{ $i === 0 ? 'bg-red-600 text-white shadow-lg shadow-red-600/30 hover:bg-red-500' : 'bg-white/5 text-white/70 border border-white/10 hover:bg-white/10 hover:text-white' }}">
-                    {{ $label }}
-                </button>
-                @endforeach
-            </div>
+
         </div>
     </section>
 
@@ -120,7 +112,7 @@
         itemsPerPage: 6,
         newsData: @js($berita->map(function($item) {
             $catSlug = \Illuminate\Support\Str::slug($item->category ?? 'Info Korporat');
-            $img = $item->featured_image_path ? 'storage/' . $item->featured_image_path : 'images/WhatsApp-Image-2023-07-25-at-11.11.33.webp';
+            $img = $item->featured_image_path ? $item->featured_image_path : 'images/WhatsApp-Image-2023-07-25-at-11.11.33.webp';
             
             return [
                 'id' => $item->id,

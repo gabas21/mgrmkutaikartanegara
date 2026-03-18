@@ -1,4 +1,4 @@
-﻿<x-layouts.app>
+<x-layouts.app>
     <x-slot:title>Layanan | PT. Mahakam Gerbang Raja Migas</x-slot:title>
 
     {{-- ═══════════════════════════════════════════════
@@ -351,9 +351,9 @@
                  class="transition-all duration-700 ease-out delay-200">
 
                 @foreach([
-                    ['img' => 'kontrakto1.webp', 'caption' => 'Dokumentasi Vendor 1', 'small' => true],
-                    ['img' => 'kontraktor.webp', 'caption' => 'Dokumentasi Vendor 2', 'small' => false],
-                    ['img' => 'kontraktor2.webp', 'caption' => 'Dokumentasi Vendor 3', 'small' => true],
+                    ['img' => 'images/kontrakto1.webp', 'caption' => 'Dokumentasi Vendor 1', 'small' => true],
+                    ['img' => 'images/kontraktor.webp', 'caption' => 'Dokumentasi Vendor 2', 'small' => false],
+                    ['img' => 'images/kontraktor2.webp', 'caption' => 'Dokumentasi Vendor 3', 'small' => true],
                 ] as $i => $item)
                 <div class="group relative rounded-3xl overflow-hidden shadow-[0_10px_40px_rgba(0,0,0,0.06)] border border-slate-100 hover:shadow-[0_20px_50px_rgba(0,0,0,0.1)] hover:-translate-y-1 active:scale-95 touch-manipulation transition-all duration-500 cursor-default">
                     <div class="aspect-[4/3] bg-slate-900 relative overflow-hidden">
@@ -433,9 +433,9 @@
                  class="transition-all duration-700 ease-out delay-200">
 
                 @foreach([
-                    ['img' => 'kontrakto1.webp', 'caption' => 'Proyek Kontraktor 1', 'small' => true],
-                    ['img' => 'kontraktor.webp', 'caption' => 'Proyek Kontraktor 2', 'small' => false],
-                    ['img' => 'kontraktor2.webp', 'caption' => 'Proyek Kontraktor 3', 'small' => true],
+                    ['img' => 'images/kontrakto1.webp', 'caption' => 'Proyek Kontraktor 1', 'small' => true],
+                    ['img' => 'images/kontraktor.webp', 'caption' => 'Proyek Kontraktor 2', 'small' => false],
+                    ['img' => 'images/kontraktor2.webp', 'caption' => 'Proyek Kontraktor 3', 'small' => true],
                 ] as $i => $item)
                 <div class="group relative rounded-3xl overflow-hidden border border-white/10 hover:border-white/20 shadow-2xl hover:shadow-[0_25px_60px_rgba(0,0,0,0.3)] hover:-translate-y-1 active:scale-95 touch-manipulation transition-all duration-500 cursor-default">
                     <div class="aspect-[4/3] bg-slate-900 relative overflow-hidden">
