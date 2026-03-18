@@ -402,70 +402,70 @@
                         title: 'Kapal Ponton',
                         desc: 'Penyewaan Kapal Ponton untuk penyimpanan BBM',
                         full_desc: 'PT MGRM menyediakan layanan penyewaan kapal ponton berkualitas tinggi yang dirancang khusus untuk memenuhi kebutuhan penyimpanan serta transportasi Bahan Bakar Minyak (BBM) yang efisien, aman, dan mematuhi regulasi perairan yang ketat.',
-                        image: 'https://images.unsplash.com/photo-1588613254060-141fed78622c?auto=format&fit=crop&q=80&w=800&h=450',
+                        image: '{{ asset("images/kapal.webp") }}',
                         icon: '<path stroke-linecap=\'round\' stroke-linejoin=\'round\' d=\'M2 16h20M6 16l-2-8h16l-2 8M10 8V5a2 2 0 014 0v3M3 19c3.5-2 14.5-2 18 0\'/>'
                     },
                     {
                         title: 'Pangkalan LPG',
                         desc: 'Supplier LPG PSO & Non PSO',
                         full_desc: 'Sebagai mitra tepercaya, kami bertindak sebagai supplier LPG baik subsidi (PSO) maupun non-subsidi (Non PSO) untuk memastikan pasokan bahan bakar gas yang andal dan konsisten bagi masyarakat maupun sektor industri di wilayah kerja kami.',
-                        image: 'https://images.unsplash.com/photo-1621644781423-eccff30045f8?auto=format&fit=crop&q=80&w=800&h=450',
+                        image: '{{ asset("images/vendor.webp") }}',
                         icon: '<path stroke-linecap=\'round\' stroke-linejoin=\'round\' d=\'M12 2c-2 4-6 6.5-6 11a6 6 0 0012 0c0-4.5-4-7-6-11z\'/><path stroke-linecap=\'round\' stroke-linejoin=\'round\' d=\'M9.5 16a2.5 2.5 0 005 0c0-2-2.5-3.5-2.5-3.5S9.5 14 9.5 16z\'/>'
                     },
                     {
                         title: 'Trading HSD B-40',
                         desc: 'Distribusi Bahan Bakar HSD B-40',
                         full_desc: 'Lini bisnis distribusi unggulan kami untuk Bahan Bakar High Speed Diesel (HSD B-40), melayani kebutuhan operasional mesin-mesin kapasitas besar khususnya di sektor pertambangan dan perkebunan untuk menjamin produktivitas alat berat klien kami.',
-                        image: 'https://images.unsplash.com/photo-1542289456-42fbbed850ad?auto=format&fit=crop&q=80&w=800&h=450',
+                        image: '{{ asset("images/WhatsApp-Image-2023-07-25-at-11.11.33.webp") }}',
                         icon: '<path stroke-linecap=\'round\' stroke-linejoin=\'round\' d=\'M12 3L5 10.5a7.5 7.5 0 1014 0L12 3z\'/><path stroke-linecap=\'round\' stroke-linejoin=\'round\' d=\'M9 15a3 3 0 003 3\'/>'
                     },
                     {
                         title: 'Rental Mobil',
                         desc: 'Penyewaan Mobil Operasional Karyawan',
                         full_desc: 'Mendukung mobilitas perusahaan dengan menghadirkan layanan rental mobil yang memadai. Berfokus pada penyewaan kendaraan operasional lapangan dan angkutan karyawan yang aman, nyaman, dan terawat secara berkala.',
-                        image: 'https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&q=80&w=800&h=450',
+                        image: '{{ asset("images/transporterwebp.webp") }}',
                         icon: '<path stroke-linecap=\'round\' stroke-linejoin=\'round\' d=\'M5 17a2 2 0 100 4 2 2 0 000-4zm14 0a2 2 0 100 4 2 2 0 000-4zM3 11h18M5 11l2-6h10l2 6M5 11v6h14v-6\'/>'
                     },
                     {
                         title: 'Transportir BBM',
                         desc: 'Penyedia Jasa Angkutan BBM',
                         full_desc: 'Mengoperasikan armada yang memenuhi standar spesifikasi angkutan migas untuk menyalurkan Bahan Bakar Minyak (BBM) dari depo suplai ke titik distribusi maupun langsung ke pengguna akhir secara tepat waktu.',
-                        image: 'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&q=80&w=800&h=450',
+                        image: '{{ asset("images/WhatsApp-Image-2023-07-25-at-11.11.33.webp") }}',
                         icon: '<path stroke-linecap=\'round\' stroke-linejoin=\'round\' d=\'M16 6h4l3 5v4h-3m-4-9H2v13h3m11-13v13m0 0h-3m3 0h3M5 19a2 2 0 100 4 2 2 0 000-4zm11 0a2 2 0 100 4 2 2 0 000-4z\'/>'
                     },
                     {
                         title: 'Vendor & Kontraktor',
                         desc: 'Penyedia Barang/Jasa Pertamina',
                         full_desc: 'Berperan sebagai pemasok (vendor) madya dan kontraktor yang terdaftar serta memenuhi ketentuan spesifikasi teknis untuk mendukung proyek-proyek operasional Pertamina dan perusahan-perusahaan afiliasi di bidang migas.',
-                        image: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=800&h=450',
+                        image: '{{ asset("images/IMG-20230103-WA0022-768x436-1.webp") }}',
                         icon: '<path stroke-linecap=\'round\' stroke-linejoin=\'round\' d=\'M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z\'/>'
                     },
                     {
                         title: 'Vendor Held Stock',
                         desc: 'Pengelolaan Persediaan BBM',
                         full_desc: 'Layanan manajemen inventori BBM terpadu dimana MGRM mengelola ketersediaan stok secara optimal dengan menempatkan fasilitas penampungan yang diawasi dengan sistem terkontrol guna mencegah kelangkaan suplai.',
-                        image: 'https://images.unsplash.com/photo-1587293852726-70cdb56c2836?auto=format&fit=crop&q=80&w=800&h=450',
+                        image: '{{ asset("images/vendor2webp.webp") }}',
                         icon: '<path stroke-linecap=\'round\' stroke-linejoin=\'round\' d=\'M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2\'/><circle cx=\'9\' cy=\'7\' r=\'4\' stroke-linecap=\'round\' stroke-linejoin=\'round\'/><path stroke-linecap=\'round\' stroke-linejoin=\'round\' d=\'M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75\'/>'
                     },
                     {
                         title: 'Penyewaan Ruang',
                         desc: 'Penyewaan Fasilitas Ruang Kantor',
                         full_desc: 'Mengoptimalkan aset properti dengan menawarkan layanan penyewaan ruang kantor berfasilitas lengkap. Memberikan lingkungan kerja yang nyaman, representatif, dan strategis.',
-                        image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800&h=450',
+                        image: '{{ asset("images/menujuperseroidaman.webp") }}',
                         icon: '<path stroke-linecap=\'round\' stroke-linejoin=\'round\' d=\'M3 21h18M3 7l9-4 9 4v14H3zM9 21v-6h6v6\'/><path stroke-linecap=\'round\' stroke-linejoin=\'round\' d=\'M9 10h.01M15 10h.01M12 10h.01\'/>'
                     },
                     {
                         title: 'SPBUN',
                         desc: 'Pengisian BBM Khusus Nelayan',
                         full_desc: 'Stasiun Pengisian Bahan Bakar Umum Nelayan (SPBUN) yang didedikasikan untuk memastikan nelayan daerah memperoleh akses pasokan BBM dengan harga kompetitif dan takaran yang akurat untuk mendukung perekonomian pesisir.',
-                        image: 'https://images.unsplash.com/photo-1549424168-9844fcc41808?auto=format&fit=crop&q=80&w=800&h=450',
+                        image: '{{ asset("images/kapal.webp") }}',
                         icon: '<path stroke-linecap=\'round\' stroke-linejoin=\'round\' d=\'M3 22V4a1 1 0 011-1h10a1 1 0 011 1v18M3 22h12M7 8h4M7 4h4M19 7l2 2-4 4 2 2 2-2V7h-2z\'/>'
                     },
                     {
                         title: 'Batching Plant',
                         desc: 'Supplier Beton & Material Agregat',
                         full_desc: 'Lini bisnis penyedia material esensial konstruksi seperti ready-mix beton, batu split agregat, dan pasir urug. Divisi ini berperan penting dalam menyokong berbagai pembangunan infrastruktur fasilitas perusahaan maupun publik.',
-                        image: 'https://images.unsplash.com/photo-1533422902700-50bc4938d9dc?auto=format&fit=crop&q=80&w=800&h=450',
+                        image: '{{ asset("images/kontraktor.webp") }}',
                         icon: '<path stroke-linecap=\'round\' stroke-linejoin=\'round\' d=\'M2 22V10l4-4v4l4-4v4l4-4v4h4V8l2-2v16M2 22h20\'/><path stroke-linecap=\'round\' stroke-linejoin=\'round\' d=\'M14 12h4v4h-4z\'/>'
                     }
                 ],
