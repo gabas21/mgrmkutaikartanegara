@@ -59,11 +59,16 @@ class WpFetchPosts extends Command
                     $categoryName = html_entity_decode($post['_embedded']['wp:term'][0][0]['name']);
                 }
 
-                if (!$berita) {
-                    $localImagePath = null;
-                    if (isset($post['_embedded']['wp:featuredmedia'][0]['source_url'])) {
-                        $imageUrl = $post['_embedded']['wp:featuredmedia'][0]['source_url'];
-                        
+                // Download featured image if available and not already saved locally
+                $localImagePath = null;
+                if (isset($post['_embedded']['wp:featuredmedia'][0]['source_url'])) {
+                    $imageUrl = $post['_embedded']['wp:featuredmedia'][0]['source_url'];
+                    
+                    // Check if image already exists locally
+                    $existingPath = $berita ? $berita->featured_image_path : null;
+                    $needsDownload = !$existingPath || !file_exists(public_path($existingPath));
+                    
+                    if ($needsDownload) {
                         try {
                             $imageContents = Http::timeout(15)->get($imageUrl)->body();
                             $filename = basename(parse_url($imageUrl, PHP_URL_PATH));
@@ -78,11 +83,16 @@ class WpFetchPosts extends Command
                             
                             // Path relative to public/ so we can call asset() on it
                             $localImagePath = 'images/news/' . $safeFilename;
+                            $this->info("  → Downloaded image: {$safeFilename}");
                         } catch (\Exception $e) {
                             $this->warn('Failed to download image: ' . $imageUrl);
                         }
+                    } else {
+                        $localImagePath = $existingPath;
                     }
+                }
 
+                if (!$berita) {
                     Berita::create([
                         'source_id' => $sourceId,
                         'url' => $post['link'] ?? null,
@@ -96,15 +106,19 @@ class WpFetchPosts extends Command
                     ]);
                     $this->info("Created new post: {$title}");
                 } else {
-                    $berita->update([
+                    $updateData = [
                         'title' => $title,
                         'slug' => $post['slug'] ?? Str::slug($title),
                         'content' => $cleanContent,
                         'excerpt' => $excerpt,
                         'category' => $categoryName,
                         'url' => $post['link'] ?? null,
-                        // Not overriding image path if already exists implicitly
-                    ]);
+                    ];
+                    // Update image path if we re-downloaded it
+                    if ($localImagePath) {
+                        $updateData['featured_image_path'] = $localImagePath;
+                    }
+                    $berita->update($updateData);
                     $this->info("Updated existing post: {$title}");
                 }
 
