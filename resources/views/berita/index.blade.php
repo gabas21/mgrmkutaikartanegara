@@ -108,6 +108,8 @@
         searchQuery: '',
         selectedCategory: '',
         sortOrder: 'terbaru',
+        openKat: false,
+        openSort: false,
         currentPage: 1,
         itemsPerPage: 6,
         newsData: @js($berita->map(function($item) {
@@ -186,10 +188,12 @@
         <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
 
             {{-- SEARCH FORM INTEGRATED --}}
-            <div class="max-w-4xl mx-auto mb-16"
-                 x-data="{ visible: false }" x-intersect.once="visible = true"
-                 :class="visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'"
-                 class="transition-all duration-700 ease-out delay-200">
+            <div class="max-w-4xl mx-auto mb-16 relative">
+                
+                {{-- Wrapper animasi terpisah supaya transform tidak membuat stacking context baru --}}
+                <div x-data="{ visible: false }" x-intersect.once="visible = true"
+                     :class="visible ? 'opacity-100' : 'opacity-0'"
+                     class="transition-opacity duration-700 ease-out delay-200">
                 
                 <div class="bg-white p-2 rounded-2xl md:rounded-[2rem] shadow-[0_15px_50px_rgba(0,0,0,0.06)] border border-slate-100 hover:border-red-100 transition-all duration-300 ring-1 ring-slate-900/5 focus-within:ring-4 focus-within:ring-red-100 focus-within:border-red-200 relative overflow-visible">
                     <div class="flex flex-col md:flex-row items-center divide-y md:divide-y-0 md:divide-x divide-slate-100 overflow-visible">
@@ -203,7 +207,7 @@
 
                         {{-- Custom Dropdown: Filter Kategori --}}
                         <div class="relative w-full md:w-auto px-6 py-4 md:py-2 bg-slate-50/50 hover:bg-slate-50 transition-colors cursor-pointer group"
-                             x-data="{ open: false }" @click.outside="open = false" @click="open = !open">
+                             @click.outside="openKat = false" @click="openKat = !openKat; openSort = false">
                             
                             <div class="flex items-center justify-between gap-3 w-full md:w-44">
                                 <div class="flex items-center gap-2.5">
@@ -211,32 +215,32 @@
                                     <span class="text-sm font-bold truncate transition-colors"
                                           :class="selectedCategory !== '' ? 'text-slate-900' : 'text-slate-600 group-hover:text-slate-900'"
                                           x-text="selectedCategory === '' ? 'Semua Kategori' : 
-                                                  selectedCategory === 'press-release' ? 'Press Release' :
+                                                  selectedCategory === 'press' ? 'Press' :
                                                   selectedCategory === 'kegiatan-csr' ? 'Kegiatan CSR' :
                                                   selectedCategory === 'penghargaan' ? 'Penghargaan' : 'Info Korporat'">
                                     </span>
                                 </div>
-                                <svg class="w-4 h-4 text-slate-400 transition-transform duration-300" :class="open ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
+                                <svg class="w-4 h-4 text-slate-400 transition-transform duration-300" :class="openKat ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
                             </div>
 
                             {{-- Dropdown Panel --}}
-                            <div x-show="open" 
+                            <div x-show="openKat" 
                                  x-transition:enter="transition ease-out duration-200"
                                  x-transition:enter-start="opacity-0 translate-y-2 scale-95"
                                  x-transition:enter-end="opacity-100 translate-y-0 scale-100"
                                  x-transition:leave="transition ease-in duration-100"
                                  x-transition:leave-start="opacity-100 -translate-y-0 scale-100"
                                  x-transition:leave-end="opacity-0 translate-y-2 scale-95"
-                                 class="absolute top-full left-0 right-0 md:right-auto md:w-56 mt-3 bg-white rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-slate-100 overflow-hidden z-50 p-2"
+                                 class="absolute top-full left-0 right-0 md:right-auto md:w-56 mt-3 bg-white rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-slate-100 overflow-hidden z-[9999] p-2"
                                  style="display: none;">
                                 @foreach([
                                     ['value' => '', 'label' => 'Semua Kategori'],
-                                    ['value' => 'press-release', 'label' => 'Press Release'],
+                                    ['value' => 'press', 'label' => 'Press'],
                                     ['value' => 'kegiatan-csr', 'label' => 'Kegiatan CSR'],
                                     ['value' => 'penghargaan', 'label' => 'Penghargaan'],
-                                    ['value' => 'info-korporat', 'label' => 'Info Korporat']
+                                    ['value' => 'uncategorized', 'label' => 'Uncategorized']
                                 ] as $cat)
-                                <div @click="selectedCategory = '{{ $cat['value'] }}'" 
+                                <div @click.stop="selectedCategory = '{{ $cat['value'] }}'; openKat = false; currentPage = 1" 
                                      class="px-4 py-2.5 rounded-xl text-sm font-bold flex items-center justify-between transition-colors cursor-pointer"
                                      :class="selectedCategory === '{{ $cat['value'] }}' ? 'bg-red-50 text-red-600' : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'">
                                     {{ $cat['label'] }}
@@ -248,7 +252,7 @@
 
                         {{-- Custom Dropdown: Filter Urutan --}}
                         <div class="relative w-full md:w-auto px-6 py-4 md:py-2 bg-slate-50/50 hover:bg-slate-50 transition-colors cursor-pointer group"
-                             x-data="{ open: false }" @click.outside="open = false" @click="open = !open">
+                             @click.outside="openSort = false" @click="openSort = !openSort; openKat = false">
                             
                             <div class="flex items-center justify-between gap-3 w-full md:w-36">
                                 <div class="flex items-center gap-2.5">
@@ -257,24 +261,24 @@
                                           x-text="sortOrder === 'terbaru' ? 'Terbaru' : 'Terlama'">
                                     </span>
                                 </div>
-                                <svg class="w-4 h-4 text-slate-400 transition-transform duration-300" :class="open ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
+                                <svg class="w-4 h-4 text-slate-400 transition-transform duration-300" :class="openSort ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
                             </div>
 
                             {{-- Dropdown Panel --}}
-                            <div x-show="open" 
+                            <div x-show="openSort" 
                                  x-transition:enter="transition ease-out duration-200"
                                  x-transition:enter-start="opacity-0 translate-y-2 scale-95"
                                  x-transition:enter-end="opacity-100 translate-y-0 scale-100"
                                  x-transition:leave="transition ease-in duration-100"
                                  x-transition:leave-start="opacity-100 -translate-y-0 scale-100"
                                  x-transition:leave-end="opacity-0 translate-y-2 scale-95"
-                                 class="absolute top-full right-0 md:w-48 mt-3 bg-white rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-slate-100 overflow-hidden z-50 p-2"
+                                 class="absolute top-full right-0 md:w-48 mt-3 bg-white rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-slate-100 overflow-hidden z-[9999] p-2"
                                  style="display: none;">
                                 @foreach([
                                     ['value' => 'terbaru', 'label' => 'Terbaru'],
                                     ['value' => 'terlama', 'label' => 'Terlama']
                                 ] as $sort)
-                                <div @click="sortOrder = '{{ $sort['value'] }}'" 
+                                <div @click.stop="sortOrder = '{{ $sort['value'] }}'; openSort = false; currentPage = 1" 
                                      class="px-4 py-2.5 rounded-xl text-sm font-bold flex items-center justify-between transition-colors cursor-pointer"
                                      :class="sortOrder === '{{ $sort['value'] }}' ? 'bg-red-50 text-red-600' : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'">
                                     {{ $sort['label'] }}
@@ -285,6 +289,7 @@
                         </div>
                     </div>
                 </div>
+                </div> {{-- End animasi opacity --}}
             </div>
 
             {{-- Empty State (No Results) --}}
